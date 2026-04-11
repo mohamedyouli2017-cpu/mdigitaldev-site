@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { PORTFOLIO_PROJECTS } from "@/lib/portfolio-data";
 
-const BASE_URL = "https://youli.dev";
+const BASE_URL = "https://mdigitaldev-site.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const portfolioRoutes = PORTFOLIO_PROJECTS.map((project) => ({

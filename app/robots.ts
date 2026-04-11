@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow:  ["/api/"],
       },
     ],
-    sitemap:    "https://youli.dev/sitemap.xml",
-    host:       "https://youli.dev",
+    sitemap:    "https://mdigitaldev-site.vercel.app/sitemap.xml",
+    host:       "https://mdigitaldev-site.vercel.app",
   };
 }
