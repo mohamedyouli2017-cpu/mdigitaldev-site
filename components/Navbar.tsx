@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, Facebook, Instagram } from "lucide-react";
 
 const navLinks = [
   { label: "Why Me",    href: "#why-me"   },
@@ -89,6 +89,32 @@ export default function Navbar() {
             ))}
           </nav>
 
+          {/* Social links — desktop */}
+          <div className="hidden md:flex items-center space-x-4">
+            <a
+              href="https://www.facebook.com/MDigitalDev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className={`transition-colors duration-300 hover:text-purple-500 ${
+                onDark ? "text-white/60" : "text-gray-400"
+              }`}
+            >
+              <Facebook size={20} />
+            </a>
+            <a
+              href="https://www.instagram.com/mdigitaldev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className={`transition-colors duration-300 hover:text-purple-500 ${
+                onDark ? "text-white/60" : "text-gray-400"
+              }`}
+            >
+              <Instagram size={20} />
+            </a>
+          </div>
+
           {/* Desktop CTA */}
           <button
             onClick={() => scrollTo("#contact")}
@@ -138,6 +164,28 @@ export default function Navbar() {
                   {link.label}
                 </button>
               ))}
+              {/* Social links — mobile */}
+              <div className="flex items-center gap-4 px-4 pt-3 pb-1">
+                <a
+                  href="https://www.facebook.com/MDigitalDev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="text-white/50 hover:text-purple-400 transition-colors duration-300"
+                >
+                  <Facebook size={20} />
+                </a>
+                <a
+                  href="https://www.instagram.com/mdigitaldev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="text-white/50 hover:text-purple-400 transition-colors duration-300"
+                >
+                  <Instagram size={20} />
+                </a>
+              </div>
+
               <div className="pt-2 pb-1">
                 <button
                   onClick={() => scrollTo("#contact")}

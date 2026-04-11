@@ -1021,6 +1021,11 @@ video {
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
+.space-x-4 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .overflow-hidden{
   overflow: hidden;
 }
@@ -1512,6 +1517,9 @@ video {
 }
 .pt-20{
   padding-top: 5rem;
+}
+.pt-3{
+  padding-top: 0.75rem;
 }
 .text-left{
   text-align: left;
@@ -2032,6 +2040,16 @@ body {
 
 .hover\:text-white\/60:hover{
   color: rgb(255 255 255 / 0.6);
+}
+
+.hover\:text-purple-500:hover{
+  --tw-text-opacity: 1;
+  color: rgb(168 85 247 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-purple-400:hover{
+  --tw-text-opacity: 1;
+  color: rgb(192 132 252 / var(--tw-text-opacity, 1));
 }
 
 .hover\:shadow-\[0_12px_48px_rgba\(0\2c 0\2c 0\2c 0\.12\)\]:hover{
