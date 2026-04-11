@@ -20,13 +20,15 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://youli.dev"),
   title: {
-    default:  "Mohamed Youli — High-Performance Web Solutions",
-    template: "%s | Mohamed Youli",
+    default:  "MDigitalDev | Premium Digital Solutions for Restaurants",
+    template: "%s | MDigitalDev",
   },
   description:
-    "I build blazing-fast, PWA-ready websites for restaurants and local businesses that turn visitors into loyal customers. Next.js expert specialising in online ordering, digital menus, and local SEO.",
+    "MDigitalDev delivers premium Restaurant Web Design, PWA development, and Digital Ordering systems that turn visitors into loyal customers. Next.js expert specialising in Restaurant Web Design, Progressive Web Apps, and local SEO.",
   keywords: [
-    "web developer",
+    "Restaurant Web Design",
+    "PWA",
+    "Digital Ordering",
     "restaurant website",
     "PWA developer",
     "Next.js developer",
@@ -34,31 +36,33 @@ export const metadata: Metadata = {
     "digital menu",
     "local SEO",
     "Mohamed Youli",
+    "MDigitalDev",
     "restaurant app developer",
+    "Progressive Web App",
   ],
   authors:  [{ name: "Mohamed Youli", url: "https://youli.dev" }],
-  creator:  "Mohamed Youli",
+  creator:  "MDigitalDev",
   manifest: "/manifest.json",
   openGraph: {
     type:        "website",
     locale:      "en_US",
     url:         "https://youli.dev",
-    siteName:    "Mohamed Youli — Web Solutions",
-    title:       "Mohamed Youli — High-Performance Web Solutions",
-    description: "Blazing-fast, PWA-ready websites for restaurants & local businesses.",
+    siteName:    "MDigitalDev",
+    title:       "MDigitalDev | Premium Digital Solutions for Restaurants",
+    description: "Premium Restaurant Web Design, PWA & Digital Ordering solutions that grow your restaurant online.",
     images: [
       {
         url:    "/og-image.jpg",
         width:  1200,
         height: 630,
-        alt:    "Mohamed Youli — Web Developer Portfolio",
+        alt:    "MDigitalDev — Premium Restaurant Web Design & PWA Solutions",
       },
     ],
   },
   twitter: {
     card:        "summary_large_image",
-    title:       "Mohamed Youli — High-Performance Web Solutions",
-    description: "Blazing-fast, PWA-ready websites for restaurants & local businesses.",
+    title:       "MDigitalDev | Premium Digital Solutions for Restaurants",
+    description: "Premium Restaurant Web Design, PWA & Digital Ordering solutions that grow your restaurant online.",
     images:      ["/og-image.jpg"],
   },
   robots: {
@@ -107,7 +111,7 @@ const jsonLd = {
     {
       "@type": ["LocalBusiness", "ProfessionalService"],
       "@id":   "https://youli.dev/#business",
-      "name":  "Mohamed Youli — Web Solutions",
+      "name":  "MDigitalDev",
       "description":
         "High-performance, PWA-ready websites for restaurants and local businesses. Specialising in online ordering systems, digital menus, local SEO, and Core Web Vitals optimisation.",
       "url":         "https://youli.dev",
@@ -154,9 +158,9 @@ const jsonLd = {
       "@type":  "WebSite",
       "@id":    "https://youli.dev/#website",
       "url":    "https://youli.dev",
-      "name":   "Mohamed Youli",
+      "name":   "MDigitalDev",
       "description":
-        "Portfolio of Mohamed Youli — high-performance web solutions for restaurants and local businesses.",
+        "MDigitalDev — premium Restaurant Web Design, PWA development, and Digital Ordering solutions for restaurants and local businesses.",
       "publisher": { "@id": "https://youli.dev/#person" },
       "potentialAction": {
         "@type":       "SearchAction",
