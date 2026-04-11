@@ -1,7 +1,18 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import MagneticCursor from "@/components/MagneticCursor";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import MagneticCursor   from "@/components/MagneticCursor";
+import WhatsAppButton   from "@/components/WhatsAppButton";
+import PWAInstallPrompt from "@/components/PWAInstallPrompt";
+
+/* ── Font (next/font — zero layout shift, self-hosted automatically) ── */
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets:  ["latin"],
+  weight:   ["300", "400", "500", "600", "700", "800"],
+  style:    ["normal", "italic"],
+  display:  "swap",
+  variable: "--font-plus-jakarta",
+});
 
 /* ─────────────────────────────────────────────────────────────────────────────
    SITE-WIDE METADATA  (enhanced for SEO)
@@ -27,6 +38,7 @@ export const metadata: Metadata = {
   ],
   authors:  [{ name: "Mohamed Youli", url: "https://youli.dev" }],
   creator:  "Mohamed Youli",
+  manifest: "/manifest.json",
   openGraph: {
     type:        "website",
     locale:      "en_US",
@@ -162,15 +174,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${plusJakarta.variable}`}>
       <head>
-        {/* Font preconnects for fastest possible load */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
-          rel="stylesheet"
-        />
+        {/* Theme colour for mobile browser chrome */}
+        <meta name="theme-color" content="#0a0a0a" />
 
         {/* JSON-LD structured data */}
         <script
@@ -178,12 +185,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">
+      <body className={`antialiased ${plusJakarta.className}`}>
         {/* Magnetic cursor — renders only on fine-pointer (mouse) devices */}
         <MagneticCursor />
         {children}
         {/* Floating WhatsApp button — visible on every page */}
         <WhatsAppButton />
+        {/* PWA install banner — mobile only */}
+        <PWAInstallPrompt />
       </body>
     </html>
   );

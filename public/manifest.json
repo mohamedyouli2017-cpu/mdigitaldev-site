@@ -1,0 +1,34 @@
+{
+  "name": "Mohamed Youli — Web Solutions",
+  "short_name": "Mohamed.dev",
+  "description": "High-performance web solutions for restaurants & local businesses",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contact on WhatsApp",
+      "url": "https://wa.me/212669586001",
+      "description": "Start a conversation on WhatsApp"
+    }
+  ]
+}

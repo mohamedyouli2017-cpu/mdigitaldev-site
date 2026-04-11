@@ -17,7 +17,6 @@ import {
   CheckCircle2,
   MessageCircle,
   Mail,
-  Phone,
   ExternalLink,
   ChevronRight,
   Globe,
@@ -961,7 +960,7 @@ export default function Home() {
           {/* Contact cards */}
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-14"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14 max-w-xl mx-auto w-full"
           >
             {/* WhatsApp */}
             <motion.button
@@ -994,22 +993,6 @@ export default function Home() {
                 <p className="text-white/30 text-xs mt-0.5">youliwork2023@gmail.com</p>
               </div>
             </motion.button>
-
-            {/* Phone */}
-            <motion.a
-              variants={scaleIn} custom={2}
-              href="tel:+212669586001"
-              whileHover={{ scale: 1.04, y: -3 }}
-              className="group flex flex-col items-center gap-3 p-7 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/20 rounded-2xl backdrop-blur-xl transition-all duration-200"
-            >
-              <div className="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Phone className="w-6 h-6 text-purple-400" />
-              </div>
-              <div>
-                <p className="text-white font-semibold text-sm">Call</p>
-                <p className="text-white/30 text-xs mt-0.5">+212 669 586 001</p>
-              </div>
-            </motion.a>
           </motion.div>
 
           {/* Primary CTA — breathing glow on dark bg */}
