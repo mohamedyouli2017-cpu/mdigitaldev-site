@@ -92,7 +92,7 @@ export default function Navbar() {
           {/* Social links — desktop */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://www.facebook.com/MDigitalDev"
+              href="https://www.facebook.com/profile.php?id=61570999496194"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -167,7 +167,7 @@ export default function Navbar() {
               {/* Social links — mobile */}
               <div className="flex items-center gap-4 px-4 pt-3 pb-1">
                 <a
-                  href="https://www.facebook.com/MDigitalDev"
+                  href="https://www.facebook.com/profile.php?id=61570999496194"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
