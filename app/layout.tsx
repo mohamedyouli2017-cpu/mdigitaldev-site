@@ -179,6 +179,26 @@ export default function RootLayout({
         {/* Theme colour for mobile browser chrome */}
         <meta name="theme-color" content="#0a0a0a" />
 
+        {/*
+          Early PWA capture — runs synchronously before React hydrates.
+          beforeinstallprompt fires very early; if we only listen inside
+          a useEffect we always miss it. This script parks the event on
+          window.__pwaPromptEvent and re-dispatches a "pwa-ready" custom
+          event so the React component can pick it up whenever it mounts.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.__pwaPromptEvent = null;
+              window.addEventListener('beforeinstallprompt', function(e) {
+                e.preventDefault();
+                window.__pwaPromptEvent = e;
+                window.dispatchEvent(new Event('pwa-ready'));
+              });
+            `,
+          }}
+        />
+
         {/* JSON-LD structured data */}
         <script
           type="application/ld+json"

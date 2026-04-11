@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Dark rounded background — matches the site's brand colour -->
+  <rect width="512" height="512" rx="114" fill="#0a0a0a"/>
+  <!-- Lightning bolt (Lucide Zap), scaled from 24×24 → 512×512 and centred -->
+  <polygon
+    points="271,106 121,286 256,286 241,406 391,226 256,226"
+    fill="white"
+  />
+</svg>
