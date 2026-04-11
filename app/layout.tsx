@@ -180,6 +180,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${plusJakarta.variable}`}>
       <head>
+        {/* Google Search Console verification */}
+        <meta name="google-site-verification" content="81h_3HkfBSEORJMVfmMRzQZGKfqJjucFoUg0FZ8SSfw" />
+
         {/* Theme colour for mobile browser chrome */}
         <meta name="theme-color" content="#0a0a0a" />
 
