@@ -133,14 +133,23 @@ export default function MagneticCursor() {
   return (
     <>
       {/* ── Dot — exact mouse position ── */}
+      {/*
+        mix-blend-difference MUST sit on the outer wrapper (the compositing
+        layer created by will-change-transform), NOT on the inner child.
+        When it's on the child, it blends against the parent's transparent
+        background — not the page — so it stays white and is invisible on
+        white sections. On the outer wrapper the whole GPU layer is diffed
+        against whatever is painted below: white→black on light, white→white
+        on dark. z-[99999] keeps both elements above everything.
+      */}
       <motion.div
-        className="fixed top-0 left-0 z-[9999] pointer-events-none will-change-transform"
+        className="fixed top-0 left-0 z-[99999] pointer-events-none will-change-transform mix-blend-difference"
         style={{ x: mx, y: my, translateX: "-50%", translateY: "-50%" }}
         animate={{ opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.12 }}
       >
         <motion.div
-          className="rounded-full bg-white mix-blend-difference"
+          className="rounded-full bg-white"
           animate={{ width: dotSize, height: dotSize }}
           transition={{ duration: 0.15, ease: "easeOut" }}
         />
@@ -148,13 +157,13 @@ export default function MagneticCursor() {
 
       {/* ── Ring — spring-lagged ── */}
       <motion.div
-        className="fixed top-0 left-0 z-[9998] pointer-events-none will-change-transform"
+        className="fixed top-0 left-0 z-[99998] pointer-events-none will-change-transform mix-blend-difference"
         style={{ x: rx, y: ry, translateX: "-50%", translateY: "-50%" }}
         animate={{ opacity: visible ? ringOpacity : 0 }}
         transition={{ duration: 0.2 }}
       >
         <motion.div
-          className="rounded-full border border-white mix-blend-difference"
+          className="rounded-full border border-white"
           animate={{ width: ringSize, height: ringSize }}
           transition={{ duration: 0.22, ease: [0.21, 0.47, 0.32, 0.98] }}
         />
