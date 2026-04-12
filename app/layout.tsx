@@ -209,6 +209,14 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
+              /* ── Service worker registration ── */
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js').catch(function(){});
+                });
+              }
+
+              /* ── Capture beforeinstallprompt before React hydrates ── */
               window.__pwaPromptEvent = null;
               window.addEventListener('beforeinstallprompt', function(e) {
                 e.preventDefault();

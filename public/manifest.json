@@ -1,6 +1,6 @@
 {
-  "name": "Mohamed Youli — Web Solutions",
-  "short_name": "Mohamed.dev",
+  "name": "MDigitalDev — Premium Digital Solutions",
+  "short_name": "MDigitalDev",
   "description": "High-performance web solutions for restaurants & local businesses",
   "start_url": "/",
   "scope": "/",
@@ -19,15 +19,9 @@
     },
     {
       "src": "/icon.svg",
-      "sizes": "192x192",
+      "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
