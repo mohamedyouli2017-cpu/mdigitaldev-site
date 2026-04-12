@@ -67,7 +67,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Next.js", "PWA", "Ordering"],
     client:   "Bella Vista Group",
     year:     "2024",
-    timeline: "3 weeks",
+    timeline: "3 Days",
 
     description:
       "A full-stack digital transformation for one of the city's most beloved Italian restaurants. We built a blazing-fast Next.js website with a complete online ordering system, real-time WhatsApp notifications, and an installable PWA that lives on every loyal customer's home screen.",
@@ -76,7 +76,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "The restaurant relied solely on phone orders and walk-in traffic, missing 60% of evening reservations while delivery-first competitors captured the digital market. They had no online presence and no way to notify customers of daily specials.",
 
     solution:
-      "We designed and built a full Next.js ordering system in 3 weeks — complete with a PWA for home-screen installs, real-time WhatsApp notifications to the owner, and a table reservation engine with automated SMS confirmations.",
+      "We designed and built a full Next.js ordering system in 3 days — complete with a PWA for home-screen installs, real-time WhatsApp notifications to the owner, and a table reservation engine with automated SMS confirmations.",
 
     techSpecs: [
       { category: "Frontend",        items: ["Next.js 14 App Router", "React 18", "Framer Motion", "Tailwind CSS"] },
@@ -86,7 +86,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     ],
 
     testimonial: {
-      quote:  "Our online orders tripled in the first month. The PWA is a game-changer — customers love having it on their home screen like a real app.",
+      quote:  "Our online orders grew by +35% in the first month. The PWA is a game-changer — customers love having it on their home screen like a real app.",
       author: "Marco Bellini",
       role:   "Owner, Bella Vista Group",
     },
@@ -120,9 +120,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       { icon: "Zap",           title: "100 PageSpeed",     desc: "Sub-800 ms first load on mobile networks."            },
     ],
     results: [
-      { value: "+300", suffix: "%", label: "Online Orders"   },
+      { value: "+35",  suffix: "%", label: "Online Orders"   },
       { value: "100",  suffix: "",  label: "PageSpeed Score" },
-      { value: "+45",  suffix: "%", label: "Monthly Revenue" },
+      { value: "+40",  suffix: "%", label: "Monthly Revenue" },
       { value: "4.9",  suffix: "★", label: "Customer Rating" },
     ],
   },
@@ -138,7 +138,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Next.js", "SEO", "WhatsApp"],
     client:   "Saffron Kitchen LLC",
     year:     "2024",
-    timeline: "1 week",
+    timeline: "24 Hours",
 
     description:
       "A pixel-perfect landing page and digital menu for a high-end Middle Eastern restaurant. The goal: dominate local Google search results, eliminate costly print menus, and convert every web visitor into a walk-in customer with a seamless WhatsApp booking flow.",
@@ -194,7 +194,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       { value: "#1",  suffix: "",  label: "Google Local Rank" },
       { value: "+60", suffix: "%", label: "Foot Traffic"      },
       { value: "0.8", suffix: "s", label: "Page Load Time"    },
-      { value: "$0",  suffix: "",  label: "Printing Costs"    },
+      { value: "-75", suffix: "%", label: "Print Savings"      },
     ],
   },
 
@@ -209,7 +209,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Ordering", "Dashboard", "PWA"],
     client:   "Green Table Hospitality",
     year:     "2024",
-    timeline: "2 weeks",
+    timeline: "3 Days",
 
     description:
       "A complete digital ecosystem for a farm-to-table restaurant focused on sustainability. The platform includes online pre-ordering, an inventory-aware menu that hides sold-out items in real time, a customer loyalty programme, and a comprehensive analytics dashboard for management.",
@@ -262,7 +262,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       { icon: "Smartphone",   title: "PWA",                desc: "Add to home screen — works offline for the menu."       },
     ],
     results: [
-      { value: "+200", suffix: "%", label: "Online Orders"    },
+      { value: "+35",  suffix: "%", label: "Online Orders"     },
       { value: "98",   suffix: "",  label: "PageSpeed Score"  },
       { value: "-30",  suffix: "%", label: "No-shows"         },
       { value: "+55",  suffix: "%", label: "Repeat Customers" },
@@ -280,7 +280,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Menu", "QR Code", "Mobile"],
     client:   "Nomad Café SAS",
     year:     "2023",
-    timeline: "5 days",
+    timeline: "24 Hours",
 
     description:
       "A sleek, ultra-fast digital menu for a trendy specialty coffee shop. The brief was to eliminate paper menus entirely, support multi-language visitors, and make it trivially easy for the owner to update prices and items without touching any code — ever.",
@@ -333,7 +333,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       { icon: "Star",       title: "Featured Items",      desc: "Highlight specials and seasonal offers prominently."    },
     ],
     results: [
-      { value: "$0",  suffix: "",  label: "Printing Costs / yr"  },
+      { value: "-75", suffix: "%", label: "Print Savings / yr"    },
       { value: "+25", suffix: "%", label: "Avg. Order Value"      },
       { value: "4.9", suffix: "★", label: "Customer Rating"       },
       { value: "5",   suffix: "s", label: "Menu Update Time"      },
@@ -351,7 +351,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Multi-branch", "Analytics", "Cloud"],
     client:   "Ember & Oak Group (5 branches)",
     year:     "2024",
-    timeline: "6 weeks",
+    timeline: "1 Week",
 
     description:
       "An enterprise-grade SaaS platform built for a premium steakhouse group managing five branches. A single dashboard unifies menus, orders, staff, and revenue reporting across all locations — replacing four legacy systems and saving management 10+ hours every week.",
@@ -422,7 +422,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Next.js", "PWA", "Reservations"],
     client:   "Sakura Restaurant Group",
     year:     "2024",
-    timeline: "2.5 weeks",
+    timeline: "1 Week",
 
     description:
       "A full digital rebrand and system build for a premium Japanese sushi restaurant. The platform features online ordering with a custom sushi builder, an elegant reservation system with automated confirmations, a full PWA for loyal customers, and a bilingual French/Japanese interface.",
@@ -441,7 +441,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     ],
 
     testimonial: {
-      quote:  "The sushi builder is a work of art. Our PWA installs grew 280% and push notifications bring customers back every single week.",
+      quote:  "The sushi builder is a work of art. Our PWA installs exceeded 1,000 users and push notifications bring customers back every single week.",
       author: "Yuki Tanaka",
       role:   "Owner, Sakura Restaurant Group",
     },
@@ -475,7 +475,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       { icon: "Zap",          title: "100 PageSpeed",      desc: "Optimised images, fonts, and critical CSS."             },
     ],
     results: [
-      { value: "+280", suffix: "%", label: "PWA Installs"      },
+      { value: "1,000+", suffix: "", label: "PWA Users"         },
       { value: "+35",  suffix: "%", label: "Repeat Customers"  },
       { value: "100",  suffix: "",  label: "PageSpeed Score"   },
       { value: "+50",  suffix: "%", label: "Reservation Rate"  },

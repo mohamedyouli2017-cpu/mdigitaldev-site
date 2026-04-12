@@ -18,6 +18,15 @@ body {
   background: #ffffff;
   color: #0a0a0a;
   font-family: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Arabic — switch to Cairo, increase line-height for readability */
+:lang(ar) {
+  font-family: var(--font-cairo), Tahoma, Arial, sans-serif;
+  line-height: 1.8;
+}
+
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

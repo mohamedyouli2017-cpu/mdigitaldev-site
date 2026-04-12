@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Cairo } from "next/font/google";
 import "./globals.css";
-import MagneticCursor   from "@/components/MagneticCursor";
-import WhatsAppButton   from "@/components/WhatsAppButton";
-import PWAInstallPrompt from "@/components/PWAInstallPrompt";
+import MagneticCursor      from "@/components/MagneticCursor";
+import WhatsAppButton      from "@/components/WhatsAppButton";
+import PWAInstallPrompt    from "@/components/PWAInstallPrompt";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 /* ── Font (next/font — zero layout shift, self-hosted automatically) ── */
+const cairo = Cairo({
+  subsets:  ["arabic", "latin"],
+  weight:   ["400", "600", "700", "800"],
+  display:  "swap",
+  variable: "--font-cairo",
+});
+
 const plusJakarta = Plus_Jakarta_Sans({
   subsets:  ["latin"],
   weight:   ["300", "400", "500", "600", "700", "800"],
@@ -20,8 +28,13 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://youli.dev"),
   title: {
-    default:  "MDigitalDev | Premium Digital Solutions for Restaurants",
+    default:  "MDigitalDev | Premium Digital Solutions",
     template: "%s | MDigitalDev",
+  },
+  icons: {
+    icon:     "/icon.svg",
+    shortcut: "/icon.svg",
+    apple:    "/icon.svg",
   },
   description:
     "MDigitalDev delivers premium Restaurant Web Design, PWA development, and Digital Ordering systems that turn visitors into loyal customers. Next.js expert specialising in Restaurant Web Design, Progressive Web Apps, and local SEO.",
@@ -48,7 +61,7 @@ export const metadata: Metadata = {
     locale:      "en_US",
     url:         "https://youli.dev",
     siteName:    "MDigitalDev",
-    title:       "MDigitalDev | Premium Digital Solutions for Restaurants",
+    title:       "MDigitalDev | Premium Digital Solutions",
     description: "Premium Restaurant Web Design, PWA & Digital Ordering solutions that grow your restaurant online.",
     images: [
       {
@@ -61,7 +74,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card:        "summary_large_image",
-    title:       "MDigitalDev | Premium Digital Solutions for Restaurants",
+    title:       "MDigitalDev | Premium Digital Solutions",
     description: "Premium Restaurant Web Design, PWA & Digital Ordering solutions that grow your restaurant online.",
     images:      ["/og-image.jpg"],
   },
@@ -178,7 +191,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${plusJakarta.variable}`}>
+    <html lang="en" className={`scroll-smooth ${plusJakarta.variable} ${cairo.variable}`}>
       <head>
         {/* Google Search Console verification */}
         <meta name="google-site-verification" content="81h_3HkfBSEORJMVfmMRzQZGKfqJjucFoUg0FZ8SSfw" />
@@ -213,13 +226,15 @@ export default function RootLayout({
         />
       </head>
       <body className={`antialiased ${plusJakarta.className}`}>
-        {/* Magnetic cursor — renders only on fine-pointer (mouse) devices */}
-        <MagneticCursor />
-        {children}
-        {/* Floating WhatsApp button — visible on every page */}
-        <WhatsAppButton />
-        {/* PWA install banner — mobile only */}
-        <PWAInstallPrompt />
+        <LanguageProvider>
+          {/* Magnetic cursor — renders only on fine-pointer (mouse) devices */}
+          <MagneticCursor />
+          {children}
+          {/* Floating WhatsApp button — visible on every page */}
+          <WhatsAppButton />
+          {/* PWA install banner — mobile only */}
+          <PWAInstallPrompt />
+        </LanguageProvider>
       </body>
     </html>
   );
