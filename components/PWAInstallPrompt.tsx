@@ -49,30 +49,23 @@ export default function PWAInstallPrompt() {
     useState<BeforeInstallPromptEvent | null>(null);
 
   useEffect(() => {
-    /* ── Guard checks ── */
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (!isMobile) return;
-
-    // Already running as an installed PWA — no need to prompt
+    /* ── Guard: already running as installed PWA ── */
     if (window.matchMedia("(display-mode: standalone)").matches) return;
-
-    // Dismissed recently → wait 7 days
-    const dismissed = localStorage.getItem("pwa-dismissed");
-    if (dismissed && Date.now() - Number(dismissed) < 7 * 86_400_000) return;
 
     const isIos    = /iPhone|iPad|iPod/i.test(navigator.userAgent);
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    /* ── iOS Safari → manual instructions ── */
+    /* ── iOS Safari → show share instructions immediately ── */
     if (isIos && isSafari) {
-      const id = setTimeout(() => setVariant("ios"), 2500);
-      return () => clearTimeout(id);
+      setVariant("ios");
+      return;
     }
 
-    /* ── Android / Chrome ── */
+    /* ── Android / Chrome: only show on mobile ── */
+    if (!isMobile) return;
 
-    // Case A: event already fired before this component mounted
-    // (captured by the inline <script> in layout.tsx <head>)
+    // Case A: event already captured before this component mounted
     const already = window.__pwaPromptEvent;
     if (already) {
       setDeferred(already);
@@ -95,14 +88,13 @@ export default function PWAInstallPrompt() {
   const handleInstall = async () => {
     if (!deferredPrompt) return;
     await deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === "accepted") dismiss();
+    await deferredPrompt.userChoice;
     setDeferred(null);
     window.__pwaPromptEvent = null;
+    setVariant(null);
   };
 
   const dismiss = () => {
-    localStorage.setItem("pwa-dismissed", String(Date.now()));
     setVariant(null);
   };
 
