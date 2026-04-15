@@ -57,7 +57,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
       sections: [
         {
           heading: "1. Services",
-          body: "MDigitalDev provides web design, PWA development, and digital ordering solutions primarily for the restaurant and hospitality industry. All services and their scope are agreed upon in writing before any work commences.",
+          body: "MDigitalDev provides web design, PWA development, digital ordering solutions, third-party API integrations, and automated communication channel setups, primarily for the restaurant and hospitality industry. All services and their scope are agreed upon in writing before any work commences.",
         },
         {
           heading: "2. Project Timelines & Asset Delivery",
@@ -65,7 +65,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "3. Payment Terms",
-          body: "A non-refundable deposit of 50% is required before project work begins. The remaining balance is due upon project completion, before the final deliverable is made live or transferred. All prices are in USD unless otherwise agreed in writing.",
+          body: "A non-refundable deposit of 50% is required before project work begins. The remaining 50% balance must be paid in full before the final project is delivered, made live, or transferred to the client. No handover of any deliverable — including source files, credentials, or live deployment — will occur until 100% of the agreed payment has been received. All prices are in USD unless otherwise agreed in writing.",
         },
         {
           heading: "4. Intellectual Property",
@@ -73,7 +73,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "5. Limitation of Liability",
-          body: "MDigitalDev is not liable for indirect, incidental, or consequential damages arising from the use of or inability to use the delivered product. Our total liability in any circumstance is limited to the amount the client paid for the specific service in question.",
+          body: "MDigitalDev is not liable for indirect, incidental, or consequential damages arising from the use of or inability to use the delivered product. Our total liability in any circumstance is limited to the amount the client paid for the specific service in question.\n\nFurthermore, MDigitalDev bears no responsibility for any changes, updates, feature modifications, service interruptions, or price increases introduced by third-party service providers — including but not limited to API providers, hosting platforms, and cloud services — after the project has been delivered. Any additional costs arising from such changes are the sole responsibility of the client.",
         },
         {
           heading: "6. Governing Law & Disputes",
@@ -125,7 +125,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
       sections: [
         {
           heading: "1. Services",
-          body: "MDigitalDev fournit des services de conception web, développement PWA et solutions de commande digitale, principalement pour la restauration et l'hôtellerie. Toute prestation et sa portée sont définies par écrit avant le début des travaux.",
+          body: "MDigitalDev fournit des services de conception web, développement PWA, solutions de commande digitale, intégrations d'API tierces et mise en place de canaux de communication automatisés, principalement pour la restauration et l'hôtellerie. Toute prestation et sa portée sont définies par écrit avant le début des travaux.",
         },
         {
           heading: "2. Délais de Livraison & Fourniture des Ressources",
@@ -133,7 +133,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "3. Conditions de Paiement",
-          body: "Un acompte non remboursable de 50 % est exigé avant le début des travaux. Le solde est dû à la livraison du projet, avant la mise en ligne ou le transfert des livrables. Tous les prix sont en USD sauf accord écrit contraire.",
+          body: "Un acompte non remboursable de 50 % est exigé avant le début des travaux. Le solde restant de 50 % doit être intégralement réglé avant la livraison finale du projet, sa mise en ligne ou son transfert au client. Aucune remise de livrable — fichiers sources, identifiants ou déploiement en ligne — n'interviendra avant réception de 100 % du paiement convenu. Tous les prix sont en USD sauf accord écrit contraire.",
         },
         {
           heading: "4. Propriété Intellectuelle",
@@ -141,7 +141,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "5. Limitation de Responsabilité",
-          body: "MDigitalDev ne saurait être tenu responsable des dommages indirects, accessoires ou consécutifs liés à l'utilisation du produit livré. Notre responsabilité totale est limitée au montant effectivement payé par le client pour le service concerné.",
+          body: "MDigitalDev ne saurait être tenu responsable des dommages indirects, accessoires ou consécutifs liés à l'utilisation du produit livré. Notre responsabilité totale est limitée au montant effectivement payé par le client pour le service concerné.\n\nPar ailleurs, MDigitalDev décline toute responsabilité concernant les modifications, mises à jour, changements de fonctionnalités, interruptions de service ou hausses de tarifs introduits par des prestataires tiers — notamment les fournisseurs d'API, plateformes d'hébergement et services cloud — postérieurement à la livraison du projet. Tout coût supplémentaire découlant de tels changements est à la charge exclusive du client.",
         },
         {
           heading: "6. Droit Applicable & Litiges",
@@ -193,7 +193,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
       sections: [
         {
           heading: "١. الخدمات",
-          body: "تقدم MDigitalDev خدمات تصميم المواقع وتطوير تطبيقات PWA وحلول الطلب الرقمي، بشكل رئيسي لقطاع المطاعم والضيافة. تُحدَّد جميع الخدمات ونطاقها كتابياً قبل بدء أي عمل.",
+          body: "تقدم MDigitalDev خدمات تصميم المواقع وتطوير تطبيقات PWA وحلول الطلب الرقمي وتكاملات واجهات برمجة التطبيقات (API) من أطراف ثالثة وإعداد قنوات التواصل الآلية، بشكل رئيسي لقطاع المطاعم والضيافة. تُحدَّد جميع الخدمات ونطاقها كتابياً قبل بدء أي عمل.",
         },
         {
           heading: "٢. مواعيد التسليم وتسليم الأصول",
@@ -201,7 +201,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "٣. شروط الدفع",
-          body: "يُشترط دفع عربون غير قابل للاسترداد بنسبة 50٪ قبل بدء العمل. يُسدَّد الرصيد المتبقي عند اكتمال المشروع، قبل إطلاقه أو نقل الملفات. جميع الأسعار بالدولار الأمريكي ما لم يُتفق كتابياً على خلاف ذلك.",
+          body: "يُشترط دفع عربون غير قابل للاسترداد بنسبة 50٪ قبل بدء العمل. يجب سداد الرصيد المتبقي البالغ 50٪ بالكامل قبل التسليم النهائي للمشروع أو إطلاقه أو نقله إلى العميل. لن يتم تسليم أي مُخرَج — بما في ذلك الملفات المصدرية أو بيانات الوصول أو النشر المباشر — إلا بعد استلام 100٪ من المبلغ المتفق عليه كاملاً. جميع الأسعار بالدولار الأمريكي ما لم يُتفق كتابياً على خلاف ذلك.",
         },
         {
           heading: "٤. الملكية الفكرية",
@@ -209,7 +209,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "٥. تحديد المسؤولية",
-          body: "لا تتحمل MDigitalDev المسؤولية عن الأضرار غير المباشرة أو العرضية أو التبعية الناجمة عن استخدام المنتج المسلَّم أو تعذُّر استخدامه. تقتصر مسؤوليتنا الإجمالية في جميع الأحوال على المبلغ الذي دفعه العميل مقابل الخدمة المعنية.",
+          body: "لا تتحمل MDigitalDev المسؤولية عن الأضرار غير المباشرة أو العرضية أو التبعية الناجمة عن استخدام المنتج المسلَّم أو تعذُّر استخدامه. تقتصر مسؤوليتنا الإجمالية في جميع الأحوال على المبلغ الذي دفعه العميل مقابل الخدمة المعنية.\n\nعلاوة على ذلك، لا تتحمل MDigitalDev أي مسؤولية عن أي تغييرات أو تحديثات أو تعديلات في الميزات أو انقطاعات في الخدمة أو رفع في الأسعار تُجريها مزودو الخدمات من أطراف ثالثة — بما في ذلك مزودو واجهات برمجة التطبيقات ومنصات الاستضافة والخدمات السحابية — بعد تسليم المشروع. أي تكاليف إضافية ناجمة عن هذه التغييرات تقع على عاتق العميل وحده.",
         },
         {
           heading: "٦. القانون الحاكم وتسوية النزاعات",
