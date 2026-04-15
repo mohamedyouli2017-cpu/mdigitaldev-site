@@ -65,11 +65,11 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "3. Payment Terms",
-          body: "A non-refundable deposit of 50% is required before project work begins. The remaining 50% balance must be paid in full before the final project is delivered, made live, or transferred to the client. No handover of any deliverable — including source files, credentials, or live deployment — will occur until 100% of the agreed payment has been received. All prices are in USD unless otherwise agreed in writing.",
+          body: "A non-refundable deposit of 50% is required before project work begins. The remaining 50% balance must be paid in full before the final project is delivered, made live, or transferred to the client. No handover of any deliverable — including source files, credentials, or live deployment — will occur until 100% of the agreed payment has been received. All prices are quoted in Moroccan Dirhams (MAD) unless otherwise agreed in writing.",
         },
         {
           heading: "4. Intellectual Property",
-          body: "Upon receipt of full payment, the client receives full ownership of all custom design and code produced for their project. MDigitalDev retains the right to display the completed work in its portfolio and case studies, unless the client formally requests otherwise in writing.",
+          body: "Upon receipt of full payment, the client is granted a perpetual licence to use the final delivered product — including the live website and its visual design — for their business purposes. The underlying source code, development frameworks, proprietary tools, and any reusable components developed by MDigitalDev remain the exclusive intellectual property of MDigitalDev and are not transferred to the client as part of the standard agreement. Full transfer of source code ownership is available exclusively through a separate written buyout agreement, subject to an additional agreed fee. MDigitalDev retains the right to display the completed work in its portfolio and case studies, unless the client formally requests otherwise in writing.",
         },
         {
           heading: "5. Limitation of Liability",
@@ -77,7 +77,11 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "6. Governing Law & Disputes",
-          body: "These terms are governed by applicable international business law. Any dispute shall first be addressed through direct communication between both parties. If unresolved within 30 days, both parties agree to seek mediation before pursuing any legal action.",
+          body: "These terms are governed by Moroccan Commercial Law. Any dispute shall first be addressed through direct communication between both parties. If unresolved within 30 days, both parties agree to seek mediation. Should mediation fail to produce a resolution, the dispute shall be submitted to the competent courts of Morocco for final adjudication.",
+        },
+        {
+          heading: "7. Support & Maintenance",
+          body: "MDigitalDev provides 30 days of complimentary technical support following the official project delivery date. This support covers bug fixes and technical issues directly attributable to the delivered work only. Content updates, design modifications, new feature requests, or any changes outside the original project scope are not covered under this free support period and will be scoped and billed separately. Upon expiry of the 30-day support period, all ongoing support and maintenance services are subject to a separate maintenance agreement or billed at the applicable rate.",
         },
       ],
     },
@@ -133,11 +137,11 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "3. Conditions de Paiement",
-          body: "Un acompte non remboursable de 50 % est exigé avant le début des travaux. Le solde restant de 50 % doit être intégralement réglé avant la livraison finale du projet, sa mise en ligne ou son transfert au client. Aucune remise de livrable — fichiers sources, identifiants ou déploiement en ligne — n'interviendra avant réception de 100 % du paiement convenu. Tous les prix sont en USD sauf accord écrit contraire.",
+          body: "Un acompte non remboursable de 50 % est exigé avant le début des travaux. Le solde restant de 50 % doit être intégralement réglé avant la livraison finale du projet, sa mise en ligne ou son transfert au client. Aucune remise de livrable — fichiers sources, identifiants ou déploiement en ligne — n'interviendra avant réception de 100 % du paiement convenu. Tous les prix sont exprimés en dirhams marocains (MAD) sauf accord écrit contraire.",
         },
         {
           heading: "4. Propriété Intellectuelle",
-          body: "À réception du paiement intégral, le client acquiert la pleine propriété de tous les designs et codes personnalisés réalisés pour son projet. MDigitalDev conserve le droit de présenter le travail accompli dans son portfolio, sauf demande contraire du client formulée par écrit.",
+          body: "À réception du paiement intégral, le client se voit accorder une licence perpétuelle d'utilisation du produit final livré — incluant le site web en ligne et son design visuel — à des fins professionnelles. Le code source sous-jacent, les frameworks de développement, les outils propriétaires et tous les composants réutilisables développés par MDigitalDev demeurent la propriété intellectuelle exclusive de MDigitalDev et ne sont pas cédés au client dans le cadre de l'accord standard. Le transfert complet de la propriété du code source est disponible uniquement via un accord de rachat écrit séparé, moyennant des frais supplémentaires convenus. MDigitalDev conserve le droit de présenter le travail accompli dans son portfolio, sauf demande contraire du client formulée par écrit.",
         },
         {
           heading: "5. Limitation de Responsabilité",
@@ -145,7 +149,11 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "6. Droit Applicable & Litiges",
-          body: "Les présentes conditions sont régies par le droit commercial international applicable. Tout litige sera traité en priorité par voie de dialogue direct entre les parties. À défaut de résolution sous 30 jours, les parties s'engagent à recourir à la médiation avant toute action en justice.",
+          body: "Les présentes conditions sont régies par le droit commercial marocain. Tout litige sera traité en priorité par voie de dialogue direct entre les parties. À défaut de résolution sous 30 jours, les parties s'engagent à recourir à la médiation. Si la médiation échoue, le litige sera soumis aux tribunaux compétents du Maroc pour résolution définitive.",
+        },
+        {
+          heading: "7. Support & Maintenance",
+          body: "MDigitalDev assure 30 jours de support technique gratuit à compter de la date de livraison officielle du projet. Ce support couvre uniquement la correction des bugs et des anomalies techniques directement imputables au travail livré. Les mises à jour de contenu, modifications de design, ajouts de fonctionnalités ou tout changement hors du périmètre initial du projet ne sont pas couverts par cette période de support gratuit et feront l'objet d'un devis et d'une facturation séparés. À l'expiration des 30 jours, tout support et maintenance continus sont soumis à un contrat de maintenance distinct ou facturés au tarif applicable.",
         },
       ],
     },
@@ -201,11 +209,11 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "٣. شروط الدفع",
-          body: "يُشترط دفع عربون غير قابل للاسترداد بنسبة 50٪ قبل بدء العمل. يجب سداد الرصيد المتبقي البالغ 50٪ بالكامل قبل التسليم النهائي للمشروع أو إطلاقه أو نقله إلى العميل. لن يتم تسليم أي مُخرَج — بما في ذلك الملفات المصدرية أو بيانات الوصول أو النشر المباشر — إلا بعد استلام 100٪ من المبلغ المتفق عليه كاملاً. جميع الأسعار بالدولار الأمريكي ما لم يُتفق كتابياً على خلاف ذلك.",
+          body: "يُشترط دفع عربون غير قابل للاسترداد بنسبة 50٪ قبل بدء العمل. يجب سداد الرصيد المتبقي البالغ 50٪ بالكامل قبل التسليم النهائي للمشروع أو إطلاقه أو نقله إلى العميل. لن يتم تسليم أي مُخرَج — بما في ذلك الملفات المصدرية أو بيانات الوصول أو النشر المباشر — إلا بعد استلام 100٪ من المبلغ المتفق عليه كاملاً. جميع الأسعار بالدرهم المغربي (MAD) ما لم يُتفق كتابياً على خلاف ذلك.",
         },
         {
           heading: "٤. الملكية الفكرية",
-          body: "عند استلام الدفع الكامل، يحصل العميل على الملكية الكاملة لجميع التصاميم والأكواد المخصصة المنجزة لمشروعه. تحتفظ MDigitalDev بحق عرض العمل المنجز في معرض أعمالها ودراسات الحالة، ما لم يطلب العميل خلاف ذلك كتابياً.",
+          body: "عند استلام الدفع الكامل، يُمنح العميل ترخيصاً دائماً لاستخدام المنتج النهائي المُسلَّم — بما في ذلك الموقع الإلكتروني المنشور وتصميمه البصري — لأغراضه التجارية. يبقى الكود المصدري الأساسي وأطر العمل التقنية والأدوات الخاصة وأي مكونات قابلة لإعادة الاستخدام طوّرتها MDigitalDev ملكاً فكرياً حصرياً لـ MDigitalDev ولا تُنقل إلى العميل ضمن الاتفاقية المعيارية. لا يكون النقل الكامل لملكية الكود المصدري متاحاً إلا من خلال اتفاقية شراء مستقلة وموثقة كتابياً، مقابل رسوم إضافية يُتفق عليها. تحتفظ MDigitalDev بحق عرض العمل المنجز في معرض أعمالها ودراسات الحالة، ما لم يطلب العميل خلاف ذلك كتابياً.",
         },
         {
           heading: "٥. تحديد المسؤولية",
@@ -213,7 +221,11 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "٦. القانون الحاكم وتسوية النزاعات",
-          body: "تخضع هذه الشروط للقانون التجاري الدولي المعمول به. يُعالج أي نزاع بالتراضي عبر التواصل المباشر بين الطرفين أولاً. إذا لم يُحسم خلال 30 يوماً، يتفق الطرفان على اللجوء إلى الوساطة قبل اتخاذ أي إجراء قانوني.",
+          body: "تخضع هذه الشروط للقانون التجاري المغربي. يُعالج أي نزاع بالتراضي عبر التواصل المباشر بين الطرفين أولاً. إذا لم يُحسم خلال 30 يوماً، يتفق الطرفان على اللجوء إلى الوساطة. في حال فشل الوساطة في التوصل إلى حل، يُحال النزاع إلى المحاكم المختصة في المغرب للبت فيه نهائياً.",
+        },
+        {
+          heading: "٧. الدعم الفني والصيانة",
+          body: "تقدم MDigitalDev 30 يوماً من الدعم الفني المجاني اعتباراً من تاريخ التسليم الرسمي للمشروع. يقتصر هذا الدعم على إصلاح الأخطاء التقنية والمشكلات الناجمة مباشرة عن العمل المُسلَّم. لا تشمل هذه الفترة المجانية تحديثات المحتوى، أو تعديلات التصميم، أو إضافة ميزات جديدة، أو أي تغييرات خارج نطاق المشروع الأصلي؛ وتخضع هذه الطلبات للتسعير والفوترة المنفصلة. بعد انتهاء فترة الـ 30 يوماً، تخضع جميع خدمات الدعم والصيانة المستمرة لاتفاقية صيانة مستقلة أو تُحتسب وفق التعريفة المعمول بها.",
         },
       ],
     },
