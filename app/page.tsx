@@ -26,6 +26,11 @@ import {
   X,
   Shield,
   FileText,
+  Utensils,
+  ShoppingBag,
+  Briefcase,
+  Heart,
+  Home as HomeIcon,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -499,6 +504,41 @@ const HERO_SLIDES = [
     overlay:  "from-indigo-600/30 via-purple-400/10 to-violet-900/60",
     glow:     "rgba(139,92,246,0.5)",
   },
+  {
+    img:      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=760&q=90",
+    label:    "Online Store",
+    tag:      "E-commerce Platform",
+    overlay:  "from-violet-600/30 via-purple-400/10 to-indigo-900/50",
+    glow:     "rgba(124,58,237,0.45)",
+  },
+  {
+    img:      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=760&q=90",
+    label:    "Business Identity",
+    tag:      "Corporate Website",
+    overlay:  "from-blue-600/30 via-sky-400/10 to-slate-900/50",
+    glow:     "rgba(59,130,246,0.45)",
+  },
+  {
+    img:      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=760&q=90",
+    label:    "Healthcare Clinic",
+    tag:      "Booking System",
+    overlay:  "from-rose-600/30 via-pink-400/10 to-red-900/50",
+    glow:     "rgba(244,63,94,0.40)",
+  },
+  {
+    img:      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=760&q=90",
+    label:    "Property Showcase",
+    tag:      "Real Estate Listings",
+    overlay:  "from-emerald-600/30 via-green-400/10 to-teal-900/50",
+    glow:     "rgba(16,185,129,0.40)",
+  },
+  {
+    img:      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=760&q=90",
+    label:    "Admin Interface",
+    tag:      "SaaS Dashboard",
+    overlay:  "from-cyan-600/30 via-sky-400/10 to-blue-900/50",
+    glow:     "rgba(6,182,212,0.45)",
+  },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -632,6 +672,14 @@ const POWER_TRIO_STATIC = [
   { icon: Smartphone, gradient: "from-emerald-50 to-green-50", accent: "text-emerald-500", iconBg: "bg-emerald-50", score: "PWA", scoreLabel: "App-Ready"     },
 ];
 
+const INDUSTRIES_STATIC = [
+  { icon: Utensils,    accent: "text-orange-500",  iconBg: "bg-orange-50",   border: "border-orange-100",  hover: "hover:border-orange-300 hover:shadow-orange-100/60"   },
+  { icon: ShoppingBag, accent: "text-violet-500",  iconBg: "bg-violet-50",   border: "border-violet-100",  hover: "hover:border-violet-300 hover:shadow-violet-100/60"   },
+  { icon: Briefcase,   accent: "text-blue-500",    iconBg: "bg-blue-50",     border: "border-blue-100",    hover: "hover:border-blue-300   hover:shadow-blue-100/60"     },
+  { icon: Heart,       accent: "text-rose-500",    iconBg: "bg-rose-50",     border: "border-rose-100",    hover: "hover:border-rose-300   hover:shadow-rose-100/60"     },
+  { icon: HomeIcon,    accent: "text-emerald-500", iconBg: "bg-emerald-50",  border: "border-emerald-100", hover: "hover:border-emerald-300 hover:shadow-emerald-100/60" },
+];
+
 const WA_BASE = "https://wa.me/212669586001?text=";
 
 const SERVICES_STATIC = [
@@ -641,12 +689,14 @@ const SERVICES_STATIC = [
 ];
 
 const TESTIMONIALS_STATIC = [
-  { name: "Karim B.",   role: "Owner, Bella Vista",       avatarImg: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
-  { name: "Fatima R.",  role: "Manager, Saffron Kitchen", avatarImg: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
-  { name: "Youssef M.", role: "CEO, Nomad Café Group",    avatarImg: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
+  { name: "Karim B.",    role: "Owner, Bella Vista",        avatarImg: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
+  { name: "Fatima R.",   role: "Manager, Saffron Kitchen",  avatarImg: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
+  { name: "Youssef M.",  role: "CEO, Nomad Café Group",     avatarImg: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
+  { name: "Youssef A.",  role: "Founder, Aurora Store",     avatarImg: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
+  { name: "Dr. Laila M.", role: "Director, VitalCare Clinic", avatarImg: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
 ];
 
-const FILTER_VALUES = ["All", "Restaurant", "Service"] as const;
+const FILTER_VALUES = ["All", "Restaurant", "E-commerce", "Corporate", "Healthcare", "Real Estate"] as const;
 
 /* ═══════════════════════════════════════════════════════════════
    PAGE
@@ -662,9 +712,12 @@ export default function Home() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
   const filterTabs = [
-    { label: t.portfolio.filterAll,         value: "All"        },
-    { label: t.portfolio.filterRestaurants, value: "Restaurant" },
-    { label: t.portfolio.filterServices,    value: "Service"    },
+    { label: t.portfolio.filterAll,         value: "All"         },
+    { label: t.portfolio.filterRestaurants, value: "Restaurant"  },
+    { label: t.portfolio.filterEcommerce,   value: "E-commerce"  },
+    { label: t.portfolio.filterCorporate,   value: "Corporate"   },
+    { label: t.portfolio.filterHealthcare,  value: "Healthcare"  },
+    { label: t.portfolio.filterRealEstate,  value: "Real Estate" },
   ];
 
   return (
@@ -873,7 +926,64 @@ export default function Home() {
       </Section>
 
       {/* ╔═══════════════════════════════════════════════════════╗
-          ║  3 · SERVICES — Dark + Glassmorphism                ║
+          ║  3 · INDUSTRIES I SERVE                              ║
+          ╚═══════════════════════════════════════════════════════╝ */}
+      <Section id="industries" className="py-24 sm:py-32 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center mb-16">
+            <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-3">
+              {t.industries.label}
+            </motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black tracking-tight">
+              {t.industries.headline}
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="mt-4 text-gray-500 text-lg max-w-xl mx-auto">
+              {t.industries.sub}
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {INDUSTRIES_STATIC.map((item, i) => {
+              const Icon = item.icon;
+              const td   = t.industries.items[i];
+              return (
+                <motion.div
+                  key={td.name}
+                  variants={scaleIn}
+                  custom={i * 0.1}
+                  className={[
+                    "relative group rounded-[24px] p-7 bg-white border shadow-[0_2px_16px_rgba(0,0,0,0.05)]",
+                    "hover:shadow-[0_12px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1.5",
+                    "transition-all duration-300 overflow-hidden",
+                    item.border, item.hover,
+                    i === 4 ? "sm:col-span-2 lg:col-span-1" : "",
+                  ].filter(Boolean).join(" ")}
+                >
+                  <div className={`relative w-12 h-12 ${item.iconBg} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className={`w-6 h-6 ${item.accent}`} />
+                  </div>
+                  <h3 className="text-base font-bold text-black mb-2">{td.name}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-5">{td.desc}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {td.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className={`px-2.5 py-1 text-[11px] font-semibold rounded-full border ${item.border} ${item.accent} bg-transparent`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </Section>
+
+      {/* ╔═══════════════════════════════════════════════════════╗
+          ║  4 · SERVICES — Dark + Glassmorphism                ║
           ╚═══════════════════════════════════════════════════════╝ */}
       <Section id="services" className="relative py-24 sm:py-32 bg-[#080808] overflow-hidden">
 
@@ -1133,7 +1243,7 @@ export default function Home() {
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {TESTIMONIALS_STATIC.map((person, i) => (
               <motion.div
                 key={person.name}

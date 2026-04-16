@@ -25,9 +25,15 @@ export interface LangTranslations {
     footerNote: string; estimate: string; popular: string;
     items: { tier: string; name: string; desc: string; features: string[]; cta: string; waMsg: string }[];
   };
+  industries: {
+    label: string; headline: string; sub: string;
+    items: { name: string; desc: string; tags: string[] }[];
+  };
   portfolio: {
     label: string; headline: string; sub: string;
-    filterAll: string; filterRestaurants: string; filterServices: string;
+    filterAll: string; filterRestaurants: string;
+    filterEcommerce: string; filterCorporate: string;
+    filterHealthcare: string; filterRealEstate: string;
     empty: string; viewProject: string;
   };
   testimonials: {
@@ -50,20 +56,20 @@ export const translations: Record<Lang, LangTranslations> = {
     },
     hero: {
       badge:  "Available for New Projects",
-      h1a:    "Elevating Dining",
-      h1b:    "Experiences with",
+      h1a:    "Elevating",
+      h1b:    "Businesses with",
       h1c:    "Digital Solutions.",
-      sub:    "I build blazing-fast, PWA-ready websites for restaurants that turn visitors into loyal customers — with speed, design, and tech that sets you apart.",
+      sub:    "I build blazing-fast, PWA-ready websites for restaurants, e-commerce, corporate, healthcare, and real estate — with speed, design, and tech that sets you apart.",
       cta1:   "Start Your Project",
       cta2:   "View Portfolio",
       scroll: "Scroll",
-      stats:  { projects: "Online Orders", pagespeed: "Printing Savings", revenue: "PWA Installs", response: "Revenue Lift" },
+      stats:  { projects: "Conversions", pagespeed: "Operational Costs", revenue: "PWA Installs", response: "Revenue Lift" },
     },
     about: {
       pill: "About Me", headline1: "The Mind Behind the", headline2: "Digital Transformation",
       bodyPre: "I'm", name: "Mohamed",
-      bodyMid: ", a Web & PWA Developer specialized in creating high-performance digital ecosystems for the modern restaurant industry. I bridge the gap between",
-      highlight: "gourmet hospitality", bodyEnd: "and cutting-edge tech.",
+      bodyMid: ", a Web & PWA Developer specialized in creating high-performance digital ecosystems for modern businesses. I bridge the gap between",
+      highlight: "diverse industries", bodyEnd: "and cutting-edge tech.",
       available: "Available for projects",
       stats: [
         { label: "100% PageSpeed",   desc: "Lighthouse perfect score on every delivery" },
@@ -73,12 +79,12 @@ export const translations: Record<Lang, LangTranslations> = {
     },
     powerTrio: {
       label: "The Power Trio", headline1: "Three Things That Make",
-      headline2: "Restaurants Win Online.",
+      headline2: "Businesses Win Online.",
       sub: "Every project is built on this foundation — no exceptions.",
       items: [
         {
           title: "Lightning Speed",
-          desc: "Sub-second loads via Next.js static generation, edge CDN, and automatic image optimisation. Faster sites rank higher and keep hungry guests from bouncing.",
+          desc: "Sub-second loads via Next.js static generation, edge CDN, and automatic image optimisation. Faster sites rank higher and keep potential customers from bouncing.",
           bullets: ["Core Web Vitals optimised", "Edge-cached globally", "< 1 s first paint"],
         },
         {
@@ -88,8 +94,8 @@ export const translations: Record<Lang, LangTranslations> = {
         },
         {
           title: "Installable App (PWA)",
-          desc: "Customers add your restaurant to their home screen — no App Store needed. Offline menus, push notifications, and instant access keep you top-of-mind.",
-          bullets: ["Home screen install", "Offline-capable menu", "Push notifications"],
+          desc: "Customers add your business to their home screen — no App Store needed. Offline content, push notifications, and instant access keep you top-of-mind.",
+          bullets: ["Home screen install", "Offline-capable content", "Push notifications"],
         },
       ],
     },
@@ -100,20 +106,20 @@ export const translations: Record<Lang, LangTranslations> = {
       estimate: "Get a free estimate →", popular: "✦ Most Popular",
       items: [
         {
-          tier: "Starter Pack", name: "Digital Menu & Landing Page",
-          desc: "A blazing-fast, beautifully designed landing page with a digital menu that replaces printed cards and drives foot traffic from Google.",
-          features: ["Landing Page & Google Maps ($80) — high-performance single page", "Digital Menu with Photos ($50) — professional menu layout", "Basic SEO & WhatsApp Button ($20) — visibility & direct contact", "⚡ 24-Hour Delivery"],
-          cta: "Get Started", waMsg: "Hello Mohamed, I want to start with the Starter Pack for my restaurant.",
+          tier: "Starter Pack", name: "Landing Page & Digital Presence",
+          desc: "A blazing-fast, beautifully designed landing page that replaces outdated sites and drives traffic from Google — for any industry.",
+          features: ["Landing Page & Google Maps ($80) — high-performance single page", "Content/Menu/Catalog with Photos ($50) — professional layout", "Basic SEO & WhatsApp Button ($20) — visibility & direct contact", "⚡ 24-Hour Delivery"],
+          cta: "Get Started", waMsg: "Hello Mohamed, I want to start with the Starter Pack for my business.",
         },
         {
-          tier: "Professional Pack", name: "Full Restaurant System",
-          desc: "Our core solution for scaling restaurants. Full Admin Dashboard & WhatsApp Automation included — complete online presence with ordering, alerts, reservations, and everything a modern restaurant needs.",
-          features: ["Starter Pack Inclusion ($150) — full website & SEO foundation", "Online Ordering System ($450) — advanced cart & order processing", "⭐ Admin Dashboard ($500) & WhatsApp Automation ($200)", "PWA & Reservation System ($200) — mobile app + booking", "⚡ 3-Day Delivery"],
+          tier: "Professional Pack", name: "Full Business System",
+          desc: "Our core solution for scaling businesses. Full Admin Dashboard & WhatsApp Automation included — complete online presence with ordering/booking, alerts, and everything a modern business needs.",
+          features: ["Starter Pack Inclusion ($150) — full website & SEO foundation", "Ordering/Booking System ($450) — advanced cart & processing", "⭐ Admin Dashboard ($500) & WhatsApp Automation ($200)", "PWA & Reservation/Scheduling System ($200) — mobile app + booking", "⚡ 3-Day Delivery"],
           cta: "Most Popular", waMsg: "Hello Mohamed, I'm interested in the Professional Pack to grow my business.",
         },
         {
           tier: "Ultimate Pack", name: "SaaS / Cloud Platform",
-          desc: "For multi-branch enterprises and SaaS solutions. Custom cloud platforms with multi-branch management, loyalty programs, analytics dashboards, and fully scalable architecture for ambitious brands.",
+          desc: "For multi-branch enterprises and SaaS solutions. Custom cloud platforms with multi-branch management, loyalty programs, analytics dashboards, and fully scalable architecture for ambitious businesses.",
           features: ["Full Professional Pack ($1,500) — complete core system", "Multi-branch Management ($1,200) — manage all locations from one dashboard", "Loyalty & Rewards System ($800) — automated coupons & customer points", "Advanced Analytics ($600) — sales reports & customer behavior insights", "⭐ Dedicated VIP Support ($700) — priority updates & 24/7 assistance", "⚡ 1-Week Delivery"],
           cta: "Let's Talk", waMsg: "Hello Mohamed, I want the full Ultimate Experience for my restaurant brand.",
         },
@@ -122,8 +128,20 @@ export const translations: Record<Lang, LangTranslations> = {
     portfolio: {
       label: "Portfolio", headline: "Recent Work.",
       sub: "Every project is crafted with precision, purpose, and performance as the north star.",
-      filterAll: "All", filterRestaurants: "Restaurants", filterServices: "Services",
+      filterAll: "All", filterRestaurants: "Restaurants",
+      filterEcommerce: "E-commerce", filterCorporate: "Corporate",
+      filterHealthcare: "Healthcare", filterRealEstate: "Real Estate",
       empty: "No projects in this category yet — check back soon!", viewProject: "View Project",
+    },
+    industries: {
+      label: "Industries", headline: "Built for Every Business.", sub: "Specialized solutions crafted for the unique needs of each industry.",
+      items: [
+        { name: "Restaurants & Hospitality", desc: "Digital menus, online ordering, reservations, and PWA experiences that turn diners into regulars.", tags: ["Menu", "Ordering", "Reservations"] },
+        { name: "E-commerce & Retail",       desc: "High-converting online stores with cart systems, payment integration, and inventory dashboards.",  tags: ["Store", "Payments", "Analytics"] },
+        { name: "Corporate & Services",      desc: "Professional websites that build trust, generate leads, and establish authority in your market.",    tags: ["Branding", "Lead Gen", "SEO"]   },
+        { name: "Healthcare & Wellness",     desc: "HIPAA-conscious booking systems, patient portals, and clinic websites that inspire confidence.",    tags: ["Booking", "Portals", "Privacy"] },
+        { name: "Real Estate",               desc: "Property showcases with advanced filters, virtual tours, and lead capture for agents and agencies.", tags: ["Listings", "Filters", "Maps"]   },
+      ],
     },
     testimonials: {
       label: "Social Proof", headline: "What Clients Say.",
@@ -131,6 +149,8 @@ export const translations: Record<Lang, LangTranslations> = {
         { text: "Our online orders increased by +35% in the first month. The site loads instantly and customers love the app experience." },
         { text: "Mohamed delivered in under a week. The design is stunning and our Google ranking jumped immediately after launch." },
         { text: "The multi-branch dashboard saved us hours every week. Absolutely worth every dirham." },
+        { text: "Our conversion rate doubled after Mohamed rebuilt our e-commerce site. The checkout flow is seamless." },
+        { text: "The booking system saved our receptionists hours every day. Patients love the mobile experience." },
       ],
     },
     contact: {
@@ -151,20 +171,20 @@ export const translations: Record<Lang, LangTranslations> = {
     },
     hero: {
       badge:  "Disponible pour de nouveaux projets",
-      h1a:    "Sublimer les Expériences",
-      h1b:    "Culinaires avec",
+      h1a:    "Propulser les",
+      h1b:    "Entreprises avec",
       h1c:    "le Digital.",
-      sub:    "Je crée des sites ultra-rapides et installables pour les restaurants qui transforment les visiteurs en clients fidèles — avec la vitesse, le design et la tech qui vous démarquent.",
+      sub:    "Je crée des sites ultra-rapides et installables pour les restaurants, e-commerce, entreprises, santé et immobilier — avec la vitesse, le design et la tech qui vous démarquent.",
       cta1:   "Démarrer mon projet",
       cta2:   "Voir le portfolio",
       scroll: "Défiler",
-      stats:  { projects: "Commandes en ligne", pagespeed: "Économies impression", revenue: "Installs PWA", response: "Hausse CA" },
+      stats:  { projects: "Conversions", pagespeed: "Économies opérationnelles", revenue: "Installs PWA", response: "Hausse CA" },
     },
     about: {
       pill: "À propos", headline1: "L'Esprit Derrière la", headline2: "Transformation Digitale",
       bodyPre: "Je suis", name: "Mohamed",
-      bodyMid: ", développeur Web & PWA spécialisé dans la création d'écosystèmes numériques haute performance pour la restauration moderne. Je fais le lien entre",
-      highlight: "la gastronomie de luxe", bodyEnd: "et la technologie de pointe.",
+      bodyMid: ", développeur Web & PWA spécialisé dans la création d'écosystèmes numériques haute performance pour les entreprises modernes. Je fais le lien entre",
+      highlight: "des secteurs variés", bodyEnd: "et la technologie de pointe.",
       available: "Disponible pour des projets",
       stats: [
         { label: "100% PageSpeed",    desc: "Score Lighthouse parfait à chaque livraison" },
@@ -174,7 +194,7 @@ export const translations: Record<Lang, LangTranslations> = {
     },
     powerTrio: {
       label: "Le Trio Gagnant", headline1: "Trois Éléments qui Font",
-      headline2: "Gagner les Restaurants en Ligne.",
+      headline2: "Gagner les Entreprises en Ligne.",
       sub: "Chaque projet repose sur ces fondations — sans exception.",
       items: [
         {
@@ -189,8 +209,8 @@ export const translations: Record<Lang, LangTranslations> = {
         },
         {
           title: "App Installable (PWA)",
-          desc: "Les clients ajoutent votre restaurant sur leur écran d'accueil — sans App Store. Menus hors ligne, notifications push et accès instantané.",
-          bullets: ["Installation écran d'accueil", "Menu hors-ligne", "Notifications push"],
+          desc: "Les clients ajoutent votre activité sur leur écran d'accueil — sans App Store. Contenu hors ligne, notifications push et accès instantané.",
+          bullets: ["Installation écran d'accueil", "Contenu hors-ligne", "Notifications push"],
         },
       ],
     },
@@ -201,20 +221,20 @@ export const translations: Record<Lang, LangTranslations> = {
       estimate: "Obtenir un devis gratuit →", popular: "✦ Le Plus Populaire",
       items: [
         {
-          tier: "Pack Starter", name: "Menu Digital & Landing Page",
-          desc: "Une landing page ultra-rapide et magnifique avec un menu digital qui remplace les cartes imprimées et génère du trafic depuis Google.",
-          features: ["Landing Page & Google Maps (80$) — page haute performance", "Menu Digital avec Photos (50$) — mise en page professionnelle", "SEO de base & Bouton WhatsApp (20$) — visibilité & contact direct", "⚡ Livraison en 24h"],
-          cta: "Commencer", waMsg: "Bonjour Mohamed, je veux démarrer avec le Pack Starter pour mon restaurant.",
+          tier: "Pack Starter", name: "Landing Page & Présence Digitale",
+          desc: "Une landing page ultra-rapide et magnifique qui remplace les sites obsolètes et génère du trafic depuis Google — pour tout secteur d'activité.",
+          features: ["Landing Page & Google Maps (80$) — page haute performance", "Contenu/Menu/Catalogue avec Photos (50$) — mise en page professionnelle", "SEO de base & Bouton WhatsApp (20$) — visibilité & contact direct", "⚡ Livraison en 24h"],
+          cta: "Commencer", waMsg: "Bonjour Mohamed, je veux démarrer avec le Pack Starter pour mon activité.",
         },
         {
-          tier: "Pack Pro", name: "Système Restaurant Complet",
-          desc: "Notre solution phare pour scaler les restaurants. Dashboard Admin Complet & Automatisation WhatsApp inclus — présence en ligne totale avec commandes, alertes et réservations.",
-          features: ["Pack Starter inclus (150$) — site web & fondation SEO", "Système de commande en ligne (450$) — panier & traitement des commandes", "⭐ Dashboard Admin (500$) & Automatisation WhatsApp (200$)", "PWA & Système de réservation (200$) — app mobile + booking", "⚡ Livraison en 3 jours"],
+          tier: "Pack Pro", name: "Système Complet",
+          desc: "Notre solution phare pour scaler les entreprises. Dashboard Admin Complet & Automatisation WhatsApp inclus — présence en ligne totale avec commandes/réservations, alertes et tout ce qu'il faut à une entreprise moderne.",
+          features: ["Pack Starter inclus (150$) — site web & fondation SEO", "Système de commande/réservation (450$) — panier & traitement avancé", "⭐ Dashboard Admin (500$) & Automatisation WhatsApp (200$)", "PWA & Système de réservation/planification (200$) — app mobile + booking", "⚡ Livraison en 3 jours"],
           cta: "Le Plus Populaire", waMsg: "Bonjour Mohamed, je suis intéressé par le Pack Pro pour développer mon activité.",
         },
         {
           tier: "Pack Ultimate", name: "Plateforme SaaS / Cloud",
-          desc: "Pour les entreprises multi-établissements et les solutions SaaS. Plateformes cloud sur mesure avec gestion multi-sites, fidélité, analytics et architecture scalable pour les grandes enseignes.",
+          desc: "Pour les entreprises multi-établissements et les solutions SaaS. Plateformes cloud sur mesure avec gestion multi-sites, fidélité, analytics et architecture scalable pour les entreprises ambitieuses.",
           features: ["Pack Pro complet (1 500$) — système core complet", "Gestion multi-établissements (1 200$) — tous vos sites depuis un tableau de bord", "Programme de fidélité & récompenses (800$) — coupons & points clients", "Analytics avancés (600$) — rapports ventes & comportements clients", "⭐ Support VIP dédié (700$) — mises à jour prioritaires & assistance 24/7", "⚡ Livraison en 1 semaine"],
           cta: "Parlons-en", waMsg: "Bonjour Mohamed, je veux l'expérience Ultimate pour ma marque de restauration.",
         },
@@ -223,8 +243,20 @@ export const translations: Record<Lang, LangTranslations> = {
     portfolio: {
       label: "Portfolio", headline: "Travaux Récents.",
       sub: "Chaque projet est conçu avec précision, intention et performance comme étoile du nord.",
-      filterAll: "Tout", filterRestaurants: "Restaurants", filterServices: "Services",
+      filterAll: "Tout", filterRestaurants: "Restaurants",
+      filterEcommerce: "E-commerce", filterCorporate: "Corporate",
+      filterHealthcare: "Santé", filterRealEstate: "Immobilier",
       empty: "Aucun projet dans cette catégorie pour l'instant — revenez bientôt !", viewProject: "Voir le projet",
+    },
+    industries: {
+      label: "Secteurs", headline: "Pour Chaque Activité.", sub: "Des solutions spécialisées adaptées aux besoins uniques de chaque secteur.",
+      items: [
+        { name: "Restaurants & Hôtellerie",  desc: "Menus digitaux, commandes en ligne, réservations et PWA qui fidélisent les clients.", tags: ["Menu", "Commandes", "Réservations"] },
+        { name: "E-commerce & Retail",       desc: "Boutiques en ligne à fort taux de conversion avec panier, paiement intégré et tableau de bord inventaire.", tags: ["Boutique", "Paiements", "Analytics"] },
+        { name: "Corporate & Services",      desc: "Sites professionnels qui inspirent confiance, génèrent des leads et établissent l'autorité sur votre marché.", tags: ["Branding", "Leads", "SEO"] },
+        { name: "Santé & Bien-être",         desc: "Systèmes de réservation conformes, portails patients et sites de cliniques qui inspirent confiance.",          tags: ["Réservation", "Portails", "Confidentialité"] },
+        { name: "Immobilier",                desc: "Vitrines de propriétés avec filtres avancés, visites virtuelles et capture de leads pour agents et agences.",  tags: ["Annonces", "Filtres", "Cartes"] },
+      ],
     },
     testimonials: {
       label: "Témoignages", headline: "Ce que Disent les Clients.",
@@ -232,6 +264,8 @@ export const translations: Record<Lang, LangTranslations> = {
         { text: "Nos commandes en ligne ont augmenté de +35 % dès le premier mois. Le site charge instantanément et les clients adorent l'expérience application." },
         { text: "Mohamed a livré en moins d'une semaine. Le design est superbe et notre classement Google a grimpé immédiatement après le lancement." },
         { text: "Le tableau de bord multi-établissements nous a fait gagner des heures chaque semaine. Absolument rentable." },
+        { text: "Notre taux de conversion a doublé après la refonte de notre boutique en ligne par Mohamed. Le parcours d'achat est fluide." },
+        { text: "Le système de réservation a fait économiser des heures à notre équipe chaque jour. Les patients adorent l'expérience mobile." },
       ],
     },
     contact: {
@@ -252,20 +286,20 @@ export const translations: Record<Lang, LangTranslations> = {
     },
     hero: {
       badge:  "متاح لمشاريع جديدة",
-      h1a:    "ارتقِ بتجربة",
-      h1b:    "الطعام مع",
+      h1a:    "ارتقِ",
+      h1b:    "بأعمالك مع",
       h1c:    "الحلول الرقمية.",
-      sub:    "أبني مواقع ويب فائقة السرعة وجاهزة للتطبيقات للمطاعم تحوّل الزوار إلى عملاء أوفياء — بالسرعة والتصميم والتقنية التي تميّزك.",
+      sub:    "أبني مواقع ويب فائقة السرعة وجاهزة للتطبيقات للمطاعم والتجارة الإلكترونية والشركات والرعاية الصحية والعقارات — بالسرعة والتصميم والتقنية التي تميّزك.",
       cta1:   "ابدأ مشروعك",
       cta2:   "استعرض أعمالي",
       scroll: "انتقل",
-      stats:  { projects: "الطلبات الإلكترونية", pagespeed: "توفير في الطباعة", revenue: "تثبيتات PWA", response: "نمو الإيرادات" },
+      stats:  { projects: "معدل التحويل", pagespeed: "تخفيض التكاليف", revenue: "تثبيتات PWA", response: "نمو الإيرادات" },
     },
     about: {
       pill: "من أنا", headline1: "العقل وراء", headline2: "التحول الرقمي",
       bodyPre: "أنا", name: "محمد",
-      bodyMid: "، مطوّر ويب و PWA متخصص في إنشاء أنظمة رقمية عالية الأداء لصناعة المطاعم. أجمع بين",
-      highlight: "فن الضيافة الراقية", bodyEnd: "وأحدث تقنيات الويب.",
+      bodyMid: "، مطوّر ويب و PWA متخصص في إنشاء أنظمة رقمية عالية الأداء للأعمال الحديثة. أجمع بين",
+      highlight: "مختلف القطاعات", bodyEnd: "وأحدث تقنيات الويب.",
       available: "متاح للمشاريع",
       stats: [
         { label: "100% PageSpeed", desc: "درجة Lighthouse مثالية في كل تسليم" },
@@ -275,12 +309,12 @@ export const translations: Record<Lang, LangTranslations> = {
     },
     powerTrio: {
       label: "الثلاثي القوي", headline1: "ثلاثة عوامل تجعل",
-      headline2: "المطاعم تنجح على الإنترنت.",
+      headline2: "الأعمال تنجح على الإنترنت.",
       sub: "كل مشروع مبني على هذا الأساس — بدون استثناء.",
       items: [
         {
           title: "سرعة البرق",
-          desc: "تحميل أقل من ثانية عبر التوليد الساكن في Next.js وشبكة CDN العالمية وتحسين الصور التلقائي. المواقع الأسرع تحتل مراتب أعلى وتحافظ على الزوار.",
+          desc: "تحميل أقل من ثانية عبر التوليد الساكن في Next.js وشبكة CDN العالمية وتحسين الصور التلقائي. المواقع الأسرع تحتل مراتب أعلى وتحافظ على العملاء المحتملين.",
           bullets: ["مُحسَّن لـ Core Web Vitals", "توزيع CDN عالمي", "أقل من ثانية للعرض الأول"],
         },
         {
@@ -290,8 +324,8 @@ export const translations: Record<Lang, LangTranslations> = {
         },
         {
           title: "تطبيق قابل للتثبيت (PWA)",
-          desc: "يضيف العملاء مطعمك على شاشتهم الرئيسية دون الحاجة لمتجر التطبيقات. قوائم بدون إنترنت وإشعارات فورية وصول دائم.",
-          bullets: ["تثبيت على الشاشة الرئيسية", "قائمة طعام بدون إنترنت", "إشعارات فورية"],
+          desc: "يضيف العملاء نشاطك التجاري على شاشتهم الرئيسية دون الحاجة لمتجر التطبيقات. محتوى بدون إنترنت وإشعارات فورية ووصول دائم.",
+          bullets: ["تثبيت على الشاشة الرئيسية", "محتوى بدون إنترنت", "إشعارات فورية"],
         },
       ],
     },
@@ -302,14 +336,14 @@ export const translations: Record<Lang, LangTranslations> = {
       estimate: "احصل على تقدير مجاني ←", popular: "✦ الأكثر طلباً",
       items: [
         {
-          tier: "الباقة الأساسية", name: "قائمة رقمية وصفحة هبوط",
-          desc: "صفحة هبوط سريعة وجميلة مع قائمة طعام رقمية تحل محل البطاقات المطبوعة وتجذب الزيارات من Google.",
-          features: ["صفحة الهبوط وخرائط Google ($80) — صفحة واحدة عالية الأداء", "قائمة طعام رقمية بالصور ($50) — تصميم احترافي للقائمة", "SEO الأساسي وزر واتساب ($20) — ظهور في البحث وتواصل مباشر", "⚡ تسليم في 24 ساعة"],
-          cta: "ابدأ الآن", waMsg: "مرحباً محمد، أريد البدء بالباقة الأساسية لمطعمي.",
+          tier: "الباقة الأساسية", name: "صفحة هبوط وحضور رقمي",
+          desc: "صفحة هبوط سريعة وجميلة تحل محل المواقع القديمة وتجذب الزيارات من Google — لأي قطاع.",
+          features: ["صفحة الهبوط وخرائط Google ($80) — صفحة واحدة عالية الأداء", "المحتوى/القائمة/الكتالوج بالصور ($50) — تصميم احترافي", "SEO الأساسي وزر واتساب ($20) — ظهور في البحث وتواصل مباشر", "⚡ تسليم في 24 ساعة"],
+          cta: "ابدأ الآن", waMsg: "مرحباً محمد، أريد البدء بالباقة الأساسية لأعمالي.",
         },
         {
-          tier: "الباقة الاحترافية", name: "نظام مطعم متكامل",
-          desc: "حلنا الأساسي لتطوير المطاعم. لوحة تحكم كاملة وأتمتة واتساب — حضور إلكتروني شامل مع الطلبات والتنبيهات والحجوزات.",
+          tier: "الباقة الاحترافية", name: "نظام أعمال متكامل",
+          desc: "حلنا الأساسي لتطوير الأعمال. لوحة تحكم كاملة وأتمتة واتساب — حضور إلكتروني شامل مع الطلبات/الحجوزات والتنبيهات وكل ما تحتاجه الأعمال الحديثة.",
           features: ["الباقة الأساسية مُدرجة ($150) — موقع كامل وأساسيات SEO", "نظام الطلب الإلكتروني ($450) — سلة متقدمة ومعالجة الطلبات", "⭐ لوحة التحكم ($500) وأتمتة واتساب ($200)", "تطبيق PWA ونظام الحجز ($200) — تجربة موبايل وحجوزات", "⚡ تسليم في 3 أيام"],
           cta: "الأكثر طلباً", waMsg: "مرحباً محمد، أنا مهتم بالباقة الاحترافية لتطوير أعمالي.",
         },
@@ -324,8 +358,20 @@ export const translations: Record<Lang, LangTranslations> = {
     portfolio: {
       label: "أعمالي", headline: "أحدث المشاريع.",
       sub: "كل مشروع مُصمَّم بدقة وهدف وأداء كمحور رئيسي.",
-      filterAll: "الكل", filterRestaurants: "مطاعم", filterServices: "خدمات",
+      filterAll: "الكل", filterRestaurants: "مطاعم",
+      filterEcommerce: "تجارة إلكترونية", filterCorporate: "شركات",
+      filterHealthcare: "صحة", filterRealEstate: "عقارات",
       empty: "لا توجد مشاريع في هذه الفئة بعد — تابعنا قريباً!", viewProject: "عرض المشروع",
+    },
+    industries: {
+      label: "القطاعات", headline: "لكل نوع من الأعمال.", sub: "حلول متخصصة مصممة للاحتياجات الفريدة لكل قطاع.",
+      items: [
+        { name: "المطاعم والضيافة",   desc: "قوائم رقمية وطلبات إلكترونية وحجوزات وتطبيقات PWA تحوّل الزوار إلى عملاء دائمين.", tags: ["القائمة", "الطلبات", "الحجوزات"] },
+        { name: "التجارة الإلكترونية", desc: "متاجر إلكترونية عالية التحويل بأنظمة سلة وتكامل دفع ولوحات تحكم للمخزون.",         tags: ["المتجر", "الدفع", "التحليلات"] },
+        { name: "الشركات والخدمات",   desc: "مواقع احترافية تبني الثقة وتولّد العملاء المحتملين وترسّخ السلطة في سوقك.",        tags: ["الهوية", "العملاء", "SEO"]      },
+        { name: "الصحة والعافية",      desc: "أنظمة حجز آمنة وبوابات مرضى ومواقع عيادات تُلهم الثقة والطمأنينة.",              tags: ["الحجز", "البوابات", "الخصوصية"]  },
+        { name: "العقارات",            desc: "واجهات عقارية بفلاتر متقدمة وجولات افتراضية وأدوات جذب العملاء للوكلاء والشركات.",  tags: ["الإعلانات", "الفلاتر", "الخرائط"] },
+      ],
     },
     testimonials: {
       label: "آراء العملاء", headline: "ماذا يقول عملاؤنا.",
@@ -333,6 +379,8 @@ export const translations: Record<Lang, LangTranslations> = {
         { text: "ارتفعت طلباتنا الإلكترونية بنسبة 35%+ في الشهر الأول. الموقع يعمل بسرعة فائقة والعملاء يعشقون تجربة التطبيق." },
         { text: "أنجز محمد المشروع في أقل من أسبوع. التصميم رائع وقفز ترتيبنا في Google فور الإطلاق." },
         { text: "لوحة التحكم متعددة الفروع وفّرت علينا ساعات كل أسبوع. تستحق كل درهم." },
+        { text: "تضاعف معدل التحويل في متجرنا الإلكتروني بعد إعادة البناء. تجربة الدفع سلسة وممتازة." },
+        { text: "نظام الحجز وفّر على موظفي الاستقبال ساعات يومياً. المرضى يحبون تجربة الموبايل." },
       ],
     },
     contact: {
