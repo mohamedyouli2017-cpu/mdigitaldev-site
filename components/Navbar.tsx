@@ -104,7 +104,8 @@ export default function Navbar() {
     { label: t.nav.about,     href: "#about"    },
     { label: t.nav.whyMe,     href: "#why-me"   },
     { label: t.nav.services,  href: "#services"  },
-    { label: t.nav.portfolio, href: "#portfolio" },
+    { label: t.nav.portfolio, href: "#demos"     },
+    { label: t.nav.process,   href: "#process"   },
     { label: t.nav.contact,   href: "#contact"   },
   ];
 

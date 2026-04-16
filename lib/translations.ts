@@ -45,6 +45,7 @@ export interface LangTranslations {
       comingSoonTitle: string; comingSoonDesc: string;
       backToPortfolio: string; viewAllProjects: string; startOnWhatsApp: string;
       requestBuild: string; overview: string; features: string; techStack: string;
+      ctaTitle1: string; ctaTitle2: string; ctaSub: string;
     };
   };
   process: {
@@ -74,7 +75,7 @@ export const translations: Record<Lang, LangTranslations> = {
       cta1:   "Start Your Project",
       cta2:   "View Live Demos",
       scroll: "Scroll",
-      stats:  { projects: "Conversions", pagespeed: "Operational Costs", revenue: "PWA Installs", response: "Revenue Lift" },
+      stats:  { projects: "PageSpeed Score", pagespeed: "App Ready", revenue: "Load Time", response: "SEO Optimized" },
     },
     about: {
       pill: "About Me", headline1: "The Mind Behind the", headline2: "Digital Transformation",
@@ -158,6 +159,9 @@ export const translations: Record<Lang, LangTranslations> = {
         startOnWhatsApp: "Start on WhatsApp",
         requestBuild: "Request Similar Build →",
         overview: "Overview", features: "Features", techStack: "Tech Stack",
+        ctaTitle1: "Ready to Build Something",
+        ctaTitle2: "Like This?",
+        ctaSub: "Free consultation. I respond within 24 hours.",
       },
     },
     industries: {
@@ -218,7 +222,7 @@ export const translations: Record<Lang, LangTranslations> = {
       cta1:   "Démarrer mon projet",
       cta2:   "Voir les démos",
       scroll: "Défiler",
-      stats:  { projects: "Conversions", pagespeed: "Économies opérationnelles", revenue: "Installs PWA", response: "Hausse CA" },
+      stats:  { projects: "Score PageSpeed", pagespeed: "App Prête", revenue: "Temps chargement", response: "SEO Optimisé" },
     },
     about: {
       pill: "À propos", headline1: "L'Esprit Derrière la", headline2: "Transformation Digitale",
@@ -302,6 +306,9 @@ export const translations: Record<Lang, LangTranslations> = {
         startOnWhatsApp: "Démarrer sur WhatsApp",
         requestBuild: "Demander une réalisation →",
         overview: "Aperçu", features: "Fonctionnalités", techStack: "Stack technique",
+        ctaTitle1: "Prêt à Créer Quelque Chose",
+        ctaTitle2: "Comme Ça ?",
+        ctaSub: "Consultation gratuite. Je réponds en 24 heures.",
       },
     },
     industries: {
@@ -362,7 +369,7 @@ export const translations: Record<Lang, LangTranslations> = {
       cta1:   "ابدأ مشروعك",
       cta2:   "شاهد النماذج الحية",
       scroll: "انتقل",
-      stats:  { projects: "معدل التحويل", pagespeed: "تخفيض التكاليف", revenue: "تثبيتات PWA", response: "نمو الإيرادات" },
+      stats:  { projects: "درجة PageSpeed", pagespeed: "جاهز PWA", revenue: "وقت التحميل", response: "محسّن SEO" },
     },
     about: {
       pill: "من أنا", headline1: "العقل وراء", headline2: "التحول الرقمي",
@@ -446,6 +453,9 @@ export const translations: Record<Lang, LangTranslations> = {
         startOnWhatsApp: "ابدأ عبر واتساب",
         requestBuild: "طلب مشروع مشابه ←",
         overview: "نظرة عامة", features: "الميزات", techStack: "التقنيات المستخدمة",
+        ctaTitle1: "هل أنت مستعد لبناء شيء",
+        ctaTitle2: "مثل هذا؟",
+        ctaSub: "استشارة مجانية. أرد خلال 24 ساعة.",
       },
     },
     industries: {

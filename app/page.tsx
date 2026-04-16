@@ -11,7 +11,6 @@ import {
   Palette,
   Smartphone,
   ArrowRight,
-  Star,
   CheckCircle2,
   MessageCircle,
   Mail,
@@ -31,6 +30,7 @@ import {
   Briefcase,
   Heart,
   Home as HomeIcon,
+  Rocket,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -484,60 +484,52 @@ function AboutMe() {
 ═══════════════════════════════════════════════════════════════ */
 const HERO_SLIDES = [
   {
-    img:      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=760&q=90",
-    label:    "Restaurant Website",
-    tag:      "Web Design",
-    overlay:  "from-orange-600/30 via-rose-500/10 to-purple-900/50",
-    glow:     "rgba(251,146,60,0.45)",
+    img:     "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=760&q=90",
+    en:      { label: "Restaurant Website",   tag: "Web Design",          badge: "PWA Ready"          },
+    ar:      { label: "موقع مطعم",            tag: "تصميم ويب",            badge: "جاهز PWA"            },
+    fr:      { label: "Site Restaurant",      tag: "Web Design",          badge: "PWA Prêt"            },
+    overlay: "from-orange-600/30 via-rose-500/10 to-purple-900/50",
+    glow:    "rgba(251,146,60,0.45)",
   },
   {
-    img:      "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=760&q=90",
-    label:    "Vibrant Food Photography",
-    tag:      "Visual Identity",
-    overlay:  "from-pink-600/30 via-fuchsia-400/10 to-violet-900/50",
-    glow:     "rgba(232,72,230,0.45)",
+    img:     "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=760&q=90",
+    en:      { label: "Online Store",         tag: "E-commerce",          badge: "Cart + Payments"     },
+    ar:      { label: "متجر أونلاين",          tag: "تجارة إلكترونية",      badge: "سلة + مدفوعات"       },
+    fr:      { label: "Boutique en Ligne",    tag: "E-commerce",          badge: "Panier + Paiements"  },
+    overlay: "from-violet-600/30 via-purple-400/10 to-indigo-900/50",
+    glow:    "rgba(124,58,237,0.45)",
   },
   {
-    img:      "https://images.unsplash.com/photo-1512054502232-10a0a035d672?w=760&q=90",
-    label:    "Mobile Ordering App",
-    tag:      "PWA Experience",
-    overlay:  "from-indigo-600/30 via-purple-400/10 to-violet-900/60",
-    glow:     "rgba(139,92,246,0.5)",
+    img:     "https://images.unsplash.com/photo-1497366216548-37526070297c?w=760&q=90",
+    en:      { label: "Business Website",     tag: "Corporate",           badge: "SEO Optimized"       },
+    ar:      { label: "موقع أعمال",            tag: "شركات",               badge: "محسّن SEO"            },
+    fr:      { label: "Site d'Entreprise",    tag: "Corporate",           badge: "SEO Optimisé"        },
+    overlay: "from-blue-600/30 via-sky-400/10 to-slate-900/50",
+    glow:    "rgba(59,130,246,0.45)",
   },
   {
-    img:      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=760&q=90",
-    label:    "Online Store",
-    tag:      "E-commerce Platform",
-    overlay:  "from-violet-600/30 via-purple-400/10 to-indigo-900/50",
-    glow:     "rgba(124,58,237,0.45)",
+    img:     "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=760&q=90",
+    en:      { label: "Clinic Booking",       tag: "Healthcare",          badge: "Booking Engine"      },
+    ar:      { label: "حجز عيادة",             tag: "صحة",                 badge: "محرك حجز"             },
+    fr:      { label: "Réservation Clinique", tag: "Santé",               badge: "Moteur Réservation"  },
+    overlay: "from-rose-600/30 via-pink-400/10 to-red-900/50",
+    glow:    "rgba(244,63,94,0.40)",
   },
   {
-    img:      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=760&q=90",
-    label:    "Business Identity",
-    tag:      "Corporate Website",
-    overlay:  "from-blue-600/30 via-sky-400/10 to-slate-900/50",
-    glow:     "rgba(59,130,246,0.45)",
+    img:     "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=760&q=90",
+    en:      { label: "Property Listings",    tag: "Real Estate",         badge: "Interactive Maps"    },
+    ar:      { label: "قوائم عقارية",           tag: "عقارات",              badge: "خرائط تفاعلية"        },
+    fr:      { label: "Annonces Immobilières", tag: "Immobilier",         badge: "Cartes Interactives" },
+    overlay: "from-emerald-600/30 via-green-400/10 to-teal-900/50",
+    glow:    "rgba(16,185,129,0.40)",
   },
   {
-    img:      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=760&q=90",
-    label:    "Healthcare Clinic",
-    tag:      "Booking System",
-    overlay:  "from-rose-600/30 via-pink-400/10 to-red-900/50",
-    glow:     "rgba(244,63,94,0.40)",
-  },
-  {
-    img:      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=760&q=90",
-    label:    "Property Showcase",
-    tag:      "Real Estate Listings",
-    overlay:  "from-emerald-600/30 via-green-400/10 to-teal-900/50",
-    glow:     "rgba(16,185,129,0.40)",
-  },
-  {
-    img:      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=760&q=90",
-    label:    "Admin Interface",
-    tag:      "SaaS Dashboard",
-    overlay:  "from-cyan-600/30 via-sky-400/10 to-blue-900/50",
-    glow:     "rgba(6,182,212,0.45)",
+    img:     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=760&q=90",
+    en:      { label: "Admin Dashboard",      tag: "SaaS",                badge: "Real-time Data"      },
+    ar:      { label: "لوحة تحكم",             tag: "SaaS",                badge: "بيانات حية"           },
+    fr:      { label: "Tableau de Bord",      tag: "SaaS",                badge: "Données Temps Réel"  },
+    overlay: "from-cyan-600/30 via-sky-400/10 to-blue-900/50",
+    glow:    "rgba(6,182,212,0.45)",
   },
 ];
 
@@ -547,6 +539,7 @@ const HERO_SLIDES = [
 function HeroCarousel() {
   const [active, setActive]  = useState(0);
   const [paused, setPaused]  = useState(false);
+  const { lang } = useLanguage();
 
   useEffect(() => {
     if (paused) return;
@@ -558,6 +551,7 @@ function HeroCarousel() {
   }, [paused]);
 
   const slide = HERO_SLIDES[active];
+  const slideText = lang === "ar" ? slide.ar : lang === "fr" ? slide.fr : slide.en;
 
   return (
     <div
@@ -585,7 +579,7 @@ function HeroCarousel() {
           >
             <Image
               src={slide.img}
-              alt={slide.label}
+              alt={slideText.label}
               fill
               className="object-cover"
               sizes="(max-width:1024px) 100vw, 50vw"
@@ -599,9 +593,9 @@ function HeroCarousel() {
               className="absolute bottom-5 start-5 flex items-center gap-2.5"
             >
               <span className="px-3 py-1.5 bg-black/50 backdrop-blur-md border border-white/10 text-white text-xs font-bold rounded-full tracking-wide">
-                {slide.tag}
+                {slideText.tag}
               </span>
-              <span className="text-white/60 text-xs font-medium">{slide.label}</span>
+              <span className="text-white/60 text-xs font-medium">{slideText.label}</span>
             </motion.div>
           </motion.div>
         </AnimatePresence>
@@ -636,12 +630,12 @@ function HeroCarousel() {
         transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -top-4 -end-4 sm:-end-6 bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl px-4 py-3 flex items-center gap-2.5 shadow-lg"
       >
-        <div className="w-7 h-7 bg-green-500/20 rounded-lg flex items-center justify-center">
-          <span className="text-green-400 text-sm font-black">↑</span>
+        <div className="w-7 h-7 bg-violet-500/20 rounded-lg flex items-center justify-center">
+          <span className="text-violet-400 text-sm font-black">✦</span>
         </div>
         <div>
-          <p className="text-white text-xs font-bold leading-none">+35%</p>
-          <p className="text-white/40 text-[10px] mt-0.5">Online Orders</p>
+          <p className="text-white text-xs font-bold leading-none">{slideText.badge}</p>
+          <p className="text-white/40 text-[10px] mt-0.5">{slideText.tag}</p>
         </div>
       </motion.div>
 
@@ -688,15 +682,7 @@ const SERVICES_STATIC = [
   { icon: Cloud,        price: "$4,800", oldPrice: "$6,500", suffix: "+", highlight: false },
 ];
 
-const TESTIMONIALS_STATIC = [
-  { name: "Karim B.",    role: "Owner, Bella Vista",        avatarImg: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
-  { name: "Fatima R.",   role: "Manager, Saffron Kitchen",  avatarImg: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
-  { name: "Youssef M.",  role: "CEO, Nomad Café Group",     avatarImg: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
-  { name: "Youssef A.",  role: "Founder, Aurora Store",     avatarImg: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
-  { name: "Dr. Laila M.", role: "Director, VitalCare Clinic", avatarImg: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=80&h=80&fit=crop&crop=face&q=80", rating: 5 },
-];
-
-const FILTER_VALUES = ["All", "Restaurant", "E-commerce", "Corporate", "Healthcare", "Real Estate"] as const;
+const PROCESS_ICONS = [MessageCircle, Palette, Code2, Rocket];
 
 /* ═══════════════════════════════════════════════════════════════
    PAGE
@@ -814,7 +800,7 @@ export default function Home() {
               </motion.button>
 
               <motion.button
-                onClick={() => scrollTo("#portfolio")}
+                onClick={() => scrollTo("#demos")}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-semibold text-base rounded-full border border-white/15 hover:border-white/35 hover:bg-white/5 active:scale-95 transition-all duration-200"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
@@ -828,10 +814,10 @@ export default function Home() {
               className="mt-12 inline-flex flex-wrap gap-px bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden"
             >
               {[
-                { value: "+35%", label: t.hero.stats.projects  },
-                { value: "-75%", label: t.hero.stats.pagespeed },
-                { value: "500+", label: t.hero.stats.revenue   },
-                { value: "+20%", label: t.hero.stats.response  },
+                { value: "100",  label: t.hero.stats.projects  },
+                { value: "PWA",  label: t.hero.stats.pagespeed },
+                { value: "<1s",  label: t.hero.stats.revenue   },
+                { value: "SEO",  label: t.hero.stats.response  },
               ].map((s, i, arr) => (
                 <div
                   key={s.label}
@@ -1108,9 +1094,9 @@ export default function Home() {
       </Section>
 
       {/* ╔═══════════════════════════════════════════════════════╗
-          ║  4 · PORTFOLIO — Bento Grid                         ║
+          ║  4 · LIVE DEMOS — Bento Grid                        ║
           ╚═══════════════════════════════════════════════════════╝ */}
-      <Section id="portfolio" className="py-24 sm:py-32 bg-white">
+      <Section id="demos" className="py-24 sm:py-32 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-10">
@@ -1199,6 +1185,14 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+                      {/* Coming Soon badge (always visible if status = coming-soon) */}
+                      {item.status === "coming-soon" && (
+                        <div className="absolute top-4 start-4">
+                          <span className="px-2.5 py-1 bg-black/60 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold rounded-full tracking-widest uppercase">
+                            {t.portfolio.labels.comingSoon}
+                          </span>
+                        </div>
+                      )}
                       <div className="absolute top-4 end-4 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
                         <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
                           <ExternalLink className="w-3.5 h-3.5 text-black" />
@@ -1229,49 +1223,61 @@ export default function Home() {
       </Section>
 
       {/* ╔═══════════════════════════════════════════════════════╗
-          ║  5 · TESTIMONIALS                                   ║
+          ║  5 · PROCESS                                        ║
           ╚═══════════════════════════════════════════════════════╝ */}
-      <Section className="py-24 sm:py-32 bg-[#f9f9f9]">
+      <Section id="process" className="py-24 sm:py-32 bg-[#f9f9f9]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-16">
             <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-3">
-              {t.testimonials.label}
+              {t.process.label}
             </motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">
-              {t.testimonials.headline}
+              {t.process.headline}
             </motion.h2>
+            <motion.p variants={fadeUp} custom={2} className="mt-4 text-gray-500 text-lg max-w-xl mx-auto">
+              {t.process.sub}
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {TESTIMONIALS_STATIC.map((person, i) => (
-              <motion.div
-                key={person.name}
-                variants={scaleIn}
-                custom={i * 0.1}
-                className="relative bg-white rounded-[28px] p-8 border border-gray-100 shadow-[0_2px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-              >
-                <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-                <div className="flex gap-1 mb-5">
-                  {Array.from({ length: person.rating }).map((_, j) => (
-                    <Star key={j} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
-                  &ldquo;{t.testimonials.items[i].text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="relative w-11 h-11 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-gray-100">
-                    <Image src={person.avatarImg} alt={person.name} fill className="object-cover" sizes="44px" />
+          {/* Steps grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {t.process.items.map((step, i) => {
+              const Icon = PROCESS_ICONS[i];
+              return (
+                <motion.div
+                  key={step.number}
+                  variants={scaleIn}
+                  custom={i * 0.1}
+                  className="relative bg-white rounded-[24px] p-7 border border-gray-100 shadow-[0_2px_16px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1 transition-all duration-300 group"
+                >
+                  {/* Connector line (not on last) */}
+                  {i < 3 && (
+                    <div className="hidden lg:block absolute top-11 -end-3 w-6 h-px bg-gradient-to-r from-gray-200 to-transparent z-10" />
+                  )}
+                  {/* Step number */}
+                  <span className="inline-block text-[11px] font-black tracking-[0.18em] text-gray-300 mb-4">
+                    {step.number}
+                  </span>
+                  {/* Icon */}
+                  <div className="w-11 h-11 bg-black rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <div>
-                    <p className="text-sm font-bold text-black">{person.name}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{person.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                  <h3 className="text-base font-bold text-black mb-2">{step.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+                </motion.div>
+              );
+            })}
           </div>
+
+          {/* Time note */}
+          <motion.p
+            variants={fadeUp}
+            custom={5}
+            className="text-center text-sm text-gray-400 font-medium mt-10"
+          >
+            ⚡ {t.process.timeNote}
+          </motion.p>
         </div>
       </Section>
 
