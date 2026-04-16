@@ -1259,18 +1259,15 @@ export default function Home() {
               <Zap className="w-3.5 h-3.5 text-black" fill="black" />
             </div>
             <span className="font-bold text-sm text-white">
-              Mohamed<span className="text-white/25">.dev</span>
+              MDigital<span className="text-white/25">Dev</span>
             </span>
           </div>
 
           {/* centre — made with + policy links */}
           <div className="flex flex-col items-center gap-2.5">
             <p className="text-xs text-white/20 font-medium">
-              {t.footer.madeWith}{" "}
-              <span className="text-white/50 font-semibold">Next.js</span>
-              {" "}&amp;{" "}
-              <span className="text-red-400">♥</span>
-              {" "}{t.footer.passion}
+              Developed by{" "}
+              <span className="text-white/50 font-semibold">MDigitalDev</span>
             </p>
             {/* policy links */}
             <div className="flex items-center gap-4">

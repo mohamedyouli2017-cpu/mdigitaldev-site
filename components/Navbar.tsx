@@ -143,9 +143,9 @@ export default function Navbar() {
                 onDark ? "text-white" : "text-black"
               }`}
             >
-              Mohamed
+              MDigital
               <span className={`font-light transition-colors duration-300 ${onDark ? "text-white/30" : "text-gray-400"}`}>
-                .dev
+                Dev
               </span>
             </span>
           </button>

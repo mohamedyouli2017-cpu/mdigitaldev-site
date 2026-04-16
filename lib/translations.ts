@@ -102,19 +102,19 @@ export const translations: Record<Lang, LangTranslations> = {
         {
           tier: "Starter Pack", name: "Digital Menu & Landing Page",
           desc: "A blazing-fast, beautifully designed landing page with a digital menu that replaces printed cards and drives foot traffic from Google.",
-          features: ["Responsive landing page", "Digital menu with photos", "Google Maps integration", "WhatsApp CTA button", "Basic SEO setup", "⚡ 24-Hour Delivery"],
+          features: ["Landing Page & Google Maps ($80) — high-performance single page", "Digital Menu with Photos ($50) — professional menu layout", "Basic SEO & WhatsApp Button ($20) — visibility & direct contact", "⚡ 24-Hour Delivery"],
           cta: "Get Started", waMsg: "Hello Mohamed, I want to start with the Starter Pack for my restaurant.",
         },
         {
           tier: "Professional Pack", name: "Full Restaurant System",
           desc: "Our core solution for scaling restaurants. Full Admin Dashboard & WhatsApp Automation included — complete online presence with ordering, alerts, reservations, and everything a modern restaurant needs.",
-          features: ["Everything in Starter", "Online ordering system", "⭐ Full Admin Dashboard & WhatsApp Automation", "Reservation booking", "PWA (installable app)", "Dedicated support", "3-Day Delivery"],
+          features: ["Starter Pack Inclusion ($150) — full website & SEO foundation", "Online Ordering System ($450) — advanced cart & order processing", "⭐ Admin Dashboard ($500) & WhatsApp Automation ($200)", "PWA & Reservation System ($200) — mobile app + booking", "⚡ 3-Day Delivery"],
           cta: "Most Popular", waMsg: "Hello Mohamed, I'm interested in the Professional Pack to grow my business.",
         },
         {
           tier: "Ultimate Pack", name: "SaaS / Cloud Platform",
           desc: "For multi-branch enterprises and SaaS solutions. Custom cloud platforms with multi-branch management, loyalty programs, analytics dashboards, and fully scalable architecture for ambitious brands.",
-          features: ["Everything in Professional", "Multi-branch management", "Loyalty & rewards system", "Analytics dashboard", "Custom integrations", "Dedicated support", "1-Week Delivery"],
+          features: ["Full Professional Pack ($1,500) — complete core system", "Multi-branch Management ($1,200) — manage all locations from one dashboard", "Loyalty & Rewards System ($800) — automated coupons & customer points", "Advanced Analytics ($600) — sales reports & customer behavior insights", "⭐ Dedicated VIP Support ($700) — priority updates & 24/7 assistance", "⚡ 1-Week Delivery"],
           cta: "Let's Talk", waMsg: "Hello Mohamed, I want the full Ultimate Experience for my restaurant brand.",
         },
       ],
@@ -140,7 +140,7 @@ export const translations: Record<Lang, LangTranslations> = {
       whatsapp: "WhatsApp", email: "Email",
       cta: "Start on WhatsApp — It's Free",
     },
-    footer: { madeWith: "Made with", passion: "Passion", rights: "Mohamed Youli. All rights reserved.", privacyLink: "Privacy Policy", termsLink: "Terms of Service" },
+    footer: { madeWith: "Developed by", passion: "MDigitalDev", rights: "MDigitalDev. All rights reserved.", privacyLink: "Privacy Policy", termsLink: "Terms of Service" },
   },
 
   /* ─────────────────── FRANÇAIS ─────────────────── */
@@ -203,19 +203,19 @@ export const translations: Record<Lang, LangTranslations> = {
         {
           tier: "Pack Starter", name: "Menu Digital & Landing Page",
           desc: "Une landing page ultra-rapide et magnifique avec un menu digital qui remplace les cartes imprimées et génère du trafic depuis Google.",
-          features: ["Landing page responsive", "Menu digital avec photos", "Intégration Google Maps", "Bouton WhatsApp", "SEO de base", "⚡ Livraison en 24h"],
+          features: ["Landing Page & Google Maps (80$) — page haute performance", "Menu Digital avec Photos (50$) — mise en page professionnelle", "SEO de base & Bouton WhatsApp (20$) — visibilité & contact direct", "⚡ Livraison en 24h"],
           cta: "Commencer", waMsg: "Bonjour Mohamed, je veux démarrer avec le Pack Starter pour mon restaurant.",
         },
         {
           tier: "Pack Pro", name: "Système Restaurant Complet",
           desc: "Notre solution phare pour scaler les restaurants. Dashboard Admin Complet & Automatisation WhatsApp inclus — présence en ligne totale avec commandes, alertes et réservations.",
-          features: ["Tout du Starter", "Système de commande en ligne", "⭐ Dashboard Admin Complet & Automatisation WhatsApp", "Réservation en ligne", "PWA installable", "Support dédié", "Livraison en 3 jours"],
+          features: ["Pack Starter inclus (150$) — site web & fondation SEO", "Système de commande en ligne (450$) — panier & traitement des commandes", "⭐ Dashboard Admin (500$) & Automatisation WhatsApp (200$)", "PWA & Système de réservation (200$) — app mobile + booking", "⚡ Livraison en 3 jours"],
           cta: "Le Plus Populaire", waMsg: "Bonjour Mohamed, je suis intéressé par le Pack Pro pour développer mon activité.",
         },
         {
           tier: "Pack Ultimate", name: "Plateforme SaaS / Cloud",
-          desc: "Pour les entreprises multi-établissements et les solutions SaaS. Plateformes cloud sur mesure avec gestion multi-sites, fidélité, analytics et architecture scalable.",
-          features: ["Tout du Pro", "Gestion multi-établissements", "Programme de fidélité", "Dashboard analytics", "Intégrations sur mesure", "Support dédié", "Livraison en 1 semaine"],
+          desc: "Pour les entreprises multi-établissements et les solutions SaaS. Plateformes cloud sur mesure avec gestion multi-sites, fidélité, analytics et architecture scalable pour les grandes enseignes.",
+          features: ["Pack Pro complet (1 500$) — système core complet", "Gestion multi-établissements (1 200$) — tous vos sites depuis un tableau de bord", "Programme de fidélité & récompenses (800$) — coupons & points clients", "Analytics avancés (600$) — rapports ventes & comportements clients", "⭐ Support VIP dédié (700$) — mises à jour prioritaires & assistance 24/7", "⚡ Livraison en 1 semaine"],
           cta: "Parlons-en", waMsg: "Bonjour Mohamed, je veux l'expérience Ultimate pour ma marque de restauration.",
         },
       ],
@@ -241,7 +241,7 @@ export const translations: Record<Lang, LangTranslations> = {
       whatsapp: "WhatsApp", email: "E-mail",
       cta: "Démarrer sur WhatsApp — C'est Gratuit",
     },
-    footer: { madeWith: "Fait avec", passion: "Passion", rights: "Mohamed Youli. Tous droits réservés.", privacyLink: "Politique de Confidentialité", termsLink: "Conditions d'Utilisation" },
+    footer: { madeWith: "Développé par", passion: "MDigitalDev", rights: "MDigitalDev. Tous droits réservés.", privacyLink: "Politique de Confidentialité", termsLink: "Conditions d'Utilisation" },
   },
 
   /* ─────────────────── ARABIC ─────────────────── */
@@ -342,6 +342,6 @@ export const translations: Record<Lang, LangTranslations> = {
       whatsapp: "واتساب", email: "البريد الإلكتروني",
       cta: "ابدأ عبر واتساب — مجاناً",
     },
-    footer: { madeWith: "صُنع بـ", passion: "شغف", rights: "محمد يولي. جميع الحقوق محفوظة.", privacyLink: "سياسة الخصوصية", termsLink: "شروط الخدمة" },
+    footer: { madeWith: "طُوِّر بواسطة", passion: "MDigitalDev", rights: "MDigitalDev. جميع الحقوق محفوظة.", privacyLink: "سياسة الخصوصية", termsLink: "شروط الخدمة" },
   },
 };
