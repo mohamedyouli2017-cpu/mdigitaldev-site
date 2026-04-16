@@ -3,7 +3,7 @@ export type Lang = "en" | "fr" | "ar";
 export interface LangTranslations {
   nav: {
     about: string; whyMe: string; services: string;
-    portfolio: string; contact: string; cta: string;
+    portfolio: string; process: string; contact: string; cta: string;
   };
   hero: {
     badge: string; h1a: string; h1b: string; h1c: string;
@@ -35,10 +35,21 @@ export interface LangTranslations {
     filterEcommerce: string; filterCorporate: string;
     filterHealthcare: string; filterRealEstate: string;
     empty: string; viewProject: string;
+    labels: {
+      client: string; year: string; timeline: string; category: string;
+      challenge: string; solution: string; aboutProject: string;
+      scopeOfWork: string; whatWeBuilt: string; techSpecs: string;
+      underTheHood: string; keyFeatures: string; everythingIncluded: string;
+      impact: string; realResults: string; relatedProjects: string;
+      youMightAlsoLike: string; viewDemo: string; comingSoon: string;
+      comingSoonTitle: string; comingSoonDesc: string;
+      backToPortfolio: string; viewAllProjects: string; startOnWhatsApp: string;
+      requestBuild: string; overview: string; features: string; techStack: string;
+    };
   };
-  testimonials: {
-    label: string; headline: string;
-    items: { text: string }[];
+  process: {
+    label: string; headline: string; sub: string; timeNote: string;
+    items: { number: string; title: string; desc: string }[];
   };
   contact: {
     label: string; headline1: string; headline2: string; sub: string;
@@ -52,7 +63,7 @@ export const translations: Record<Lang, LangTranslations> = {
   en: {
     nav: {
       about: "About", whyMe: "Why Me", services: "Services",
-      portfolio: "Portfolio", contact: "Contact", cta: "Start Project",
+      portfolio: "Demos", process: "Process", contact: "Contact", cta: "Start Project",
     },
     hero: {
       badge:  "Available for New Projects",
@@ -61,7 +72,7 @@ export const translations: Record<Lang, LangTranslations> = {
       h1c:    "Digital Solutions.",
       sub:    "I build blazing-fast, PWA-ready websites for restaurants, e-commerce, corporate, healthcare, and real estate — with speed, design, and tech that sets you apart.",
       cta1:   "Start Your Project",
-      cta2:   "View Portfolio",
+      cta2:   "View Live Demos",
       scroll: "Scroll",
       stats:  { projects: "Conversions", pagespeed: "Operational Costs", revenue: "PWA Installs", response: "Revenue Lift" },
     },
@@ -119,19 +130,35 @@ export const translations: Record<Lang, LangTranslations> = {
         },
         {
           tier: "Ultimate Pack", name: "SaaS / Cloud Platform",
-          desc: "For multi-branch enterprises and SaaS solutions. Custom cloud platforms with multi-branch management, loyalty programs, analytics dashboards, and fully scalable architecture for ambitious businesses.",
+          desc: "For multi-branch enterprises and SaaS solutions. Custom cloud platforms with multi-branch management, loyalty programs, analytics dashboards, and fully scalable architecture.",
           features: ["Full Professional Pack ($1,500) — complete core system", "Multi-branch Management ($1,200) — manage all locations from one dashboard", "Loyalty & Rewards System ($800) — automated coupons & customer points", "Advanced Analytics ($600) — sales reports & customer behavior insights", "⭐ Dedicated VIP Support ($700) — priority updates & 24/7 assistance", "⚡ 1-Week Delivery"],
-          cta: "Let's Talk", waMsg: "Hello Mohamed, I want the full Ultimate Experience for my restaurant brand.",
+          cta: "Let's Talk", waMsg: "Hello Mohamed, I want the full Ultimate Experience for my business.",
         },
       ],
     },
     portfolio: {
-      label: "Portfolio", headline: "Recent Work.",
-      sub: "Every project is crafted with precision, purpose, and performance as the north star.",
+      label: "LIVE DEMOS", headline: "Capabilities in Action.",
+      sub: "Interactive demos showcasing the systems I build. Click any demo to explore a fully functional prototype.",
       filterAll: "All", filterRestaurants: "Restaurants",
       filterEcommerce: "E-commerce", filterCorporate: "Corporate",
       filterHealthcare: "Healthcare", filterRealEstate: "Real Estate",
-      empty: "No projects in this category yet — check back soon!", viewProject: "View Project",
+      empty: "No demos in this category yet — check back soon!", viewProject: "View Demo",
+      labels: {
+        client: "CLIENT", year: "YEAR", timeline: "TIMELINE", category: "CATEGORY",
+        challenge: "The Challenge", solution: "The Solution",
+        aboutProject: "About the Demo", scopeOfWork: "Scope of Work", whatWeBuilt: "What We Built",
+        techSpecs: "Technical Specifications", underTheHood: "Under the Hood",
+        keyFeatures: "Key Features", everythingIncluded: "Everything Included",
+        impact: "Impact", realResults: "Real Results",
+        relatedProjects: "You Might Also Like", youMightAlsoLike: "Related Demos",
+        viewDemo: "Open Live Demo", comingSoon: "Coming Soon",
+        comingSoonTitle: "Demo Coming Soon",
+        comingSoonDesc: "This interactive demo is currently being built. Request a similar build for your business now.",
+        backToPortfolio: "All Demos", viewAllProjects: "View All Demos",
+        startOnWhatsApp: "Start on WhatsApp",
+        requestBuild: "Request Similar Build →",
+        overview: "Overview", features: "Features", techStack: "Tech Stack",
+      },
     },
     industries: {
       label: "Industries", headline: "Built for Every Business.", sub: "Specialized solutions crafted for the unique needs of each industry.",
@@ -143,14 +170,27 @@ export const translations: Record<Lang, LangTranslations> = {
         { name: "Real Estate",               desc: "Property showcases with advanced filters, virtual tours, and lead capture for agents and agencies.", tags: ["Listings", "Filters", "Maps"]   },
       ],
     },
-    testimonials: {
-      label: "Social Proof", headline: "What Clients Say.",
+    process: {
+      label: "HOW I WORK", headline: "A Proven Process, Every Time.",
+      sub: "From first message to launch — here's how your project moves forward.",
+      timeNote: "Most projects launch within 24 hours to 3 days.",
       items: [
-        { text: "Our online orders increased by +35% in the first month. The site loads instantly and customers love the app experience." },
-        { text: "Mohamed delivered in under a week. The design is stunning and our Google ranking jumped immediately after launch." },
-        { text: "The multi-branch dashboard saved us hours every week. Absolutely worth every dirham." },
-        { text: "Our conversion rate doubled after Mohamed rebuilt our e-commerce site. The checkout flow is seamless." },
-        { text: "The booking system saved our receptionists hours every day. Patients love the mobile experience." },
+        {
+          number: "01", title: "Discovery & Brief",
+          desc: "We talk on WhatsApp. I understand your business, goals, and constraints. You get a clear scope and fixed price.",
+        },
+        {
+          number: "02", title: "Design & Prototype",
+          desc: "I craft a pixel-perfect design in Figma or directly in code. You review and approve before any development.",
+        },
+        {
+          number: "03", title: "Build & Integrate",
+          desc: "Clean Next.js code, PWA-ready, SEO-optimized. WhatsApp, payments, dashboards — integrated to match your workflow.",
+        },
+        {
+          number: "04", title: "Launch & Support",
+          desc: "Deployed on fast global CDN with 100/100 PageSpeed. Post-launch support included — you're never stuck alone.",
+        },
       ],
     },
     contact: {
@@ -167,7 +207,7 @@ export const translations: Record<Lang, LangTranslations> = {
   fr: {
     nav: {
       about: "À propos", whyMe: "Pourquoi moi", services: "Services",
-      portfolio: "Portfolio", contact: "Contact", cta: "Démarrer",
+      portfolio: "Démos", process: "Processus", contact: "Contact", cta: "Démarrer",
     },
     hero: {
       badge:  "Disponible pour de nouveaux projets",
@@ -176,7 +216,7 @@ export const translations: Record<Lang, LangTranslations> = {
       h1c:    "le Digital.",
       sub:    "Je crée des sites ultra-rapides et installables pour les restaurants, e-commerce, entreprises, santé et immobilier — avec la vitesse, le design et la tech qui vous démarquent.",
       cta1:   "Démarrer mon projet",
-      cta2:   "Voir le portfolio",
+      cta2:   "Voir les démos",
       scroll: "Défiler",
       stats:  { projects: "Conversions", pagespeed: "Économies opérationnelles", revenue: "Installs PWA", response: "Hausse CA" },
     },
@@ -228,25 +268,41 @@ export const translations: Record<Lang, LangTranslations> = {
         },
         {
           tier: "Pack Pro", name: "Système Complet",
-          desc: "Notre solution phare pour scaler les entreprises. Dashboard Admin Complet & Automatisation WhatsApp inclus — présence en ligne totale avec commandes/réservations, alertes et tout ce qu'il faut à une entreprise moderne.",
+          desc: "Notre solution phare pour scaler les entreprises. Dashboard Admin Complet & Automatisation WhatsApp inclus — présence en ligne totale avec commandes/réservations, alertes et tout ce qu'il faut.",
           features: ["Pack Starter inclus (150$) — site web & fondation SEO", "Système de commande/réservation (450$) — panier & traitement avancé", "⭐ Dashboard Admin (500$) & Automatisation WhatsApp (200$)", "PWA & Système de réservation/planification (200$) — app mobile + booking", "⚡ Livraison en 3 jours"],
           cta: "Le Plus Populaire", waMsg: "Bonjour Mohamed, je suis intéressé par le Pack Pro pour développer mon activité.",
         },
         {
           tier: "Pack Ultimate", name: "Plateforme SaaS / Cloud",
-          desc: "Pour les entreprises multi-établissements et les solutions SaaS. Plateformes cloud sur mesure avec gestion multi-sites, fidélité, analytics et architecture scalable pour les entreprises ambitieuses.",
+          desc: "Pour les entreprises multi-établissements et les solutions SaaS. Plateformes cloud sur mesure avec gestion multi-sites, fidélité, analytics et architecture scalable.",
           features: ["Pack Pro complet (1 500$) — système core complet", "Gestion multi-établissements (1 200$) — tous vos sites depuis un tableau de bord", "Programme de fidélité & récompenses (800$) — coupons & points clients", "Analytics avancés (600$) — rapports ventes & comportements clients", "⭐ Support VIP dédié (700$) — mises à jour prioritaires & assistance 24/7", "⚡ Livraison en 1 semaine"],
-          cta: "Parlons-en", waMsg: "Bonjour Mohamed, je veux l'expérience Ultimate pour ma marque de restauration.",
+          cta: "Parlons-en", waMsg: "Bonjour Mohamed, je veux l'expérience Ultimate pour mon entreprise.",
         },
       ],
     },
     portfolio: {
-      label: "Portfolio", headline: "Travaux Récents.",
-      sub: "Chaque projet est conçu avec précision, intention et performance comme étoile du nord.",
+      label: "DÉMOS EN DIRECT", headline: "Les Capacités en Action.",
+      sub: "Démos interactives présentant les systèmes que je construis. Cliquez sur une démo pour explorer un prototype fonctionnel.",
       filterAll: "Tout", filterRestaurants: "Restaurants",
       filterEcommerce: "E-commerce", filterCorporate: "Corporate",
       filterHealthcare: "Santé", filterRealEstate: "Immobilier",
-      empty: "Aucun projet dans cette catégorie pour l'instant — revenez bientôt !", viewProject: "Voir le projet",
+      empty: "Aucune démo dans cette catégorie pour l'instant — revenez bientôt !", viewProject: "Voir la démo",
+      labels: {
+        client: "CLIENT", year: "ANNÉE", timeline: "DURÉE", category: "CATÉGORIE",
+        challenge: "Le Défi", solution: "La Solution",
+        aboutProject: "À propos de la démo", scopeOfWork: "Périmètre", whatWeBuilt: "Ce que nous avons construit",
+        techSpecs: "Spécifications techniques", underTheHood: "Sous le capot",
+        keyFeatures: "Fonctionnalités clés", everythingIncluded: "Tout inclus",
+        impact: "Impact", realResults: "Résultats concrets",
+        relatedProjects: "Vous pourriez aussi aimer", youMightAlsoLike: "Démos similaires",
+        viewDemo: "Ouvrir la démo", comingSoon: "Bientôt disponible",
+        comingSoonTitle: "Démo bientôt disponible",
+        comingSoonDesc: "Cette démo interactive est en cours de construction. Demandez une réalisation similaire dès maintenant.",
+        backToPortfolio: "Toutes les démos", viewAllProjects: "Voir toutes les démos",
+        startOnWhatsApp: "Démarrer sur WhatsApp",
+        requestBuild: "Demander une réalisation →",
+        overview: "Aperçu", features: "Fonctionnalités", techStack: "Stack technique",
+      },
     },
     industries: {
       label: "Secteurs", headline: "Pour Chaque Activité.", sub: "Des solutions spécialisées adaptées aux besoins uniques de chaque secteur.",
@@ -254,18 +310,31 @@ export const translations: Record<Lang, LangTranslations> = {
         { name: "Restaurants & Hôtellerie",  desc: "Menus digitaux, commandes en ligne, réservations et PWA qui fidélisent les clients.", tags: ["Menu", "Commandes", "Réservations"] },
         { name: "E-commerce & Retail",       desc: "Boutiques en ligne à fort taux de conversion avec panier, paiement intégré et tableau de bord inventaire.", tags: ["Boutique", "Paiements", "Analytics"] },
         { name: "Corporate & Services",      desc: "Sites professionnels qui inspirent confiance, génèrent des leads et établissent l'autorité sur votre marché.", tags: ["Branding", "Leads", "SEO"] },
-        { name: "Santé & Bien-être",         desc: "Systèmes de réservation conformes, portails patients et sites de cliniques qui inspirent confiance.",          tags: ["Réservation", "Portails", "Confidentialité"] },
-        { name: "Immobilier",                desc: "Vitrines de propriétés avec filtres avancés, visites virtuelles et capture de leads pour agents et agences.",  tags: ["Annonces", "Filtres", "Cartes"] },
+        { name: "Santé & Bien-être",         desc: "Systèmes de réservation conformes, portails patients et sites de cliniques qui inspirent confiance.", tags: ["Réservation", "Portails", "Confidentialité"] },
+        { name: "Immobilier",                desc: "Vitrines de propriétés avec filtres avancés, visites virtuelles et capture de leads pour agents et agences.", tags: ["Annonces", "Filtres", "Cartes"] },
       ],
     },
-    testimonials: {
-      label: "Témoignages", headline: "Ce que Disent les Clients.",
+    process: {
+      label: "MA MÉTHODE", headline: "Un Processus Éprouvé, à Chaque Fois.",
+      sub: "Du premier message au lancement — voici comment votre projet avance.",
+      timeNote: "La plupart des projets sont lancés en 24 heures à 3 jours.",
       items: [
-        { text: "Nos commandes en ligne ont augmenté de +35 % dès le premier mois. Le site charge instantanément et les clients adorent l'expérience application." },
-        { text: "Mohamed a livré en moins d'une semaine. Le design est superbe et notre classement Google a grimpé immédiatement après le lancement." },
-        { text: "Le tableau de bord multi-établissements nous a fait gagner des heures chaque semaine. Absolument rentable." },
-        { text: "Notre taux de conversion a doublé après la refonte de notre boutique en ligne par Mohamed. Le parcours d'achat est fluide." },
-        { text: "Le système de réservation a fait économiser des heures à notre équipe chaque jour. Les patients adorent l'expérience mobile." },
+        {
+          number: "01", title: "Découverte & Brief",
+          desc: "On parle sur WhatsApp. Je comprends votre activité, vos objectifs et vos contraintes. Vous obtenez un périmètre clair et un prix fixe.",
+        },
+        {
+          number: "02", title: "Design & Prototype",
+          desc: "Je crée un design pixel-perfect sur Figma ou directement en code. Vous validez avant tout développement.",
+        },
+        {
+          number: "03", title: "Développement & Intégration",
+          desc: "Code Next.js propre, PWA-ready, SEO-optimisé. WhatsApp, paiements, tableaux de bord — intégrés à votre flux de travail.",
+        },
+        {
+          number: "04", title: "Lancement & Support",
+          desc: "Déployé sur CDN mondial rapide avec PageSpeed 100/100. Support post-lancement inclus — vous n'êtes jamais seul.",
+        },
       ],
     },
     contact: {
@@ -282,7 +351,7 @@ export const translations: Record<Lang, LangTranslations> = {
   ar: {
     nav: {
       about: "من أنا", whyMe: "لماذا أنا", services: "الخدمات",
-      portfolio: "أعمالي", contact: "تواصل", cta: "ابدأ مشروعك",
+      portfolio: "النماذج", process: "طريقة العمل", contact: "تواصل", cta: "ابدأ مشروعك",
     },
     hero: {
       badge:  "متاح لمشاريع جديدة",
@@ -291,7 +360,7 @@ export const translations: Record<Lang, LangTranslations> = {
       h1c:    "الحلول الرقمية.",
       sub:    "أبني مواقع ويب فائقة السرعة وجاهزة للتطبيقات للمطاعم والتجارة الإلكترونية والشركات والرعاية الصحية والعقارات — بالسرعة والتصميم والتقنية التي تميّزك.",
       cta1:   "ابدأ مشروعك",
-      cta2:   "استعرض أعمالي",
+      cta2:   "شاهد النماذج الحية",
       scroll: "انتقل",
       stats:  { projects: "معدل التحويل", pagespeed: "تخفيض التكاليف", revenue: "تثبيتات PWA", response: "نمو الإيرادات" },
     },
@@ -351,17 +420,33 @@ export const translations: Record<Lang, LangTranslations> = {
           tier: "الباقة المتميزة", name: "منصة SaaS / سحابية",
           desc: "للمؤسسات متعددة الفروع وحلول SaaS. منصات سحابية مخصصة بإدارة متعددة المواقع وبرامج الولاء والتحليلات المتقدمة.",
           features: ["الباقة الاحترافية الكاملة ($1,500) — النظام الأساسي الشامل", "إدارة متعددة الفروع ($1,200) — إدارة جميع مواقعك من لوحة واحدة", "نظام الولاء والمكافآت ($800) — كوبونات تلقائية ونقاط العملاء", "التحليلات المتقدمة ($600) — تقارير المبيعات وسلوك العملاء", "⭐ دعم VIP مخصص ($700) — تحديثات ذات أولوية ومساعدة 24/7", "⚡ تسليم في أسبوع واحد"],
-          cta: "تحدث معنا", waMsg: "مرحباً محمد، أريد الباقة المتميزة لعلامتي التجارية.",
+          cta: "تحدث معنا", waMsg: "مرحباً محمد، أريد الباقة المتميزة لأعمالي.",
         },
       ],
     },
     portfolio: {
-      label: "أعمالي", headline: "أحدث المشاريع.",
-      sub: "كل مشروع مُصمَّم بدقة وهدف وأداء كمحور رئيسي.",
+      label: "نماذج حية", headline: "القدرات في تطبيق فعلي.",
+      sub: "نماذج تفاعلية تُبرز الأنظمة التي أبنيها. اضغط على أي نموذج لاستكشاف نموذج وظيفي متكامل.",
       filterAll: "الكل", filterRestaurants: "مطاعم",
       filterEcommerce: "تجارة إلكترونية", filterCorporate: "شركات",
       filterHealthcare: "صحة", filterRealEstate: "عقارات",
-      empty: "لا توجد مشاريع في هذه الفئة بعد — تابعنا قريباً!", viewProject: "عرض المشروع",
+      empty: "لا توجد نماذج في هذه الفئة بعد — تابعنا قريباً!", viewProject: "شاهد النموذج",
+      labels: {
+        client: "العميل", year: "السنة", timeline: "المدة", category: "الفئة",
+        challenge: "التحدي", solution: "الحل",
+        aboutProject: "عن النموذج", scopeOfWork: "نطاق العمل", whatWeBuilt: "ما بنيناه",
+        techSpecs: "المواصفات التقنية", underTheHood: "تحت الغطاء",
+        keyFeatures: "الميزات الرئيسية", everythingIncluded: "كل شيء مشمول",
+        impact: "التأثير", realResults: "نتائج حقيقية",
+        relatedProjects: "قد يعجبك أيضاً", youMightAlsoLike: "نماذج مشابهة",
+        viewDemo: "افتح النموذج الحي", comingSoon: "قريباً",
+        comingSoonTitle: "النموذج قريباً",
+        comingSoonDesc: "هذا النموذج التفاعلي قيد البناء حالياً. اطلب مشروعاً مشابهاً لأعمالك الآن.",
+        backToPortfolio: "كل النماذج", viewAllProjects: "عرض جميع النماذج",
+        startOnWhatsApp: "ابدأ عبر واتساب",
+        requestBuild: "طلب مشروع مشابه ←",
+        overview: "نظرة عامة", features: "الميزات", techStack: "التقنيات المستخدمة",
+      },
     },
     industries: {
       label: "القطاعات", headline: "لكل نوع من الأعمال.", sub: "حلول متخصصة مصممة للاحتياجات الفريدة لكل قطاع.",
@@ -373,14 +458,27 @@ export const translations: Record<Lang, LangTranslations> = {
         { name: "العقارات",            desc: "واجهات عقارية بفلاتر متقدمة وجولات افتراضية وأدوات جذب العملاء للوكلاء والشركات.",  tags: ["الإعلانات", "الفلاتر", "الخرائط"] },
       ],
     },
-    testimonials: {
-      label: "آراء العملاء", headline: "ماذا يقول عملاؤنا.",
+    process: {
+      label: "طريقة عملي", headline: "عملية مثبتة، في كل مرة.",
+      sub: "من أول رسالة إلى الإطلاق — هكذا يتقدّم مشروعك.",
+      timeNote: "معظم المشاريع تُطلق خلال 24 ساعة إلى 3 أيام.",
       items: [
-        { text: "ارتفعت طلباتنا الإلكترونية بنسبة 35%+ في الشهر الأول. الموقع يعمل بسرعة فائقة والعملاء يعشقون تجربة التطبيق." },
-        { text: "أنجز محمد المشروع في أقل من أسبوع. التصميم رائع وقفز ترتيبنا في Google فور الإطلاق." },
-        { text: "لوحة التحكم متعددة الفروع وفّرت علينا ساعات كل أسبوع. تستحق كل درهم." },
-        { text: "تضاعف معدل التحويل في متجرنا الإلكتروني بعد إعادة البناء. تجربة الدفع سلسة وممتازة." },
-        { text: "نظام الحجز وفّر على موظفي الاستقبال ساعات يومياً. المرضى يحبون تجربة الموبايل." },
+        {
+          number: "01", title: "الاستكشاف والملخص",
+          desc: "نتحدث عبر واتساب. أفهم عملك وأهدافك وقيودك. تحصل على نطاق واضح وسعر ثابت.",
+        },
+        {
+          number: "02", title: "التصميم والنموذج الأولي",
+          desc: "أصمم تصميماً دقيقاً في Figma أو مباشرة في الكود. تراجع وتوافق قبل أي تطوير.",
+        },
+        {
+          number: "03", title: "البناء والدمج",
+          desc: "كود Next.js نظيف، جاهز PWA، محسّن SEO. واتساب، مدفوعات، لوحات تحكم — مدمجة لتناسب سير عملك.",
+        },
+        {
+          number: "04", title: "الإطلاق والدعم",
+          desc: "النشر على CDN عالمي سريع مع سرعة 100/100. دعم ما بعد الإطلاق مشمول — لن تكون وحيداً.",
+        },
       ],
     },
     contact: {
