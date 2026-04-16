@@ -1155,7 +1155,7 @@ export default function Home() {
             return (
               <motion.div
                 variants={stagger}
-                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ${isBento ? "lg:[grid-auto-rows:260px]" : ""}`}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:[grid-auto-rows:280px]"
               >
                 {filtered.map((item, i) => {
                   const isColWide = isBento && (i === 0 || i === 5);
