@@ -635,9 +635,9 @@ const POWER_TRIO_STATIC = [
 const WA_BASE = "https://wa.me/212669586001?text=";
 
 const SERVICES_STATIC = [
-  { icon: Globe,        price: "$80",  oldPrice: "$150", suffix: "+", highlight: false },
-  { icon: ShoppingCart, price: "$150", oldPrice: "$400", suffix: "+", highlight: true  },
-  { icon: Cloud,        price: "$480", oldPrice: "$800", suffix: "+", highlight: false },
+  { icon: Globe,        price: "$150",   oldPrice: "$250",   suffix: "+", highlight: false },
+  { icon: ShoppingCart, price: "$1,500", oldPrice: "$2,200", suffix: "+", highlight: true  },
+  { icon: Cloud,        price: "$4,800", oldPrice: "$6,500", suffix: "+", highlight: false },
 ];
 
 const TESTIMONIALS_STATIC = [
@@ -947,12 +947,17 @@ export default function Home() {
                   <p className="text-sm leading-relaxed mb-6 text-white/40">{td.desc}</p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {td.features.map((f) => {
-                      const isDelivery = f.startsWith("⚡");
+                      const isDelivery  = f.startsWith("⚡");
+                      const isHighlight = f.startsWith("⭐");
                       return (
                         <li key={f} className="flex items-center gap-2.5 text-sm">
                           <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-400" />
                           {isDelivery ? (
                             <span className="font-semibold text-emerald-400 tracking-wide">
+                              {f}
+                            </span>
+                          ) : isHighlight ? (
+                            <span className="font-semibold text-amber-300 tracking-wide">
                               {f}
                             </span>
                           ) : (

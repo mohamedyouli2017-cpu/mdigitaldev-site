@@ -107,13 +107,13 @@ export const translations: Record<Lang, LangTranslations> = {
         },
         {
           tier: "Professional Pack", name: "Full Restaurant System",
-          desc: "Complete online presence with ordering, WhatsApp alerts, reservations, and an admin dashboard. Everything a modern restaurant needs.",
-          features: ["Everything in Starter", "Online ordering system", "WhatsApp order alerts", "Reservation booking", "Admin dashboard", "PWA (installable app)", "3-Day Delivery"],
+          desc: "Our core solution for scaling restaurants. Full Admin Dashboard & WhatsApp Automation included — complete online presence with ordering, alerts, reservations, and everything a modern restaurant needs.",
+          features: ["Everything in Starter", "Online ordering system", "⭐ Full Admin Dashboard & WhatsApp Automation", "Reservation booking", "PWA (installable app)", "Dedicated support", "3-Day Delivery"],
           cta: "Most Popular", waMsg: "Hello Mohamed, I'm interested in the Professional Pack to grow my business.",
         },
         {
           tier: "Ultimate Pack", name: "SaaS / Cloud Platform",
-          desc: "Custom cloud solutions: multi-branch management, loyalty programs, analytics dashboards, and scalable SaaS platforms for ambitious brands.",
+          desc: "For multi-branch enterprises and SaaS solutions. Custom cloud platforms with multi-branch management, loyalty programs, analytics dashboards, and fully scalable architecture for ambitious brands.",
           features: ["Everything in Professional", "Multi-branch management", "Loyalty & rewards system", "Analytics dashboard", "Custom integrations", "Dedicated support", "1-Week Delivery"],
           cta: "Let's Talk", waMsg: "Hello Mohamed, I want the full Ultimate Experience for my restaurant brand.",
         },
@@ -208,13 +208,13 @@ export const translations: Record<Lang, LangTranslations> = {
         },
         {
           tier: "Pack Pro", name: "Système Restaurant Complet",
-          desc: "Présence en ligne complète avec commande en ligne, alertes WhatsApp, réservations et dashboard admin. Tout ce qu'il faut à un restaurant moderne.",
-          features: ["Tout du Starter", "Système de commande en ligne", "Alertes WhatsApp commandes", "Réservation en ligne", "Dashboard admin", "PWA installable", "Livraison en 3 jours"],
+          desc: "Notre solution phare pour scaler les restaurants. Dashboard Admin Complet & Automatisation WhatsApp inclus — présence en ligne totale avec commandes, alertes et réservations.",
+          features: ["Tout du Starter", "Système de commande en ligne", "⭐ Dashboard Admin Complet & Automatisation WhatsApp", "Réservation en ligne", "PWA installable", "Support dédié", "Livraison en 3 jours"],
           cta: "Le Plus Populaire", waMsg: "Bonjour Mohamed, je suis intéressé par le Pack Pro pour développer mon activité.",
         },
         {
           tier: "Pack Ultimate", name: "Plateforme SaaS / Cloud",
-          desc: "Solutions cloud sur mesure : gestion multi-établissements, programmes de fidélité, dashboards analytics et plateformes SaaS scalables pour les grandes enseignes.",
+          desc: "Pour les entreprises multi-établissements et les solutions SaaS. Plateformes cloud sur mesure avec gestion multi-sites, fidélité, analytics et architecture scalable.",
           features: ["Tout du Pro", "Gestion multi-établissements", "Programme de fidélité", "Dashboard analytics", "Intégrations sur mesure", "Support dédié", "Livraison en 1 semaine"],
           cta: "Parlons-en", waMsg: "Bonjour Mohamed, je veux l'expérience Ultimate pour ma marque de restauration.",
         },
