@@ -25,7 +25,7 @@ const securityHeaders = [
       "connect-src 'self' https://wa.me",
       "media-src 'none'",
       "object-src 'none'",
-      "frame-src 'none'",
+      "frame-src https://www.google.com https://maps.google.com",
       "base-uri 'self'",
       "form-action 'self'",
       "frame-ancestors 'none'",
