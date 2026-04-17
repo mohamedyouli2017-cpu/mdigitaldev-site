@@ -252,8 +252,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Next.js", "Cart", "Payments"],
     client:   "Live Demo",
     year:     "2025",
-    timeline: "Coming Soon",
-    status:   "coming-soon",
+    timeline: "2025",
+    status:   "live",
+    liveUrl:  "https://novashope.netlify.app",
 
     description:
       "A complete online store demo — product catalog, add to cart, checkout flow, and order confirmation. Designed to showcase the conversion-optimized UX that turns browsers into buyers.",
