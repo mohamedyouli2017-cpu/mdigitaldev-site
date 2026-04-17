@@ -138,8 +138,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Next.js", "PWA", "Ordering"],
     client:   "Live Demo",
     year:     "2025",
-    timeline: "Coming Soon",
-    status:   "coming-soon",
+    timeline: "Live",
+    liveUrl:  "https://daralyasmine.netlify.app",
+    status:   "live",
 
     description:
       "A fully functional restaurant ordering experience — digital menu, live cart, WhatsApp order notifications, and PWA install. Built with Next.js 14 to demonstrate the complete ordering flow your customers would use.",
