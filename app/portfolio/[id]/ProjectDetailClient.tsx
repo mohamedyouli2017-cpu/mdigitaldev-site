@@ -393,7 +393,7 @@ function ComingSoonView({ project, related }: { project: PortfolioProject; relat
       {/* ── Footer ── */}
       <footer className="bg-[#080808] border-t border-white/[0.06] py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <Link href="/" className="text-xs text-white/30 hover:text-white/60 transition-colors font-medium">
+          <Link href="/#demos" className="text-xs text-white/30 hover:text-white/60 transition-colors font-medium">
             ← MDigitalDev
           </Link>
           <p className="text-xs text-white/20">
@@ -905,7 +905,7 @@ export default function ProjectDetailClient({
       <footer className="bg-[#080808] border-t border-white/[0.06] py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <Link
-            href="/"
+            href="/#demos"
             className="text-xs text-white/30 hover:text-white/60 transition-colors font-medium"
           >
             ← MDigitalDev

@@ -20,13 +20,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   function setLang(l: Lang) {
     setLangState(l);
+    localStorage.setItem("lang", l);
     document.documentElement.lang = l;
     document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
   }
 
   useEffect(() => {
-    document.documentElement.lang = "en";
-    document.documentElement.dir = "ltr";
+    const saved = localStorage.getItem("lang") as Lang | null;
+    const initial: Lang = saved === "fr" || saved === "ar" ? saved : "en";
+    setLangState(initial);
+    document.documentElement.lang = initial;
+    document.documentElement.dir = initial === "ar" ? "rtl" : "ltr";
   }, []);
 
   return (
