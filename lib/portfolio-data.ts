@@ -366,8 +366,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Next.js", "SEO", "Lead Gen"],
     client:   "Live Demo",
     year:     "2025",
-    timeline: "Coming Soon",
-    status:   "coming-soon",
+    timeline: "Live",
+    liveUrl:  "https://strategicgrowth.netlify.app",
+    status:   "live",
 
     description:
       "A high-converting corporate landing page — hero section, services showcase, team profiles, case studies, and a lead capture form. SEO-optimized and built to generate qualified leads from day one.",
