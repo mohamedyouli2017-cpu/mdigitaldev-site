@@ -35,6 +35,7 @@ import {
   ExternalLink,
   Clock,
 } from "lucide-react";
+import { getProjectLocale } from "@/lib/portfolio-data";
 import type { PortfolioProject } from "@/lib/portfolio-data";
 import { MagneticWrapper } from "@/components/MagneticCursor";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -102,7 +103,8 @@ function Section({
    RELATED PROJECT CARD
 ───────────────────────────────────────────────────────────────────────────── */
 function RelatedCard({ project, index }: { project: PortfolioProject; index: number }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const localProject = getProjectLocale(project, lang);
   return (
     <motion.div variants={scaleIn} custom={index * 0.1}>
       <Link
@@ -127,10 +129,10 @@ function RelatedCard({ project, index }: { project: PortfolioProject; index: num
         </div>
         <div className="p-5 bg-white">
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400 mb-1.5">
-            {project.category}
+            {localProject.category}
           </p>
           <h4 className="text-base font-bold text-black mb-3 group-hover:text-gray-700 transition-colors">
-            {project.title}
+            {localProject.title}
           </h4>
           <div className="flex flex-wrap gap-1.5">
             {project.tags.slice(0, 3).map((tag) => (
@@ -152,8 +154,9 @@ function RelatedCard({ project, index }: { project: PortfolioProject; index: num
    COMING SOON VIEW
 ───────────────────────────────────────────────────────────────────────────── */
 function ComingSoonView({ project, related }: { project: PortfolioProject; related: PortfolioProject[] }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const L = t.portfolio.labels;
+  const localProject = getProjectLocale(project, lang);
   const openWhatsApp = () => window.open("https://wa.me/212669586001", "_blank");
   const heroAlt = `${project.title} — ${project.category} demo by MDigitalDev`;
 
@@ -204,12 +207,12 @@ function ComingSoonView({ project, related }: { project: PortfolioProject; relat
               {L.comingSoon}
             </span>
             <span className="px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/15 text-white/70 text-xs font-bold rounded-full tracking-widest uppercase">
-              {project.category}
+              {localProject.category}
             </span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.04] mb-6">
-            {project.title}
+            {localProject.title}
           </h1>
 
           <div className="flex flex-wrap gap-2">
@@ -236,7 +239,7 @@ function ComingSoonView({ project, related }: { project: PortfolioProject; relat
                 {L.overview}
               </p>
               <p className="text-xl text-gray-700 leading-relaxed font-medium mb-8">
-                {project.description}
+                {localProject.description}
               </p>
 
               {/* Features */}
@@ -244,7 +247,7 @@ function ComingSoonView({ project, related }: { project: PortfolioProject; relat
                 {L.features}
               </p>
               <ul className="space-y-2.5">
-                {project.features.map((f) => (
+                {localProject.features.map((f) => (
                   <li key={f.title} className="flex items-start gap-2.5 text-sm text-gray-600">
                     <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                     <span><strong className="text-black">{f.title}</strong> — {f.desc}</span>
@@ -259,7 +262,7 @@ function ComingSoonView({ project, related }: { project: PortfolioProject; relat
                 {L.techStack}
               </p>
               <div className="space-y-4 mb-10">
-                {project.techSpecs.map((spec) => (
+                {localProject.techSpecs.map((spec) => (
                   <div key={spec.category}>
                     <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-2">
                       {spec.category}
@@ -412,8 +415,9 @@ export default function ProjectDetailClient({
   project: PortfolioProject;
   related: PortfolioProject[];
 }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const L = t.portfolio.labels;
+  const localProject = getProjectLocale(project, lang);
 
   /* Route coming-soon demos to the simplified view */
   if (project.status === "coming-soon") {
@@ -473,11 +477,11 @@ export default function ProjectDetailClient({
             transition={{ duration: 0.55, delay: 0.45 }}
             className="inline-block px-3 py-1.5 mb-5 bg-white/10 backdrop-blur-sm border border-white/15 text-white/70 text-xs font-bold rounded-full tracking-widest uppercase"
           >
-            {project.category}
+            {localProject.category}
           </motion.span>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.04] mb-6">
-            {project.title}
+            {localProject.title}
           </h1>
 
           <div className="flex flex-wrap gap-2">
@@ -508,7 +512,7 @@ export default function ProjectDetailClient({
               { label: L.client,   value: project.client   },
               { label: L.year,     value: project.year     },
               { label: L.timeline, value: project.timeline },
-              { label: L.category, value: project.category },
+              { label: L.category, value: localProject.category },
             ].map((item) => (
               <div key={item.label}>
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/25 mb-1.5">
@@ -537,7 +541,7 @@ export default function ProjectDetailClient({
                 </p>
               </div>
               <p className="text-lg sm:text-xl text-gray-700 leading-relaxed font-medium">
-                {project.challenge}
+                {localProject.challenge}
               </p>
             </motion.div>
 
@@ -551,7 +555,7 @@ export default function ProjectDetailClient({
                 </p>
               </div>
               <p className="text-lg sm:text-xl text-gray-700 leading-relaxed font-medium">
-                {project.solution}
+                {localProject.solution}
               </p>
             </motion.div>
           </div>
@@ -574,7 +578,7 @@ export default function ProjectDetailClient({
             custom={1}
             className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-medium"
           >
-            {project.description}
+            {localProject.description}
           </motion.p>
         </div>
       </Section>
@@ -582,7 +586,7 @@ export default function ProjectDetailClient({
       {/* ══════════════════════════════════════════════════════
           SCOPE OF WORK
       ══════════════════════════════════════════════════════ */}
-      {project.scope.length > 0 && (
+      {localProject.scope.length > 0 && (
         <Section className="py-20 sm:py-28 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
@@ -602,7 +606,7 @@ export default function ProjectDetailClient({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {project.scope.map((s, i) => {
+              {localProject.scope.map((s, i) => {
                 const Icon = ICON_MAP[s.icon] ?? Zap;
                 return (
                   <motion.div
@@ -634,7 +638,7 @@ export default function ProjectDetailClient({
       {/* ══════════════════════════════════════════════════════
           TECH STACK
       ══════════════════════════════════════════════════════ */}
-      {project.techSpecs.length > 0 && (
+      {localProject.techSpecs.length > 0 && (
         <Section className="py-20 sm:py-28 bg-[#080808] overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
@@ -654,7 +658,7 @@ export default function ProjectDetailClient({
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {project.techSpecs.map((spec, i) => (
+              {localProject.techSpecs.map((spec, i) => (
                 <motion.div
                   key={spec.category}
                   variants={scaleIn}
@@ -682,7 +686,7 @@ export default function ProjectDetailClient({
       {/* ══════════════════════════════════════════════════════
           KEY FEATURES
       ══════════════════════════════════════════════════════ */}
-      {project.features.length > 0 && (
+      {localProject.features.length > 0 && (
         <Section className="py-20 sm:py-28 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
@@ -702,7 +706,7 @@ export default function ProjectDetailClient({
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {project.features.map((f, i) => {
+              {localProject.features.map((f, i) => {
                 const Icon = ICON_MAP[f.icon] ?? Zap;
                 return (
                   <motion.div
@@ -729,7 +733,7 @@ export default function ProjectDetailClient({
       {/* ══════════════════════════════════════════════════════
           RESULTS
       ══════════════════════════════════════════════════════ */}
-      {project.results.length > 0 && (
+      {localProject.results.length > 0 && (
         <Section className="relative py-20 sm:py-28 bg-[#080808] overflow-hidden">
           <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
             <div className="absolute top-0 left-1/4  w-[500px] h-[500px] bg-violet-600/[0.05] rounded-full blur-[120px]" />
@@ -762,7 +766,7 @@ export default function ProjectDetailClient({
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-              {project.results.map((r, i) => (
+              {localProject.results.map((r, i) => (
                 <motion.div
                   key={r.label}
                   variants={scaleIn}

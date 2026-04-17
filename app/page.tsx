@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { PORTFOLIO_PROJECTS } from "@/lib/portfolio-data";
+import { PORTFOLIO_PROJECTS, getProjectLocale } from "@/lib/portfolio-data";
 
 import {
   Zap,
@@ -1160,6 +1160,7 @@ export default function Home() {
                 {filtered.map((item, i) => {
                   const isColWide = isBento && (i === 0 || i === 5);
                   const isRowTall = isBento && i === 1;
+                  const localItem = getProjectLocale(item, lang);
 
                   return (
                     <MotionLink
@@ -1200,8 +1201,8 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="absolute bottom-0 inset-x-0 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
-                        <p className="text-white/50 text-[11px] font-bold uppercase tracking-widest mb-1">{item.category}</p>
-                        <h3 className="text-white font-bold text-lg leading-tight mb-2.5">{item.title}</h3>
+                        <p className="text-white/50 text-[11px] font-bold uppercase tracking-widest mb-1">{localItem.category}</p>
+                        <h3 className="text-white font-bold text-lg leading-tight mb-2.5">{localItem.title}</h3>
                         <div className="flex flex-wrap gap-1.5">
                           {item.tags.map((tag) => (
                             <span
