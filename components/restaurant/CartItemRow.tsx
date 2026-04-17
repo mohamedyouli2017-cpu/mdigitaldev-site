@@ -14,7 +14,7 @@ export default function CartItemRow({ cartItem }: Props) {
   const { lang } = useLanguage();
   const t = useRT();
 
-  const name = lang === "ar" ? item.nameAr : item.nameEn;
+  const name = lang === "ar" ? item.nameAr : lang === "fr" ? item.nameFr : item.nameEn;
 
   return (
     <motion.div

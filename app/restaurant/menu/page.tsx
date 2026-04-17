@@ -77,7 +77,7 @@ export default function MenuPage() {
                               }`}
                 >
                   <span>{cat.icon}</span>
-                  <span>{lang === "ar" ? cat.labelAr : cat.labelEn}</span>
+                  <span>{lang === "ar" ? cat.labelAr : lang === "fr" ? cat.labelFr : cat.labelEn}</span>
                 </button>
               );
             })}
@@ -95,7 +95,7 @@ export default function MenuPage() {
         >
           <span className="text-2xl">{activeCategory.icon}</span>
           <h2 className="font-playfair text-2xl font-bold text-r-cream">
-            {lang === "ar" ? activeCategory.labelAr : activeCategory.labelEn}
+            {lang === "ar" ? activeCategory.labelAr : lang === "fr" ? activeCategory.labelFr : activeCategory.labelEn}
           </h2>
           <span className="text-r-cream/30 text-sm">
             ({filtered.length} items)

@@ -33,6 +33,7 @@ export default function ReservePage() {
   const [guests, setGuests]             = useState(2);
   const [name, setName]                 = useState("");
   const [phone, setPhone]               = useState("");
+  const [notes, setNotes]               = useState("");
   const [submitted, setSubmitted]       = useState(false);
 
   const days = useMemo(() => getNext14Days(), []);
@@ -55,6 +56,7 @@ export default function ReservePage() {
       "━━━━━━━━━━━━━━━",
       `👤 Name: ${name}`,
       `📱 Phone: ${phone}`,
+      ...(notes.trim() ? [`📝 Notes: ${notes}`] : []),
     ].join("\n");
 
     window.open(
@@ -85,7 +87,7 @@ export default function ReservePage() {
           <h1 className="font-playfair text-2xl font-bold text-r-cream mb-2">{t.reserve.successTitle}</h1>
           <p className="text-r-cream/50 mb-8">{t.reserve.successMsg}</p>
           <button
-            onClick={() => { setSubmitted(false); setSelectedDate(null); setSelectedTime(null); setName(""); setPhone(""); }}
+            onClick={() => { setSubmitted(false); setSelectedDate(null); setSelectedTime(null); setName(""); setPhone(""); setNotes(""); }}
             className="inline-block px-8 py-3 rounded-full bg-r-gold text-r-charcoal
                        font-semibold hover:bg-r-gold-light transition-colors"
           >
@@ -276,6 +278,21 @@ export default function ReservePage() {
               placeholder="+212 6XX XXX XXX"
               className="w-full bg-r-charcoal border border-white/10 rounded-xl px-4 py-3
                          text-r-cream text-sm placeholder:text-r-cream/20
+                         focus:outline-none focus:border-r-gold/50 transition-colors"
+            />
+          </div>
+
+          <div>
+            <label className="block text-r-cream/60 text-xs mb-1.5 font-medium uppercase tracking-wide">
+              {t.reserve.specialRequests}
+            </label>
+            <textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              rows={3}
+              placeholder="Allergies, celebrations, seating preferences..."
+              className="w-full bg-r-charcoal border border-white/10 rounded-xl px-4 py-3
+                         text-r-cream text-sm placeholder:text-r-cream/20 resize-none
                          focus:outline-none focus:border-r-gold/50 transition-colors"
             />
           </div>

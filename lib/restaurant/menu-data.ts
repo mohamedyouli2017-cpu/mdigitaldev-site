@@ -3,8 +3,10 @@ export type MenuCategory = "starters" | "mains" | "desserts" | "drinks";
 export type MenuItem = {
   id: string;
   nameEn: string;
+  nameFr: string;
   nameAr: string;
   descEn: string;
+  descFr: string;
   descAr: string;
   price: number;
   category: MenuCategory;
@@ -16,8 +18,10 @@ export const menuItems: MenuItem[] = [
   {
     id: "harira",
     nameEn: "Harira",
+    nameFr: "Harira",
     nameAr: "حريرة",
     descEn: "Traditional Moroccan tomato & lentil soup, spiced with cumin and fresh coriander",
+    descFr: "Soupe marocaine traditionnelle aux tomates et lentilles, épicée au cumin et coriandre fraîche",
     descAr: "شوربة مغربية تقليدية بالطماطم والعدس، متبّلة بالكمون والكزبرة الطازجة",
     price: 25,
     category: "starters",
@@ -26,8 +30,10 @@ export const menuItems: MenuItem[] = [
   {
     id: "briouats",
     nameEn: "Briouats",
+    nameFr: "Briouats",
     nameAr: "بريوات",
     descEn: "Crispy phyllo triangles filled with spiced minced meat and toasted almonds",
+    descFr: "Triangles de pâte filo croustillants farcis de viande hachée épicée et d'amandes grillées",
     descAr: "مثلثات ورقة هشة محشوة باللحم المفروم المتبّل واللوز المحمص",
     price: 35,
     category: "starters",
@@ -36,20 +42,36 @@ export const menuItems: MenuItem[] = [
   {
     id: "zaalouk",
     nameEn: "Zaalouk",
+    nameFr: "Zaalouk",
     nameAr: "زعلوك",
     descEn: "Smoky roasted eggplant and tomato salad with olive oil and Moroccan spices",
+    descFr: "Salade d'aubergines rôties fumées et tomates à l'huile d'olive et épices marocaines",
     descAr: "سلطة الباذنجان المشوي والطماطم بزيت الزيتون والتوابل المغربية",
     price: 20,
     category: "starters",
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
   },
+  {
+    id: "taktouka",
+    nameEn: "Taktouka",
+    nameFr: "Taktouka",
+    nameAr: "تكتوكة",
+    descEn: "Roasted pepper and tomato salad with garlic and cumin — a classic Moroccan starter",
+    descFr: "Salade de poivrons et tomates grillés à l'ail et au cumin — un classique marocain",
+    descAr: "سلطة الفلفل والطماطم المشوية مع الثوم والكمون — مقبّل مغربي كلاسيكي",
+    price: 22,
+    category: "starters",
+    image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80",
+  },
 
   // ── Mains ─────────────────────────────────────────────────────────────────
   {
     id: "tajine-chicken",
-    nameEn: "Tajine Chicken",
+    nameEn: "Chicken Tajine",
+    nameFr: "Tajine de Poulet",
     nameAr: "طاجين الدجاج",
     descEn: "Slow-cooked chicken tajine with preserved lemon, green olives, and saffron",
+    descFr: "Tajine de poulet mijoté avec citron confit, olives vertes et safran",
     descAr: "طاجين دجاج مطهو ببطء مع الليمون المعصفر والزيتون الأخضر والزعفران",
     price: 75,
     category: "mains",
@@ -58,8 +80,10 @@ export const menuItems: MenuItem[] = [
   {
     id: "couscous-royal",
     nameEn: "Couscous Royal",
+    nameFr: "Couscous Royal",
     nameAr: "كسكس ملكي",
     descEn: "Fluffy hand-rolled couscous with seven vegetables, merguez, and tender lamb",
+    descFr: "Couscous léger roulé à la main avec sept légumes, merguez et agneau tendre",
     descAr: "كسكس خفيف محضّر باليد مع سبعة خضروات ومرقاز وخروف طري",
     price: 85,
     category: "mains",
@@ -68,8 +92,10 @@ export const menuItems: MenuItem[] = [
   {
     id: "pastilla",
     nameEn: "Pastilla",
+    nameFr: "Pastilla",
     nameAr: "بسطيلة",
     descEn: "Layered pigeon pie with almonds, cinnamon, and eggs, dusted with powdered sugar",
+    descFr: "Tourte feuilletée au pigeon avec amandes, cannelle et œufs, saupoudrée de sucre glace",
     descAr: "بسطيلة طبقات من الحمام واللوز والقرفة والبيض، مزيّنة بالسكر الناعم",
     price: 65,
     category: "mains",
@@ -78,20 +104,48 @@ export const menuItems: MenuItem[] = [
   {
     id: "grilled-kefta",
     nameEn: "Grilled Kefta",
+    nameFr: "Kefta Grillée",
     nameAr: "كفتة مشوية",
     descEn: "Seasoned minced lamb skewers grilled over charcoal, served with harissa and warm bread",
+    descFr: "Brochettes d'agneau haché assaisonné grillées au charbon, servies avec harissa et pain chaud",
     descAr: "أسياخ لحم ضأن مفروم ومتبّل مشوية على الفحم، مقدّمة مع الهريسة والخبز الدافئ",
     price: 55,
     category: "mains",
     image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80",
+  },
+  {
+    id: "tajine-lamb",
+    nameEn: "Lamb Tajine",
+    nameFr: "Tajine d'Agneau",
+    nameAr: "طاجين لحم الغنم",
+    descEn: "Tender lamb shoulder slow-cooked with prunes, almonds, sesame and honey-cinnamon glaze",
+    descFr: "Épaule d'agneau tendre mijotée avec pruneaux, amandes, sésame et glaçage miel-cannelle",
+    descAr: "كتف لحم الغنم المطبوخ ببطء مع البرقوق واللوز والسمسم وصلصة العسل والقرفة",
+    price: 90,
+    category: "mains",
+    image: "https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80",
+  },
+  {
+    id: "rfissa",
+    nameEn: "Rfissa",
+    nameFr: "Rfissa",
+    nameAr: "رفيسة",
+    descEn: "Shredded msemen bread with lentil sauce, pulled chicken, and fenugreek — a Moroccan comfort classic",
+    descFr: "Pain msemen effiloché avec sauce aux lentilles, poulet effiloché et fenugrec — un classique réconfortant",
+    descAr: "خبز المسمن المفتت مع مرق العدس والدجاج المفروم والحلبة — طبق مغربي دافئ كلاسيكي",
+    price: 70,
+    category: "mains",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80",
   },
 
   // ── Desserts ──────────────────────────────────────────────────────────────
   {
     id: "chebakia",
     nameEn: "Chebakia",
+    nameFr: "Chebakia",
     nameAr: "شباكية",
     descEn: "Flower-shaped fried pastry soaked in honey and toasted sesame — a Ramadan classic",
+    descFr: "Pâtisserie frite en forme de fleur imbibée de miel et sésame grillé — un incontournable du Ramadan",
     descAr: "معجنات مقلية على شكل زهرة مغطاة بالعسل والسمسم المحمص — كلاسيكية رمضانية",
     price: 30,
     category: "desserts",
@@ -100,8 +154,10 @@ export const menuItems: MenuItem[] = [
   {
     id: "mint-tea",
     nameEn: "Moroccan Mint Tea",
+    nameFr: "Thé à la Menthe",
     nameAr: "أتاي",
     descEn: "Green tea poured from height with fresh mint leaves and sugar cones, served in a traditional teapot",
+    descFr: "Thé vert versé de haut avec feuilles de menthe fraîche et sucre, servi dans une théière traditionnelle",
     descAr: "شاي أخضر يُصب من علو مع أوراق النعناع الطازجة وقوالب السكر، مقدّم في إبريق تقليدي",
     price: 15,
     category: "desserts",
@@ -109,21 +165,37 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: "orange-cinnamon",
-    nameEn: "Orange Cinnamon",
+    nameEn: "Orange & Cinnamon",
+    nameFr: "Orange & Cannelle",
     nameAr: "برتقال بالقرفة",
     descEn: "Fresh orange slices with cinnamon, orange blossom water, and fresh mint leaves",
+    descFr: "Tranches d'orange fraîches à la cannelle, eau de fleur d'oranger et feuilles de menthe",
     descAr: "شرائح برتقال طازجة بالقرفة وماء الزهر وأوراق النعناع الطازجة",
     price: 20,
     category: "desserts",
     image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80",
+  },
+  {
+    id: "baghrir",
+    nameEn: "Baghrir",
+    nameFr: "Baghrir",
+    nameAr: "بغرير",
+    descEn: "Thousand-hole semolina pancakes drizzled with honey-butter sauce — soft, spongy, irresistible",
+    descFr: "Crêpes de semoule aux mille trous nappées de sauce miel-beurre — moelleuses et irrésistibles",
+    descAr: "كريب السميد بألف ثقب مع صلصة العسل والزبدة — طرية وإسفنجية ولا تُقاوم",
+    price: 25,
+    category: "desserts",
+    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80",
   },
 
   // ── Drinks ────────────────────────────────────────────────────────────────
   {
     id: "orange-juice",
     nameEn: "Fresh Orange Juice",
+    nameFr: "Jus d'Orange Frais",
     nameAr: "عصير البرتقال الطازج",
     descEn: "Freshly squeezed Moroccan oranges, served chilled",
+    descFr: "Oranges marocaines fraîchement pressées, servies fraîches",
     descAr: "عصير البرتقال المغربي الطازج، مقدّم بارداً",
     price: 20,
     category: "drinks",
@@ -132,8 +204,10 @@ export const menuItems: MenuItem[] = [
   {
     id: "avocado-smoothie",
     nameEn: "Avocado Smoothie",
+    nameFr: "Smoothie Avocat",
     nameAr: "عصير الأفوكادو",
     descEn: "Creamy avocado blended with fresh milk, honey, and a hint of vanilla",
+    descFr: "Avocat crémeux mixé avec lait frais, miel et une touche de vanille",
     descAr: "أفوكادو كريمي مخلوط بالحليب الطازج والعسل ورائحة الفانيليا",
     price: 25,
     category: "drinks",
@@ -142,18 +216,32 @@ export const menuItems: MenuItem[] = [
   {
     id: "water",
     nameEn: "Mineral Water",
+    nameFr: "Eau Minérale",
     nameAr: "ماء معدني",
     descEn: "Chilled still or sparkling mineral water",
+    descFr: "Eau minérale plate ou gazeuse bien fraîche",
     descAr: "ماء معدني طبيعي أو فوار بارد",
     price: 10,
     category: "drinks",
     image: "https://images.unsplash.com/photo-1548445929-4f60a497f851?w=600&q=80",
   },
+  {
+    id: "almond-milk",
+    nameEn: "Almond Milk",
+    nameFr: "Lait d'Amande",
+    nameAr: "حليب اللوز",
+    descEn: "Homemade almond milk with orange blossom water and a hint of cinnamon",
+    descFr: "Lait d'amande maison à l'eau de fleur d'oranger et une touche de cannelle",
+    descAr: "حليب اللوز المنزلي بماء الزهر ولمسة من القرفة",
+    price: 22,
+    category: "drinks",
+    image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&q=80",
+  },
 ];
 
 export const categories = [
-  { id: "starters" as MenuCategory, labelEn: "Starters",     labelAr: "المقبلات",           icon: "🥗" },
-  { id: "mains"    as MenuCategory, labelEn: "Main Course",  labelAr: "الأطباق الرئيسية",   icon: "🍽️" },
-  { id: "desserts" as MenuCategory, labelEn: "Desserts",     labelAr: "الحلويات والمشروبات", icon: "🍮" },
-  { id: "drinks"   as MenuCategory, labelEn: "Drinks",       labelAr: "المشروبات",           icon: "🧃" },
+  { id: "starters" as MenuCategory, labelEn: "Starters",     labelFr: "Entrées",              labelAr: "المقبلات",           icon: "🥗" },
+  { id: "mains"    as MenuCategory, labelEn: "Main Course",  labelFr: "Plats Principaux",     labelAr: "الأطباق الرئيسية",   icon: "🍽️" },
+  { id: "desserts" as MenuCategory, labelEn: "Desserts",     labelFr: "Desserts",             labelAr: "الحلويات",            icon: "🍮" },
+  { id: "drinks"   as MenuCategory, labelEn: "Drinks",       labelFr: "Boissons",             labelAr: "المشروبات",           icon: "🧃" },
 ] as const;

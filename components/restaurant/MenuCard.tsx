@@ -20,8 +20,8 @@ export default function MenuCard({ item }: Props) {
   const cartItem = items.find((ci) => ci.item.id === item.id);
   const qty = cartItem?.quantity ?? 0;
 
-  const name = lang === "ar" ? item.nameAr : item.nameEn;
-  const desc = lang === "ar" ? item.descAr : item.descEn;
+  const name = lang === "ar" ? item.nameAr : lang === "fr" ? item.nameFr : item.nameEn;
+  const desc = lang === "ar" ? item.descAr : lang === "fr" ? item.descFr : item.descEn;
 
   function handleAdd() {
     addItem(item);

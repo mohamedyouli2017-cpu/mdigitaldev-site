@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRestaurantCart } from "@/context/RestaurantCartContext";
 import { useRT } from "@/lib/restaurant/translations";
+import { useLanguage } from "@/contexts/LanguageContext";
 import CartItemRow from "@/components/restaurant/CartItemRow";
 
 type OrderType = "dine-in" | "delivery";
@@ -17,10 +18,14 @@ function buildWhatsAppMessage(
   tableOrAddress: string,
   total: number,
   deliveryFee: number,
-  madLabel: string
+  madLabel: string,
+  lang: string
 ) {
   const lineItems = items
-    .map((ci) => `• ${ci.quantity}× ${ci.item.nameEn} — ${ci.item.price * ci.quantity} ${madLabel}`)
+    .map((ci) => {
+      const itemName = lang === "ar" ? ci.item.nameAr : lang === "fr" ? ci.item.nameFr : ci.item.nameEn;
+      return `• ${ci.quantity}× ${itemName} — ${ci.item.price * ci.quantity} ${madLabel}`;
+    })
     .join("\n");
 
   const lines = [
@@ -45,6 +50,7 @@ function buildWhatsAppMessage(
 export default function CartPage() {
   const { items, totalItems, totalPrice, clearCart } = useRestaurantCart();
   const t = useRT();
+  const { lang } = useLanguage();
 
   const [orderType, setOrderType]   = useState<OrderType>("dine-in");
   const [name, setName]             = useState("");
@@ -59,7 +65,7 @@ export default function CartPage() {
 
     const msg = buildWhatsAppMessage(
       items, orderType, name, phone, tableOrAddr,
-      totalPrice, DELIVERY_FEE, t.common.mad
+      totalPrice, DELIVERY_FEE, t.common.mad, lang
     );
     window.open(`https://wa.me/212669586001?text=${msg}`, "_blank", "noopener,noreferrer");
     setSubmitted(true);
@@ -253,16 +259,19 @@ export default function CartPage() {
 
               {/* Line items summary */}
               <div className="space-y-2">
-                {items.map((ci) => (
+                {items.map((ci) => {
+                  const itemName = lang === "ar" ? ci.item.nameAr : lang === "fr" ? ci.item.nameFr : ci.item.nameEn;
+                  return (
                   <div key={ci.item.id} className="flex justify-between text-sm">
                     <span className="text-r-cream/60 truncate max-w-[160px]">
-                      {ci.quantity}× {ci.item.nameEn}
+                      {ci.quantity}× {itemName}
                     </span>
                     <span className="text-r-cream font-medium flex-shrink-0 ms-2">
                       {ci.item.price * ci.quantity} {t.common.mad}
                     </span>
                   </div>
-                ))}
+                  );
+                })}
               </div>
 
               <div className="border-t border-white/5 pt-4 space-y-2">

@@ -1,22 +1,39 @@
 "use client";
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import type { Lang } from "@/lib/translations";
+
+const LANGS: { code: Lang; label: string }[] = [
+  { code: "en", label: "EN" },
+  { code: "fr", label: "FR" },
+  { code: "ar", label: "ع"  },
+];
 
 export default function LanguageToggle() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <button
-      onClick={() => setLang(lang === "en" ? "ar" : "en")}
-      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-r-gold/30
-                 text-r-gold text-sm font-medium tracking-wide
-                 hover:bg-r-gold/10 hover:border-r-gold/60
-                 transition-all duration-200 select-none"
-      aria-label="Toggle language"
+    <div
+      className="flex items-center gap-0.5 p-0.5 rounded-full border border-r-gold/30
+                 bg-r-charcoal/60 backdrop-blur-sm"
+      role="group"
+      aria-label="Select language"
     >
-      <span className={lang === "en" ? "opacity-100" : "opacity-40"}>EN</span>
-      <span className="text-r-gold/30">|</span>
-      <span className={lang === "ar" ? "opacity-100" : "opacity-40"}>ع</span>
-    </button>
+      {LANGS.map(({ code, label }) => (
+        <button
+          key={code}
+          onClick={() => setLang(code)}
+          className={`px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide
+                      transition-all duration-200 select-none
+                      ${lang === code
+                        ? "bg-r-gold text-r-charcoal shadow-sm"
+                        : "text-r-cream/50 hover:text-r-gold"
+                      }`}
+          aria-pressed={lang === code}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
   );
 }
