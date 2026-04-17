@@ -1162,10 +1162,14 @@ export default function Home() {
                   const isRowTall = isBento && i === 1;
                   const localItem = getProjectLocale(item, lang);
 
+                  const isLive = item.status === "live" && !!item.liveUrl;
+
                   return (
                     <MotionLink
                       key={item.id}
-                      href={`/portfolio/${item.id}`}
+                      href={isLive ? item.liveUrl! : `/portfolio/${item.id}`}
+                      target={isLive ? "_blank" : undefined}
+                      rel={isLive ? "noopener noreferrer" : undefined}
                       variants={scaleIn}
                       custom={i * 0.08}
                       className={[
@@ -1186,31 +1190,20 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-                      {/* Status badge / View Demo button */}
-                      {item.status === "coming-soon" ? (
+                      {/* Status badge */}
+                      {item.status === "coming-soon" && (
                         <div className="absolute top-4 start-4">
                           <span className="px-2.5 py-1 bg-black/60 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold rounded-full tracking-widest uppercase">
                             {t.portfolio.labels.comingSoon}
                           </span>
                         </div>
-                      ) : item.status === "live" && item.liveUrl ? (
-                        <div className="absolute top-4 start-4">
-                          <a
-                            href={item.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-sm text-black text-[11px] font-bold rounded-full shadow-lg hover:bg-white transition-colors duration-200"
-                          >
-                            <ExternalLink className="w-3 h-3" />
-                            {t.portfolio.labels.viewDemo}
-                          </a>
-                        </div>
-                      ) : null}
+                      )}
                       <div className="absolute top-4 end-4 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
                         <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
                           <ExternalLink className="w-3.5 h-3.5 text-black" />
-                          <span className="text-black text-[11px] font-bold">{t.portfolio.viewProject}</span>
+                          <span className="text-black text-[11px] font-bold">
+                            {isLive ? t.portfolio.labels.viewDemo : t.portfolio.viewProject}
+                          </span>
                         </div>
                       </div>
                       <div className="absolute bottom-0 inset-x-0 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
