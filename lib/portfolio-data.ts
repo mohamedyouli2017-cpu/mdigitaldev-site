@@ -139,7 +139,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     client:   "Live Demo",
     year:     "2025",
     timeline: "Live",
-    liveUrl:  "https://daralyasmine.netlify.app",
+    liveUrl:  "https://daralyasmine.vercel.app",
     status:   "live",
 
     description:
@@ -254,7 +254,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     year:     "2025",
     timeline: "2025",
     status:   "live",
-    liveUrl:  "https://novashope.netlify.app",
+    liveUrl:  "https://novashope.vercel.app",
 
     description:
       "A complete online store demo — product catalog, add to cart, checkout flow, and order confirmation. Designed to showcase the conversion-optimized UX that turns browsers into buyers.",
@@ -367,7 +367,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     client:   "Live Demo",
     year:     "2025",
     timeline: "Live",
-    liveUrl:  "https://strategicgrowth.netlify.app",
+    liveUrl:  "https://strategicgrowth.vercel.app",
     status:   "live",
 
     description:
@@ -480,8 +480,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags:     ["Next.js", "Booking", "PWA"],
     client:   "Live Demo",
     year:     "2025",
-    timeline: "Coming Soon",
-    status:   "coming-soon",
+    timeline: "Live",
+    liveUrl:  "https://vitalcare-seven.vercel.app",
+    status:   "live",
 
     description:
       "A full clinic booking demo — appointment scheduling, doctor profiles, service listings, and booking confirmation via WhatsApp. Designed for healthcare providers who want to automate scheduling and reduce phone calls.",
@@ -594,6 +595,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     client:   "Live Demo",
     year:     "2025",
     timeline: "Coming Soon",
+    liveUrl:  "#",
     status:   "coming-soon",
 
     description:
