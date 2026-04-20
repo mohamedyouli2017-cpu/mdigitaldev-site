@@ -4,6 +4,7 @@ import "./globals.css";
 import MagneticCursor      from "@/components/MagneticCursor";
 import WhatsAppButton      from "@/components/WhatsAppButton";
 import PWAInstallPrompt    from "@/components/PWAInstallPrompt";
+import ChatWidget          from "@/components/ChatWidget";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 /* ── Font (next/font — zero layout shift, self-hosted automatically) ── */
@@ -242,6 +243,8 @@ export default function RootLayout({
           {/* Magnetic cursor — renders only on fine-pointer (mouse) devices */}
           <MagneticCursor />
           {children}
+          {/* AI chat widget — above WhatsApp button */}
+          <ChatWidget />
           {/* Floating WhatsApp button — visible on every page */}
           <WhatsAppButton />
           {/* PWA install banner — mobile only */}
