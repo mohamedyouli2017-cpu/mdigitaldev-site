@@ -62,12 +62,18 @@ export async function POST(req: NextRequest) {
       systemInstruction: SYSTEM_MESSAGE,
     });
 
-    const chat = model.startChat({
-      history: history.slice(-10).map((msg) => ({
+    const formattedHistory = (history as HistoryEntry[])
+      .slice(-10)
+      .filter((msg) => msg.role === "user" || msg.role === "assistant")
+      .map((msg) => ({
         role: msg.role === "user" ? "user" : "model",
         parts: [{ text: msg.content }],
-      })),
-    });
+      }));
+
+    const validHistory =
+      formattedHistory[0]?.role === "model" ? formattedHistory.slice(1) : formattedHistory;
+
+    const chat = model.startChat({ history: validHistory });
 
     const result = await chat.sendMessage(message);
     const reply = result.response.text();
