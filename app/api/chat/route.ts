@@ -1,5 +1,5 @@
+import Groq from "groq-sdk";
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const SYSTEM_MESSAGE = `You are the MDigitalDev AI assistant, representing Mohamed Youli — a professional Full-Stack Web & PWA Developer based in Morocco. You help visitors of the portfolio website understand the services offered, pricing, and how to get started with a project.
 
@@ -40,47 +40,33 @@ YOUR BEHAVIOR:
 - Do NOT invent pricing, services, or capabilities beyond what is listed above
 - If unsure about something specific, recommend contacting Mohamed directly on WhatsApp`;
 
-type HistoryEntry = { role: string; content: string };
-
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
-    const { message, history = [] } = body as { message: string; history: HistoryEntry[] };
+    const { message, history } = await req.json();
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-    if (!message || typeof message !== "string") {
-      return NextResponse.json({ reply: "Sorry, I couldn't read your message. Please try again." }, { status: 400 });
-    }
+    const messages = [
+      ...(history || []).slice(-8).map((msg: { role: string; content: string }) => ({
+        role: msg.role === "user" ? ("user" as const) : ("assistant" as const),
+        content: msg.content,
+      })),
+      { role: "user" as const, content: message },
+    ];
 
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) {
-      return NextResponse.json({ reply: "Sorry, the assistant is temporarily unavailable. Please contact us on WhatsApp." }, { status: 500 });
-    }
-
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-flash",
-      systemInstruction: SYSTEM_MESSAGE,
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.1-8b-instant",
+      max_tokens: 500,
+      messages: [
+        { role: "system", content: SYSTEM_MESSAGE },
+        ...messages,
+      ],
     });
 
-    const formattedHistory = (history as HistoryEntry[])
-      .slice(-10)
-      .filter((msg) => msg.role === "user" || msg.role === "assistant")
-      .map((msg) => ({
-        role: msg.role === "user" ? "user" : "model",
-        parts: [{ text: msg.content }],
-      }));
-
-    const validHistory =
-      formattedHistory[0]?.role === "model" ? formattedHistory.slice(1) : formattedHistory;
-
-    const chat = model.startChat({ history: validHistory });
-
-    const result = await chat.sendMessage(message);
-    const reply = result.response.text();
-
+    const reply = completion.choices[0]?.message?.content || "Sorry, try again.";
     return NextResponse.json({ reply });
-  } catch (error: unknown) {
-    console.error("Chat error:", error);
+
+  } catch (error) {
+    console.error("API error:", error);
     return NextResponse.json(
       { reply: "Sorry, I encountered an error. Please try again or contact us on WhatsApp." },
       { status: 500 },
