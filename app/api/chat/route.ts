@@ -80,13 +80,9 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ reply });
   } catch (error: unknown) {
-    console.error("Full error:", JSON.stringify(error, null, 2));
-    console.error("Error message:", error instanceof Error ? error.message : String(error));
-    console.error("GEMINI_API_KEY exists:", !!process.env.GEMINI_API_KEY);
-    console.error("GEMINI_API_KEY length:", process.env.GEMINI_API_KEY?.length);
-
+    console.error("Chat error:", error);
     return NextResponse.json(
-      { reply: `Error: ${error instanceof Error ? error.message : String(error)}` },
+      { reply: "Sorry, I encountered an error. Please try again or contact us on WhatsApp." },
       { status: 500 },
     );
   }
