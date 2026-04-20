@@ -94,10 +94,10 @@ export default function ChatWidget() {
         body: JSON.stringify({ message: text, history }),
       });
 
-      const data: { reply?: string; error?: string } = await res.json();
+      const data: { reply?: string } = await res.json();
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: data.reply ?? data.error ?? "Sorry, I couldn't respond right now." },
+        { role: "assistant", content: data.reply ?? "Sorry, I couldn't respond right now." },
       ]);
     } catch {
       setMessages((prev) => [
@@ -165,6 +165,7 @@ export default function ChatWidget() {
                           ? "bg-gradient-to-br from-violet-600 to-purple-700 text-white rounded-br-sm"
                           : "bg-white/10 text-white/90 rounded-bl-sm"
                       }`}
+                      style={{ whiteSpace: "pre-wrap" }}
                     >
                       {parseMarkdown(msg.content)}
                     </div>

@@ -48,12 +48,12 @@ export async function POST(req: NextRequest) {
     const { message, history = [] } = body as { message: string; history: HistoryEntry[] };
 
     if (!message || typeof message !== "string") {
-      return NextResponse.json({ error: "Message is required." }, { status: 400 });
+      return NextResponse.json({ reply: "Sorry, I couldn't read your message. Please try again." }, { status: 400 });
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
-      return NextResponse.json({ error: "Service temporarily unavailable." }, { status: 500 });
+      return NextResponse.json({ reply: "Sorry, the assistant is temporarily unavailable. Please contact us on WhatsApp." }, { status: 500 });
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
@@ -74,7 +74,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ reply });
   } catch (error) {
-    console.error("Chat API error:", error);
-    return NextResponse.json({ error: "Failed to get a response. Please try again." }, { status: 500 });
+    console.error("Gemini API error:", error);
+    return NextResponse.json(
+      { reply: "Sorry, I encountered an error. Please try again or contact us on WhatsApp." },
+      { status: 500 },
+    );
   }
 }
