@@ -32,14 +32,10 @@ import {
   Home as HomeIcon,
   Rocket,
 } from "lucide-react";
-import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { policies } from "@/lib/policies";
 import type { PolicyType } from "@/lib/policies";
-
-const HeroScene  = dynamic(() => import("@/components/HeroScene"),  { ssr: false });
-const GlobeScene = dynamic(() => import("@/components/GlobeScene"), { ssr: false });
 
 /* Framer Motion + Next.js Link hybrid — used for bento cards */
 const MotionLink = motion(Link);
@@ -749,21 +745,7 @@ export default function Home() {
         <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute -right-40 top-1/3 w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-        {/* Star field background */}
-        <div aria-hidden="true" className="absolute inset-0 z-0 pointer-events-none">
-          <HeroScene />
-        </div>
-
-        {/* Holographic Globe */}
-        <div
-          aria-hidden="true"
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[220px] h-[220px] md:w-[380px] md:h-[380px] z-[1] pointer-events-none rounded-full"
-          style={{ boxShadow: '0 0 60px #00AAFF, 0 0 120px #0066FF' }}
-        >
-          <GlobeScene />
-        </div>
-
-        <div className="relative max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-10">
+<div className="relative max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-10">
 
           {/* LEFT: text content */}
           <div className="relative z-10 flex flex-col items-start">
