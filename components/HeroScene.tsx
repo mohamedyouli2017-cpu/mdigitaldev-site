@@ -1,49 +1,83 @@
 'use client';
 
-import { useRef, useState, useEffect, Suspense } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { MeshDistortMaterial } from '@react-three/drei';
+import { useRef, useState, useEffect, Suspense, useMemo } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-function TorusKnotMesh({ isMobile }: { isMobile: boolean }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const targetRotation = useRef({ x: 0, z: 0 });
+function ParticleField({ count }: { count: number }) {
+  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const mouse = useRef({ x: 0, y: 0 });
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+  const { viewport } = useThree();
+
+  const particles = useMemo(
+    () =>
+      Array.from({ length: count }, () => ({
+        x: (Math.random() - 0.5) * 16,
+        y: (Math.random() - 0.5) * 10,
+        z: Math.random() * 4 - 2,
+        vy: 0.004 + Math.random() * 0.012,
+        vx: (Math.random() - 0.5) * 0.003,
+        size: 0.02 + Math.random() * 0.04,
+      })),
+    [count],
+  );
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      targetRotation.current = {
-        x: -(e.clientY / window.innerHeight - 0.5) * 1.4,
-        z: (e.clientX / window.innerWidth - 0.5) * 1.0,
+    const mesh = meshRef.current;
+    if (!mesh) return;
+    const purple = new THREE.Color('#7C3AED');
+    const lightPurple = new THREE.Color('#A855F7');
+    const white = new THREE.Color('#ffffff');
+    for (let i = 0; i < count; i++) {
+      const r = Math.random();
+      mesh.setColorAt(i, r > 0.55 ? white : r > 0.25 ? lightPurple : purple);
+    }
+    if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+  }, [count]);
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      mouse.current = {
+        x: (e.clientX / window.innerWidth - 0.5) * 2,
+        y: -(e.clientY / window.innerHeight - 0.5) * 2,
       };
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', onMove);
+    return () => window.removeEventListener('mousemove', onMove);
   }, []);
 
-  useFrame((_, delta) => {
-    if (!meshRef.current) return;
-    meshRef.current.rotation.y += delta * (isMobile ? 0.25 : 0.35);
-    meshRef.current.rotation.x +=
-      (targetRotation.current.x - meshRef.current.rotation.x) * 0.12;
-    meshRef.current.rotation.z +=
-      (targetRotation.current.z - meshRef.current.rotation.z) * 0.12;
+  useFrame(() => {
+    const mesh = meshRef.current;
+    if (!mesh) return;
+    const hw = viewport.width * 0.75;
+    const hh = viewport.height * 0.75;
+
+    for (let i = 0; i < count; i++) {
+      const p = particles[i];
+      p.y += p.vy;
+      p.x += p.vx;
+      if (p.y > hh) p.y = -hh;
+      if (p.x > hw) p.x = -hw;
+      else if (p.x < -hw) p.x = hw;
+
+      // Parallax: near particles (high z) shift more than far ones
+      const px = mouse.current.x * (p.z + 2) * 0.06;
+      const py = mouse.current.y * (p.z + 2) * 0.06;
+
+      dummy.position.set(p.x + px, p.y + py, p.z);
+      dummy.scale.setScalar(p.size);
+      dummy.updateMatrix();
+      mesh.setMatrixAt(i, dummy.matrix);
+    }
+    mesh.instanceMatrix.needsUpdate = true;
   });
 
   return (
-    <mesh ref={meshRef} scale={1.5}>
-      <torusKnotGeometry
-        args={[1, 0.35, isMobile ? 80 : 128, isMobile ? 12 : 20]}
-      />
-      <MeshDistortMaterial
-        color="#A855F7"
-        emissive="#7C3AED"
-        emissiveIntensity={0.5}
-        distort={0.4}
-        speed={isMobile ? 2 : 3}
-        roughness={0.08}
-        metalness={0.75}
-      />
-    </mesh>
+    <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
+      <sphereGeometry args={[1, 4, 4]} />
+      <meshBasicMaterial vertexColors />
+    </instancedMesh>
   );
 }
 
@@ -59,16 +93,12 @@ export default function HeroScene() {
 
   return (
     <Canvas
-      camera={{ position: [0, 0, 3.8], fov: 48 }}
-      gl={{ alpha: true, antialias: !isMobile }}
+      camera={{ position: [0, 0, 5], fov: 60 }}
+      gl={{ alpha: true, antialias: false }}
       style={{ background: 'transparent', width: '100%', height: '100%' }}
     >
-      <ambientLight intensity={0.5} />
-      <pointLight position={[3, 3, 3]} intensity={3} color="#A855F7" />
-      <pointLight position={[-3, -2, 2]} intensity={1.5} color="#7C3AED" />
-      <pointLight position={[0, -3, -2]} intensity={1.0} color="#EC4899" />
       <Suspense fallback={null}>
-        <TorusKnotMesh isMobile={isMobile} />
+        <ParticleField count={isMobile ? 80 : 150} />
       </Suspense>
     </Canvas>
   );

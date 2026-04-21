@@ -748,14 +748,9 @@ export default function Home() {
         <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute -right-40 top-1/3 w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-        {/* 3D Hero Scene — decorative, behind all content */}
-        <div
-          aria-hidden="true"
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[400px] md:h-[400px] z-0 opacity-60 pointer-events-none"
-        >
-          <Suspense fallback={null}>
-            <HeroScene />
-          </Suspense>
+        {/* Floating particles background */}
+        <div aria-hidden="true" className="absolute inset-0 z-0 pointer-events-none">
+          <HeroScene />
         </div>
 
         <div className="relative max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-10">
