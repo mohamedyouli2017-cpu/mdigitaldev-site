@@ -127,31 +127,31 @@ function GlobeGroup() {
       {/* Base sphere */}
       <mesh>
         <sphereGeometry args={[R, 64, 64]} />
-        <meshStandardMaterial color="#001133" emissive="#0044AA" emissiveIntensity={0.4} transparent opacity={0.9} />
+        <meshStandardMaterial color="#000B1A" emissive="#001A4D" emissiveIntensity={0.5} transparent opacity={0.9} />
       </mesh>
 
       {/* Lat/lng wireframe */}
       <lineSegments geometry={gridGeo}>
-        <lineBasicMaterial color="#00AAFF" transparent opacity={0.4} />
+        <lineBasicMaterial color="#00CCFF" transparent opacity={0.6} />
       </lineSegments>
 
       {/* Continent dots */}
       <points geometry={dotGeo}>
-        <pointsMaterial color="#00DDFF" size={0.022} sizeAttenuation transparent opacity={0.9} />
+        <pointsMaterial color="#00FFFF" size={0.028} sizeAttenuation transparent opacity={1.0} />
       </points>
 
       {/* Atmosphere — 3 layers */}
       <mesh>
-        <sphereGeometry args={[1.25, 32, 32]} />
-        <meshStandardMaterial color="#0088FF" transparent opacity={0.08} side={THREE.BackSide} />
+        <sphereGeometry args={[1.28, 32, 32]} />
+        <meshStandardMaterial color="#00AAFF" transparent opacity={0.15} side={THREE.BackSide} />
       </mesh>
       <mesh>
-        <sphereGeometry args={[1.35, 32, 32]} />
-        <meshStandardMaterial color="#0044FF" transparent opacity={0.04} side={THREE.BackSide} />
+        <sphereGeometry args={[1.4, 32, 32]} />
+        <meshStandardMaterial color="#0066FF" transparent opacity={0.08} side={THREE.BackSide} />
       </mesh>
       <mesh>
-        <sphereGeometry args={[1.5, 32, 32]} />
-        <meshStandardMaterial color="#0022AA" transparent opacity={0.02} side={THREE.BackSide} />
+        <sphereGeometry args={[1.6, 32, 32]} />
+        <meshStandardMaterial color="#0033FF" transparent opacity={0.04} side={THREE.BackSide} />
       </mesh>
     </group>
   );
@@ -165,9 +165,8 @@ export default function GlobeScene() {
       style={{ background: 'transparent', width: '100%', height: '100%' }}
     >
       <ambientLight intensity={0.2} />
-      <pointLight position={[3, 2, 4]}   intensity={4} color="#00AAFF" />
-      <pointLight position={[-3, -1, -2]} intensity={2} color="#0044FF" />
-      <pointLight position={[0, 3, 0]}   intensity={1} color="#ffffff" />
+      <pointLight position={[2, 1, 3]}   intensity={6} color="#00CCFF" />
+      <pointLight position={[-2, 0, -2]} intensity={3} color="#00FFFF" />
       <Suspense fallback={null}>
         <GlobeGroup />
       </Suspense>

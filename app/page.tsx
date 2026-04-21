@@ -757,7 +757,8 @@ export default function Home() {
         {/* Holographic Globe */}
         <div
           aria-hidden="true"
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[260px] h-[260px] md:w-[420px] md:h-[420px] z-[1] pointer-events-none"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[260px] h-[260px] md:w-[420px] md:h-[420px] z-[1] pointer-events-none rounded-full"
+          style={{ boxShadow: '0 0 60px #00AAFF, 0 0 120px #0066FF' }}
         >
           <GlobeScene />
         </div>
