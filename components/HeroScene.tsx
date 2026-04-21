@@ -4,37 +4,30 @@ import { useRef, useState, useEffect, Suspense, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-function ParticleField({ count }: { count: number }) {
+// Reused each frame — safe in single-threaded JS
+const tempColor = new THREE.Color();
+
+function StarField({ count }: { count: number }) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const mouse = useRef({ x: 0, y: 0 });
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const { viewport } = useThree();
 
-  const particles = useMemo(
+  const stars = useMemo(
     () =>
       Array.from({ length: count }, () => ({
         x: (Math.random() - 0.5) * 16,
         y: (Math.random() - 0.5) * 10,
         z: Math.random() * 4 - 2,
-        vy: 0.004 + Math.random() * 0.012,
-        vx: (Math.random() - 0.5) * 0.003,
-        size: 0.02 + Math.random() * 0.04,
+        vy: 0.003 + Math.random() * 0.008,
+        vx: (Math.random() - 0.5) * 0.002,
+        size: 0.008 + Math.random() * 0.007,
+        phase: Math.random() * Math.PI * 2,
+        twinkleSpeed: 0.8 + Math.random() * 2.5,
+        isCyan: Math.random() > 0.5,
       })),
     [count],
   );
-
-  useEffect(() => {
-    const mesh = meshRef.current;
-    if (!mesh) return;
-    const cyan = new THREE.Color('#00D4FF');
-    const lightBlue = new THREE.Color('#0EA5E9');
-    const white = new THREE.Color('#ffffff');
-    for (let i = 0; i < count; i++) {
-      const r = Math.random();
-      mesh.setColorAt(i, r > 0.6 ? white : r > 0.3 ? cyan : lightBlue);
-    }
-    if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
-  }, [count]);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -47,29 +40,40 @@ function ParticleField({ count }: { count: number }) {
     return () => window.removeEventListener('mousemove', onMove);
   }, []);
 
-  useFrame(() => {
+  useFrame((state) => {
     const mesh = meshRef.current;
     if (!mesh) return;
+    const t = state.clock.elapsedTime;
     const hw = viewport.width * 0.75;
     const hh = viewport.height * 0.75;
 
     for (let i = 0; i < count; i++) {
-      const p = particles[i];
-      p.y += p.vy;
-      p.x += p.vx;
-      if (p.y > hh) p.y = -hh;
-      if (p.x > hw) p.x = -hw;
-      else if (p.x < -hw) p.x = hw;
+      const s = stars[i];
+      s.y += s.vy;
+      s.x += s.vx;
+      if (s.y > hh) s.y = -hh;
+      if (s.x > hw) s.x = -hw;
+      else if (s.x < -hw) s.x = hw;
 
-      const px = mouse.current.x * (p.z + 2) * 0.06;
-      const py = mouse.current.y * (p.z + 2) * 0.06;
-
-      dummy.position.set(p.x + px, p.y + py, p.z);
-      dummy.scale.setScalar(p.size);
+      const px = mouse.current.x * (s.z + 2) * 0.06;
+      const py = mouse.current.y * (s.z + 2) * 0.06;
+      dummy.position.set(s.x + px, s.y + py, s.z);
+      dummy.scale.setScalar(s.size);
       dummy.updateMatrix();
       mesh.setMatrixAt(i, dummy.matrix);
+
+      // Twinkle: brightness oscillates between 0.4 and 1.0
+      const b = 0.4 + 0.6 * Math.abs(Math.sin(t * s.twinkleSpeed + s.phase));
+      if (s.isCyan) {
+        tempColor.setRGB(0, b * 0.83, b);
+      } else {
+        tempColor.setRGB(b, b * 0.95, b);
+      }
+      mesh.setColorAt(i, tempColor);
     }
+
     mesh.instanceMatrix.needsUpdate = true;
+    if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
   });
 
   return (
@@ -97,7 +101,7 @@ export default function HeroScene() {
       style={{ background: 'transparent', width: '100%', height: '100%' }}
     >
       <Suspense fallback={null}>
-        <ParticleField count={isMobile ? 80 : 150} />
+        <StarField count={isMobile ? 120 : 200} />
       </Suspense>
     </Canvas>
   );
