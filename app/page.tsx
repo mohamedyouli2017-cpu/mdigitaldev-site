@@ -39,6 +39,7 @@ import { policies } from "@/lib/policies";
 import type { PolicyType } from "@/lib/policies";
 
 const HeroScene = dynamic(() => import("@/components/HeroScene"), { ssr: false });
+const GlobeScene = dynamic(() => import("@/components/GlobeScene"), { ssr: false });
 
 /* Framer Motion + Next.js Link hybrid — used for bento cards */
 const MotionLink = motion(Link);
@@ -751,6 +752,14 @@ export default function Home() {
         {/* Floating particles background */}
         <div aria-hidden="true" className="absolute inset-0 z-0 pointer-events-none">
           <HeroScene />
+        </div>
+
+        {/* Digital Globe — right side, behind grid content */}
+        <div
+          aria-hidden="true"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[400px] md:h-[400px] z-[1] pointer-events-none"
+        >
+          <GlobeScene />
         </div>
 
         <div className="relative max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-10">

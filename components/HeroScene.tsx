@@ -26,12 +26,12 @@ function ParticleField({ count }: { count: number }) {
   useEffect(() => {
     const mesh = meshRef.current;
     if (!mesh) return;
-    const purple = new THREE.Color('#7C3AED');
-    const lightPurple = new THREE.Color('#A855F7');
+    const cyan = new THREE.Color('#00D4FF');
+    const lightBlue = new THREE.Color('#0EA5E9');
     const white = new THREE.Color('#ffffff');
     for (let i = 0; i < count; i++) {
       const r = Math.random();
-      mesh.setColorAt(i, r > 0.55 ? white : r > 0.25 ? lightPurple : purple);
+      mesh.setColorAt(i, r > 0.6 ? white : r > 0.3 ? cyan : lightBlue);
     }
     if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
   }, [count]);
@@ -61,7 +61,6 @@ function ParticleField({ count }: { count: number }) {
       if (p.x > hw) p.x = -hw;
       else if (p.x < -hw) p.x = hw;
 
-      // Parallax: near particles (high z) shift more than far ones
       const px = mouse.current.x * (p.z + 2) * 0.06;
       const py = mouse.current.y * (p.z + 2) * 0.06;
 
