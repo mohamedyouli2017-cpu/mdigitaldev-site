@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -32,10 +32,13 @@ import {
   Home as HomeIcon,
   Rocket,
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { policies } from "@/lib/policies";
 import type { PolicyType } from "@/lib/policies";
+
+const HeroScene = dynamic(() => import("@/components/HeroScene"), { ssr: false });
 
 /* Framer Motion + Next.js Link hybrid — used for bento cards */
 const MotionLink = motion(Link);
@@ -745,10 +748,20 @@ export default function Home() {
         <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute -right-40 top-1/3 w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-[100px] pointer-events-none" />
 
+        {/* 3D Hero Scene — decorative, behind all content */}
+        <div
+          aria-hidden="true"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[400px] md:h-[400px] z-0 opacity-60 pointer-events-none"
+        >
+          <Suspense fallback={null}>
+            <HeroScene />
+          </Suspense>
+        </div>
+
         <div className="relative max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-10">
 
           {/* LEFT: text content */}
-          <div className="flex flex-col items-start">
+          <div className="relative z-10 flex flex-col items-start">
             <motion.div
               variants={fadeUp} custom={0} initial="hidden" animate="visible"
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-xs font-semibold text-white/60 mb-8 tracking-widest uppercase"
@@ -835,7 +848,7 @@ export default function Home() {
           {/* RIGHT: Image carousel */}
           <motion.div
             variants={fadeUp} custom={2} initial="hidden" animate="visible"
-            className="relative w-full px-6 sm:px-8 lg:px-4"
+            className="relative z-10 w-full px-6 sm:px-8 lg:px-4"
           >
             <HeroCarousel />
           </motion.div>
