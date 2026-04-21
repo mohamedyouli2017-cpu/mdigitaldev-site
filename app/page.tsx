@@ -32,11 +32,8 @@ import {
   Home as HomeIcon,
   Rocket,
 } from "lucide-react";
-import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-const GlobeScene = dynamic(() => import("@/components/GlobeScene"), { ssr: false });
 import { policies } from "@/lib/policies";
 import type { PolicyType } from "@/lib/policies";
 
@@ -835,25 +832,12 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Holographic 3D Globe */}
+          {/* RIGHT: Image carousel */}
           <motion.div
             variants={fadeUp} custom={2} initial="hidden" animate="visible"
-            className="relative z-10 w-full flex items-center justify-center order-first lg:order-last"
+            className="relative z-10 w-full px-6 sm:px-8 lg:px-4"
           >
-            <div
-              aria-hidden="true"
-              className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[520px] lg:h-[520px]"
-            >
-              <div
-                className="absolute inset-0 rounded-full pointer-events-none"
-                style={{
-                  background:
-                    "radial-gradient(circle at 50% 50%, rgba(0,200,255,0.25) 0%, rgba(0,100,255,0.08) 45%, transparent 70%)",
-                  filter: "blur(20px)",
-                }}
-              />
-              <GlobeScene />
-            </div>
+            <HeroCarousel />
           </motion.div>
         </div>
 
