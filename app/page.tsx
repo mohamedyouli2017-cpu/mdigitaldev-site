@@ -817,7 +817,7 @@ export default function Home() {
                 { value: "100",  label: t.hero.stats.projects  },
                 { value: "PWA",  label: t.hero.stats.pagespeed },
                 { value: "<1s",  label: t.hero.stats.revenue   },
-                { value: "SEO",  label: t.hero.stats.response  },
+                { value: "AI",   label: t.hero.stats.response  },
               ].map((s, i, arr) => (
                 <div
                   key={s.label}
