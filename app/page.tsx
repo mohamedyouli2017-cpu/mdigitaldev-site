@@ -1273,6 +1273,16 @@ export default function Home() {
             );
           })()}
         </div>
+
+        {/* AI note */}
+        <motion.p
+          variants={fadeUp}
+          className="mt-10 text-center text-sm text-gray-400 max-w-2xl mx-auto px-4 border-t border-gray-100 pt-8"
+        >
+          <span className="font-semibold text-gray-500">✦</span>{" "}
+          {t.portfolio.aiNote}
+        </motion.p>
+
       </Section>
 
       {/* ╔═══════════════════════════════════════════════════════╗

@@ -130,7 +130,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   /* ─── 1 · Restaurant Ordering Demo ─────────────────────────────────────── */
   {
     id:       "restaurant-ordering-demo",
-    title:    "Restaurant Ordering Demo",
+    title:    "Hospitality Framework",
     category: "Ordering System",
     niche:    "Restaurant",
     img:      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=85",
@@ -143,7 +143,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     status:   "live",
 
     description:
-      "A fully functional restaurant ordering experience — digital menu, live cart, WhatsApp order notifications, and PWA install. Built with Next.js 14 to demonstrate the complete ordering flow your customers would use.",
+      "A high-performance interface designed for seamless AI booking and automated order management integration.",
 
     challenge:
       "Showing restaurants a complete digital ordering flow they can experience and test before committing to a build.",
@@ -185,9 +185,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
 
     i18n: {
       fr: {
-        title:       "Démo Commande Restaurant",
+        title:       "Cadre Hôtellerie",
         category:    "Système de Commande",
-        description: "Une expérience complète de commande en restaurant — menu digital, panier en direct, notifications WhatsApp et installation PWA. Conçu avec Next.js 14 pour démontrer le parcours de commande complet que vos clients utiliseraient.",
+        description: "Une interface haute performance conçue pour l'intégration transparente des systèmes de réservation IA et la gestion automatisée des commandes.",
         challenge:   "Montrer aux restaurateurs un système de commande digital complet qu'ils peuvent tester et expérimenter avant de s'engager.",
         solution:    "Une démo de qualité professionnelle avec une vraie logique de panier, un menu dynamique, des notifications WhatsApp et un PWA installable — la même stack qu'en production.",
         techSpecCategories: ["Frontend", "PWA", "Intégrations", "Infrastructure"],
@@ -212,9 +212,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
         ],
       },
       ar: {
-        title:       "نموذج طلبات المطاعم",
+        title:       "إطار عمل الضيافة",
         category:    "نظام الطلبات",
-        description: "تجربة طلب مطعم متكاملة — قائمة طعام رقمية، سلة حية، إشعارات واتساب، وتثبيت PWA. مبني بـ Next.js 14 لعرض تدفق الطلب الكامل الذي سيستخدمه عملاؤك.",
+        description: "واجهة عالية الأداء مصممة لدمج أنظمة الحجز الذكية وإدارة الطلبات الآلية.",
         challenge:   "إظهار تدفق الطلب الرقمي الكامل للمطاعم بطريقة يمكن تجربتها واختبارها قبل الالتزام.",
         solution:    "نموذج بجودة إنتاجية مع منطق سلة حقيقي وقائمة ديناميكية وإشعارات واتساب وـPWA قابل للتثبيت — نفس التقنية المستخدمة في مواقع العملاء الحقيقيين.",
         techSpecCategories: ["الواجهة الأمامية", "PWA", "التكاملات", "البنية التحتية"],
@@ -244,7 +244,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   /* ─── 2 · E-commerce Checkout Demo ─────────────────────────────────────── */
   {
     id:       "ecommerce-checkout-demo",
-    title:    "E-commerce Checkout Demo",
+    title:    "Smart Retail Base",
     category: "Online Store",
     niche:    "E-commerce",
     img:      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=85",
@@ -257,7 +257,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     liveUrl:  "https://novashope.vercel.app",
 
     description:
-      "A complete online store demo — product catalog, add to cart, checkout flow, and order confirmation. Designed to showcase the conversion-optimized UX that turns browsers into buyers.",
+      "Optimized shopping experience ready for AI personalized product recommendations and stock automation.",
 
     challenge:
       "Demonstrating a full e-commerce flow that looks and feels like a real production store, not a template.",
@@ -299,9 +299,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
 
     i18n: {
       fr: {
-        title:       "Démo E-commerce",
+        title:       "Base Retail Intelligente",
         category:    "Boutique en Ligne",
-        description: "Une démo complète de boutique en ligne — catalogue produits, ajout au panier, tunnel de paiement et confirmation de commande. Conçu pour démontrer l'UX optimisée pour la conversion qui transforme les visiteurs en acheteurs.",
+        description: "Expérience d'achat optimisée prête à intégrer les recommandations produits personnalisées par IA et l'automatisation des stocks.",
         challenge:   "Démontrer un parcours e-commerce complet qui ressemble à une vraie boutique en production, pas à un template.",
         solution:    "Une démo haute-fidélité avec grille produits, filtres, gestion du panier et un tunnel d'achat fluide — prête à être connectée à n'importe quelle passerelle de paiement.",
         techSpecCategories: ["Frontend", "Commerce", "Paiements", "Infrastructure"],
@@ -326,9 +326,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
         ],
       },
       ar: {
-        title:       "نموذج التجارة الإلكترونية",
+        title:       "قاعدة التجزئة الذكية",
         category:    "متجر إلكتروني",
-        description: "نموذج متجر إلكتروني متكامل — كتالوج منتجات، إضافة للسلة، تدفق الدفع وتأكيد الطلب. مصمم لعرض تجربة المستخدم المحسّنة للتحويل التي تحوّل الزوار إلى مشترين.",
+        description: "تجربة تسوق محسنة جاهزة لدمج توصيات المنتجات بالذكاء الاصطناعي وأتمتة إدارة المخزون.",
         challenge:   "عرض تدفق تجارة إلكترونية كامل يبدو ويشعر مثل متجر إنتاج حقيقي، لا قالب جاهز.",
         solution:    "نموذج عالي الدقة بشبكة منتجات وفلاتر وإدارة سلة وتدفق دفع سلس — جاهز للربط بأي بوابة دفع.",
         techSpecCategories: ["الواجهة الأمامية", "التجارة", "المدفوعات", "البنية التحتية"],
@@ -358,7 +358,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   /* ─── 3 · Corporate Landing Demo ───────────────────────────────────────── */
   {
     id:       "corporate-landing-demo",
-    title:    "Corporate Landing Demo",
+    title:    "Enterprise Core",
     category: "Corporate Website",
     niche:    "Corporate",
     img:      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=85",
@@ -371,7 +371,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     status:   "live",
 
     description:
-      "A high-converting corporate landing page — hero section, services showcase, team profiles, case studies, and a lead capture form. SEO-optimized and built to generate qualified leads from day one.",
+      "Clean, professional architecture built to host custom AI agents and automated business workflows.",
 
     challenge:
       "Most corporate sites look outdated, load slowly, and fail to convert visitors into leads.",
@@ -413,9 +413,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
 
     i18n: {
       fr: {
-        title:       "Démo Site d'Entreprise",
+        title:       "Noyau Entreprise",
         category:    "Site Corporate",
-        description: "Une landing page corporate haute conversion — section héro, présentation des services, profils d'équipe, études de cas et formulaire de capture de leads. Optimisé SEO et conçu pour générer des leads qualifiés dès le lancement.",
+        description: "Architecture propre et professionnelle conçue pour héberger des agents IA personnalisés et des workflows métier automatisés.",
         challenge:   "La plupart des sites corporate sont obsolètes, lents à charger et ne convertissent pas les visiteurs en leads.",
         solution:    "Une landing page Next.js moderne avec données structurées, temps de chargement rapide et une mise en page orientée conversion qui guide les visiteurs vers le contact.",
         techSpecCategories: ["Frontend", "SEO", "Formulaires", "Infrastructure"],
@@ -440,9 +440,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
         ],
       },
       ar: {
-        title:       "نموذج موقع الشركة",
+        title:       "جوهر الشركات",
         category:    "موقع الشركة",
-        description: "صفحة هبوط للشركات عالية التحويل — قسم البطل، عرض الخدمات، ملفات الفريق، دراسات الحالة، ونموذج التقاط العملاء. محسّن لمحركات البحث ومصمم لتوليد عملاء مؤهلين من اليوم الأول.",
+        description: "بنية احترافية ونظيفة مصممة لاستضافة وكلاء الذكاء الاصطناعي المخصصين وأتمتة مسارات العمل المؤسسية.",
         challenge:   "معظم مواقع الشركات قديمة المظهر، بطيئة التحميل، وتفشل في تحويل الزوار إلى عملاء محتملين.",
         solution:    "صفحة هبوط حديثة بـ Next.js مع بيانات منظمة وأوقات تحميل سريعة وتخطيط يركز على التحويل ويوجه الزوار نحو التواصل.",
         techSpecCategories: ["الواجهة الأمامية", "SEO", "النماذج", "البنية التحتية"],

@@ -30,7 +30,7 @@ export interface LangTranslations {
     items: { name: string; desc: string; tags: string[] }[];
   };
   portfolio: {
-    label: string; headline: string; sub: string;
+    label: string; headline: string; sub: string; aiNote: string;
     filterAll: string; filterRestaurants: string;
     filterEcommerce: string; filterCorporate: string;
     filterHealthcare: string; filterRealEstate: string;
@@ -138,8 +138,9 @@ export const translations: Record<Lang, LangTranslations> = {
       ],
     },
     portfolio: {
-      label: "LIVE DEMOS", headline: "Capabilities in Action.",
-      sub: "Interactive demos showcasing the systems I build. Click any demo to explore a fully functional prototype.",
+      label: "AI-READY SOLUTIONS", headline: "AI-Ready Solutions.",
+      sub: "High-performance frameworks built as the foundation for our AI & Automation implementations. Each demo represents the quality and architecture we deliver.",
+      aiNote: "These demos represent the visual and structural quality of our work. AI and Automation features are custom-built per project.",
       filterAll: "All", filterRestaurants: "Restaurants",
       filterEcommerce: "E-commerce", filterCorporate: "Corporate",
       filterHealthcare: "Healthcare", filterRealEstate: "Real Estate",
@@ -285,8 +286,9 @@ export const translations: Record<Lang, LangTranslations> = {
       ],
     },
     portfolio: {
-      label: "DÉMOS EN DIRECT", headline: "Les Capacités en Action.",
-      sub: "Démos interactives présentant les systèmes que je construis. Cliquez sur une démo pour explorer un prototype fonctionnel.",
+      label: "SOLUTIONS PRÊTES POUR L'IA", headline: "Solutions Prêtes pour l'IA.",
+      sub: "Des frameworks haute performance conçus comme fondation pour nos implémentations IA & Automatisation. Chaque démo reflète la qualité et l'architecture que nous livrons.",
+      aiNote: "Ces démos représentent la qualité visuelle et structurelle de notre travail. Les fonctionnalités IA et Automatisation sont développées sur mesure pour chaque projet.",
       filterAll: "Tout", filterRestaurants: "Restaurants",
       filterEcommerce: "E-commerce", filterCorporate: "Corporate",
       filterHealthcare: "Santé", filterRealEstate: "Immobilier",
@@ -432,8 +434,9 @@ export const translations: Record<Lang, LangTranslations> = {
       ],
     },
     portfolio: {
-      label: "نماذج حية", headline: "القدرات في تطبيق فعلي.",
-      sub: "نماذج تفاعلية تُبرز الأنظمة التي أبنيها. اضغط على أي نموذج لاستكشاف نموذج وظيفي متكامل.",
+      label: "حلول جاهزة للذكاء الاصطناعي", headline: "حلول جاهزة للذكاء الاصطناعي.",
+      sub: "أطر عمل عالية الأداء مبنية كأساس لتطبيقات الذكاء الاصطناعي والأتمتة. كل نموذج يعكس الجودة والبنية التقنية التي نقدمها.",
+      aiNote: "هذه النماذج تمثل الجودة البصرية والهيكلية لعملنا. ميزات الذكاء الاصطناعي والأتمتة يتم بناؤها خصيصاً حسب كل مشروع.",
       filterAll: "الكل", filterRestaurants: "مطاعم",
       filterEcommerce: "تجارة إلكترونية", filterCorporate: "شركات",
       filterHealthcare: "صحة", filterRealEstate: "عقارات",
