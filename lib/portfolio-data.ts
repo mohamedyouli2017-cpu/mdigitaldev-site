@@ -586,17 +586,17 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   /* ─── 5 · Real Estate Listings Demo ────────────────────────────────────── */
   {
     id:       "real-estate-listings-demo",
-    title:    "Real Estate Listings Demo",
-    category: "Property Showcase",
+    title:    "ATELIER — Luxury Real Estate Demo",
+    category: "Luxury Real Estate",
     niche:    "Real Estate",
     img:      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=85",
     heroImg:  "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=90",
-    tags:     ["Next.js", "Filters", "Maps"],
+    tags:     ["Next.js", "GSAP", "Three.js"],
     client:   "Live Demo",
     year:     "2025",
-    timeline: "Coming Soon",
-    liveUrl:  "#",
-    status:   "coming-soon",
+    timeline: "Live",
+    liveUrl:  "https://demo-realestate-umber.vercel.app",
+    status:   "live",
 
     description:
       "A modern real estate listings demo — property cards, advanced search filters, map view, and lead capture forms. Built for agents and agencies to showcase properties and capture serious buyer interest.",
@@ -641,8 +641,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
 
     i18n: {
       fr: {
-        title:       "Démo Annonces Immobilières",
-        category:    "Vitrine Immobilière",
+        title:       "ATELIER — Démo Immobilier de Luxe",
+        category:    "Immobilier de Luxe",
         description: "Une démo moderne d'annonces immobilières — fiches propriétés, filtres de recherche avancés, vue carte et formulaires de capture de leads. Conçu pour les agents et agences souhaitant présenter des biens et capter des acheteurs sérieux.",
         challenge:   "Les agents immobiliers s'appuient sur WhatsApp et Instagram pour partager les annonces — sans plateforme professionnelle pour les présenter et capter des leads qualifiés.",
         solution:    "Un portail immobilier consultable avec filtres (prix, type, localisation), une carte interactive et un lien WhatsApp sur chaque annonce.",
@@ -668,8 +668,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
         ],
       },
       ar: {
-        title:       "نموذج قوائم العقارات",
-        category:    "عرض العقارات",
+        title:       "ATELIER — نموذج العقارات الفاخرة",
+        category:    "العقارات الفاخرة",
         description: "نموذج حديث لقوائم العقارات — بطاقات العقارات، فلاتر البحث المتقدمة، عرض الخريطة، ونماذج التقاط العملاء. مبني للوكلاء والوكالات لعرض العقارات والتقاط اهتمام المشترين الجادين.",
         challenge:   "يعتمد وكلاء العقارات على واتساب وإنستغرام لمشاركة القوائم — دون منصة احترافية لعرضها والتقاط العملاء المؤهلين.",
         solution:    "بوابة عقارية قابلة للبحث مع فلاتر (السعر، النوع، الموقع)، وخريطة تفاعلية، ورابط واتساب في كل قائمة.",
