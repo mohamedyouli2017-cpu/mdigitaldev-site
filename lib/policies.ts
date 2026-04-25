@@ -19,35 +19,35 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
   en: {
     privacy: {
       title: "Privacy Policy",
-      lastUpdated: "Last updated: April 2026",
+      lastUpdated: "Last updated: April 25, 2026",
       sections: [
         {
           heading: "1. Data We Collect",
-          body: "When you contact MDigitalDev through our website's contact form, WhatsApp link, or email, we may collect your name, phone number, email address, and the project details you voluntarily provide. We do not collect data automatically beyond standard server logs.",
+          body: "We collect information you voluntarily provide when contacting MDigitalDev via our contact form, email, or WhatsApp. This includes your name, professional email, phone number, and project requirements. Our AI Assistant (Chatbot) may also process session data to better assist your inquiries.",
         },
         {
-          heading: "2. How We Use Your Data",
-          body: "Your information is used solely to respond to your enquiry, send project proposals, and communicate project updates. We do not sell, rent, or share your personal data with third parties for marketing purposes.",
+          heading: "2. AI Interaction & Privacy",
+          body: "Interactions with our AI assistant are used solely to improve customer service. We ensure that sensitive project details shared during these interactions are handled with strict confidentiality and are not sold or misused.",
         },
         {
-          heading: "3. Cookies & Tracking",
-          body: "Our website may use essential cookies to ensure correct functionality. No advertising or third-party tracking cookies are used. Any analytics implemented are privacy-first and fully anonymised.",
+          heading: "3. How We Use Your Data",
+          body: "Your data is used exclusively to: respond to inquiries and provide project quotes; deliver AI and automation services; and maintain professional communication during and after project delivery. We do not sell or share your data with third parties for marketing purposes.",
         },
         {
-          heading: "4. Data Protection",
-          body: "All data is stored securely. We retain your contact information only for the duration necessary to complete your project or respond to your enquiry. You may request deletion of your data at any time by contacting us.",
+          heading: "4. Third-Party Services & Infrastructure",
+          body: "To provide a secure and fast experience, we use industry-leading providers: Cloudflare for security and professional communication infrastructure; WhatsApp Business for real-time support; and secure AI APIs for our chatbot and automation tools. We do not share your data with third parties for marketing purposes.",
         },
         {
-          heading: "5. Third-Party Services",
-          body: "We may integrate third-party tools — such as Google Maps and WhatsApp Business — as part of client project deliverables. Each third party operates under its own independent privacy policy, and we encourage you to review them.",
+          heading: "5. Cookies & Tracking",
+          body: "We use essential cookies to maintain site functionality. Any analytics used are privacy-focused, anonymized, and designed to improve user experience without tracking personal identities.",
         },
         {
-          heading: "6. Your Rights",
-          body: "You have the right to access, correct, or delete any personal information we hold about you. To exercise these rights, contact us via WhatsApp or email at any time.",
+          heading: "6. Data Protection & Your Rights",
+          body: "All data is stored securely using encrypted protocols. Under global privacy standards, you have the right to access, rectify, or request the permanent deletion of your data. Contact us at any time to exercise these rights.",
         },
         {
-          heading: "7. Contact",
-          body: "MDigitalDev · contact@mdigitaldev.com · WhatsApp: +212 669 586 001",
+          heading: "7. Contact Information",
+          body: "For any privacy concerns, contact the MDigitalDev team: contact@mdigitaldev.com · WhatsApp: +212 669 586 001",
         },
       ],
     },
@@ -91,35 +91,35 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
   fr: {
     privacy: {
       title: "Politique de Confidentialité",
-      lastUpdated: "Dernière mise à jour : avril 2026",
+      lastUpdated: "Dernière mise à jour : 25 avril 2026",
       sections: [
         {
           heading: "1. Données Collectées",
-          body: "Lorsque vous contactez MDigitalDev via notre formulaire, WhatsApp ou e-mail, nous collectons votre nom, numéro de téléphone, adresse e-mail et les détails du projet que vous fournissez volontairement. Nous ne collectons pas de données automatiquement au-delà des journaux serveur standard.",
+          body: "Nous collectons les informations que vous fournissez volontairement lors de votre contact avec MDigitalDev via notre formulaire, e-mail ou WhatsApp. Cela inclut votre nom, e-mail professionnel, numéro de téléphone et les détails de votre projet. Notre assistant IA (Chatbot) peut également traiter des données de session pour mieux répondre à vos demandes.",
         },
         {
-          heading: "2. Utilisation de Vos Données",
-          body: "Vos informations sont utilisées exclusivement pour répondre à votre demande, envoyer des propositions et communiquer sur l'avancement du projet. Nous ne vendons, ne louons, ni ne partageons vos données personnelles à des fins commerciales.",
+          heading: "2. Interactions IA & Confidentialité",
+          body: "Les interactions avec notre assistant IA sont utilisées uniquement pour améliorer le service client. Nous garantissons que les détails sensibles de projet partagés lors de ces interactions sont traités avec une stricte confidentialité et ne sont ni vendus ni utilisés à mauvais escient.",
         },
         {
-          heading: "3. Cookies & Suivi",
-          body: "Notre site utilise uniquement des cookies essentiels au bon fonctionnement. Aucun cookie publicitaire ni de suivi tiers n'est utilisé. Les outils analytiques éventuels sont configurés en mode respectueux de la vie privée et entièrement anonymisés.",
+          heading: "3. Utilisation de Vos Données",
+          body: "Vos données sont utilisées exclusivement pour : répondre à vos demandes et fournir des devis ; livrer nos services IA et d'automatisation ; et maintenir une communication professionnelle pendant et après la réalisation du projet. Nous ne vendons ni ne partageons vos données à des fins marketing.",
         },
         {
-          heading: "4. Protection des Données",
-          body: "Toutes les données sont stockées de manière sécurisée et conservées uniquement le temps nécessaire à la réalisation de votre projet ou au traitement de votre demande. Vous pouvez demander la suppression de vos données à tout moment.",
+          heading: "4. Services & Infrastructure Tiers",
+          body: "Pour offrir une expérience sécurisée et rapide, nous utilisons des prestataires de premier plan : Cloudflare pour la sécurité et l'infrastructure de communication ; WhatsApp Business pour le support en temps réel ; et des API IA sécurisées pour notre chatbot et nos outils d'automatisation. Nous ne partageons pas vos données à des fins marketing.",
         },
         {
-          heading: "5. Services Tiers",
-          body: "Nous pouvons intégrer des outils tiers (Google Maps, WhatsApp Business, etc.) dans les projets clients. Chaque tiers opère selon sa propre politique de confidentialité, que nous vous encourageons à consulter.",
+          heading: "5. Cookies & Suivi",
+          body: "Nous utilisons des cookies essentiels au fonctionnement du site. Toute analyse mise en œuvre est axée sur la confidentialité, anonymisée et conçue pour améliorer l'expérience utilisateur sans traçage d'identités personnelles.",
         },
         {
-          heading: "6. Vos Droits",
-          body: "Vous avez le droit d'accéder à vos données personnelles, de les corriger ou de les supprimer. Contactez-nous via WhatsApp ou par e-mail pour exercer ces droits.",
+          heading: "6. Protection des Données & Vos Droits",
+          body: "Toutes les données sont stockées de manière sécurisée via des protocoles chiffrés. Conformément aux normes mondiales de confidentialité, vous avez le droit d'accéder à vos données, de les rectifier ou d'en demander la suppression définitive. Contactez-nous à tout moment pour exercer ces droits.",
         },
         {
-          heading: "7. Contact",
-          body: "MDigitalDev · contact@mdigitaldev.com · WhatsApp : +212 669 586 001",
+          heading: "7. Coordonnées",
+          body: "Pour toute question relative à la confidentialité, contactez l'équipe MDigitalDev : contact@mdigitaldev.com · WhatsApp : +212 669 586 001",
         },
       ],
     },
@@ -163,35 +163,35 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
   ar: {
     privacy: {
       title: "سياسة الخصوصية",
-      lastUpdated: "آخر تحديث: أبريل 2026",
+      lastUpdated: "آخر تحديث: 25 أبريل 2026",
       sections: [
         {
           heading: "١. البيانات التي نجمعها",
-          body: "عند تواصلك مع MDigitalDev عبر نموذج الاتصال أو واتساب أو البريد الإلكتروني، قد نجمع اسمك ورقم هاتفك وبريدك الإلكتروني وتفاصيل مشروعك التي تقدمها طوعاً. لا نجمع أي بيانات تلقائياً سوى سجلات الخادم الاعتيادية.",
+          body: "نجمع المعلومات التي تقدمها طوعاً عند تواصلك مع MDigitalDev عبر نموذج الاتصال أو البريد الإلكتروني أو واتساب. تشمل هذه المعلومات اسمك وبريدك الإلكتروني المهني ورقم هاتفك ومتطلبات مشروعك. قد يُعالج مساعدنا الذكي (الشات بوت) أيضاً بيانات الجلسة لتقديم مساعدة أفضل.",
         },
         {
-          heading: "٢. كيفية استخدام بياناتك",
-          body: "تُستخدم معلوماتك حصراً للرد على استفساراتك وإرسال العروض والتواصل بشأن تقدم المشروع. لا نبيع بياناتك الشخصية أو نؤجرها أو نشاركها مع أطراف ثالثة لأغراض تسويقية.",
+          heading: "٢. التفاعل مع الذكاء الاصطناعي والخصوصية",
+          body: "تُستخدم التفاعلات مع مساعدنا الذكي حصراً لتحسين خدمة العملاء. نضمن أن تفاصيل المشاريع الحساسة المُشاركة خلال هذه التفاعلات تُعالج بسرية تامة ولا تُباع أو تُساء استخدامها.",
         },
         {
-          heading: "٣. ملفات تعريف الارتباط والتتبع",
-          body: "قد يستخدم موقعنا ملفات تعريف ارتباط أساسية لضمان عمله بشكل صحيح. لا تُستخدم ملفات تتبع إعلانية أو تابعة لجهات خارجية. أي تحليلات مُطبَّقة تعمل بوضع احترام الخصوصية وتكون مجهولة الهوية تماماً.",
+          heading: "٣. كيفية استخدام بياناتك",
+          body: "تُستخدم بياناتك حصراً من أجل: الرد على الاستفسارات وتقديم عروض الأسعار؛ وتسليم خدمات الذكاء الاصطناعي والأتمتة؛ والحفاظ على التواصل المهني خلال المشروع وبعده. لا نبيع بياناتك أو نشاركها مع أطراف ثالثة لأغراض تسويقية.",
         },
         {
-          heading: "٤. حماية البيانات",
-          body: "يتم تخزين جميع البيانات بأمان والاحتفاظ بها فقط طوال المدة اللازمة لإتمام مشروعك أو الرد على استفسارك. يمكنك طلب حذف بياناتك في أي وقت بالتواصل معنا.",
+          heading: "٤. خدمات البنية التحتية وأطراف ثالثة",
+          body: "لتوفير تجربة آمنة وسريعة، نستخدم مزودين من الدرجة الأولى: Cloudflare للأمان وبنية الاتصال المهنية؛ وواتساب للأعمال للدعم الفوري؛ وواجهات برمجة الذكاء الاصطناعي الآمنة لروبوت الدردشة وأدوات الأتمتة. لا نشارك بياناتك مع أطراف ثالثة لأغراض تسويقية.",
         },
         {
-          heading: "٥. خدمات الأطراف الثالثة",
-          body: "قد ندمج أدوات جهات خارجية — كخرائط Google وواتساب للأعمال — ضمن مشاريع العملاء. تعمل كل جهة وفق سياسة خصوصيتها المستقلة الخاصة، وننصحك بالاطلاع عليها.",
+          heading: "٥. ملفات تعريف الارتباط والتتبع",
+          body: "نستخدم ملفات تعريف ارتباط أساسية للحفاظ على وظائف الموقع. أي تحليلات مُستخدمة تُركّز على الخصوصية، ومجهولة الهوية، ومصممة لتحسين تجربة المستخدم دون تتبع الهويات الشخصية.",
         },
         {
-          heading: "٦. حقوقك",
-          body: "يحق لك الوصول إلى بياناتك الشخصية أو تصحيحها أو حذفها. تواصل معنا عبر واتساب أو البريد الإلكتروني في أي وقت لممارسة هذه الحقوق.",
+          heading: "٦. حماية البيانات وحقوقك",
+          body: "يتم تخزين جميع البيانات بأمان باستخدام بروتوكولات مشفرة. وفقاً لمعايير الخصوصية العالمية، يحق لك الوصول إلى بياناتك أو تصحيحها أو طلب حذفها نهائياً. تواصل معنا في أي وقت لممارسة هذه الحقوق.",
         },
         {
-          heading: "٧. التواصل",
-          body: "MDigitalDev · contact@mdigitaldev.com · واتساب: ‎+212 669 586 001",
+          heading: "٧. معلومات التواصل",
+          body: "لأي استفسارات تتعلق بالخصوصية، تواصل مع فريق MDigitalDev: contact@mdigitaldev.com · واتساب: ‎+212 669 586 001",
         },
       ],
     },
