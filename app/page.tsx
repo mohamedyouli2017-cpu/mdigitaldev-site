@@ -680,9 +680,9 @@ const INDUSTRIES_STATIC = [
 const WA_BASE = "https://wa.me/212669586001?text=";
 
 const SERVICES_STATIC = [
-  { icon: Bot,      price: "$150",   oldPrice: "$250",   suffix: "+", highlight: false },
-  { icon: Workflow, price: "$1,500", oldPrice: "$2,200", suffix: "+", highlight: true  },
-  { icon: Cpu,      price: "$4,800", oldPrice: "$6,500", suffix: "+", highlight: false },
+  { icon: Bot,      price: "$497",   oldPrice: "",  suffix: "", highlight: false },
+  { icon: Workflow, price: "$1,800", oldPrice: "",  suffix: "", highlight: true  },
+  { icon: Cpu,      price: "$4,800", oldPrice: "",  suffix: "", highlight: false },
 ];
 
 const PROCESS_ICONS = [MessageCircle, Palette, Code2, Rocket];
