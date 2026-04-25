@@ -47,7 +47,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "7. Contact",
-          body: "MDigitalDev · youliwork2023@gmail.com · WhatsApp: +212 669 586 001",
+          body: "MDigitalDev · contact@mdigitaldev.com · WhatsApp: +212 669 586 001",
         },
       ],
     },
@@ -119,7 +119,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "7. Contact",
-          body: "MDigitalDev · youliwork2023@gmail.com · WhatsApp : +212 669 586 001",
+          body: "MDigitalDev · contact@mdigitaldev.com · WhatsApp : +212 669 586 001",
         },
       ],
     },
@@ -191,7 +191,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "٧. التواصل",
-          body: "MDigitalDev · youliwork2023@gmail.com · واتساب: ‎+212 669 586 001",
+          body: "MDigitalDev · contact@mdigitaldev.com · واتساب: ‎+212 669 586 001",
         },
       ],
     },

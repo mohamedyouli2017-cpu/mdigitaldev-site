@@ -694,7 +694,7 @@ export default function Home() {
   const { t, lang } = useLanguage();
   const [policyOpen, setPolicyOpen] = useState<PolicyType | null>(null);
   const openWhatsApp = () => window.open("https://wa.me/212669586001", "_blank");
-  const openEmail    = () => { window.location.href = "mailto:youliwork2023@gmail.com"; };
+  const openEmail    = () => { window.location.href = "mailto:contact@mdigitaldev.com"; };
   const scrollTo     = (id: string) =>
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -1398,7 +1398,7 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-white font-semibold text-sm">{t.contact.email}</p>
-                <p className="text-white/30 text-xs mt-0.5">youliwork2023@gmail.com</p>
+                <p className="text-white/30 text-xs mt-0.5">contact@mdigitaldev.com</p>
               </div>
             </motion.button>
           </motion.div>
