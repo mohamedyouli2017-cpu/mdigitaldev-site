@@ -199,13 +199,13 @@ export const translations: Record<Lang, LangTranslations> = {
       ],
     },
     contact: {
-      label: "Let's Work Together", headline1: "Ready to Get a Website",
-      headline2: "That Actually Works?",
-      sub: "Let's discuss your project. I respond within 24 hours and offer a free consultation for every new client.",
+      label: "Let's Build Together", headline1: "Ready to Automate",
+      headline2: "Your Success?",
+      sub: "Let's discuss how AI and intelligent automation can scale your business. Schedule a discovery call today. Expert consultation for businesses ready to scale.",
       whatsapp: "WhatsApp", email: "Email",
       cta: "Start on WhatsApp — It's Free",
     },
-    footer: { madeWith: "Developed by", passion: "MDigitalDev", rights: "MDigitalDev. All rights reserved.", privacyLink: "Privacy Policy", termsLink: "Terms of Service" },
+    footer: { madeWith: "Developed by", passion: "MDigitalDev", rights: "© 2026 MDigitalDev. All rights reserved.", privacyLink: "Privacy Policy", termsLink: "Terms of Service" },
   },
 
   /* ─────────────────── FRANÇAIS ─────────────────── */
@@ -347,13 +347,13 @@ export const translations: Record<Lang, LangTranslations> = {
       ],
     },
     contact: {
-      label: "Travaillons Ensemble", headline1: "Prêt à Avoir un Site Web",
-      headline2: "qui Performe Vraiment ?",
-      sub: "Discutons de votre projet. Je réponds dans les 24 h et offre une consultation gratuite à chaque nouveau client.",
+      label: "Construisons Ensemble", headline1: "Prêt à Automatiser",
+      headline2: "Votre Succès ?",
+      sub: "Discutons de la façon dont l'IA et l'automatisation intelligente peuvent faire évoluer votre entreprise. Planifiez un appel découverte aujourd'hui. Consultation d'expert pour les entreprises prêtes à évoluer.",
       whatsapp: "WhatsApp", email: "E-mail",
       cta: "Démarrer sur WhatsApp — C'est Gratuit",
     },
-    footer: { madeWith: "Développé par", passion: "MDigitalDev", rights: "MDigitalDev. Tous droits réservés.", privacyLink: "Politique de Confidentialité", termsLink: "Conditions d'Utilisation" },
+    footer: { madeWith: "Développé par", passion: "MDigitalDev", rights: "© 2026 MDigitalDev. Tous droits réservés.", privacyLink: "Politique de Confidentialité", termsLink: "Conditions d'Utilisation" },
   },
 
   /* ─────────────────── ARABIC ─────────────────── */
@@ -495,12 +495,12 @@ export const translations: Record<Lang, LangTranslations> = {
       ],
     },
     contact: {
-      label: "لنعمل معاً", headline1: "هل أنت مستعد للحصول على موقع",
-      headline2: "يحقق نتائج حقيقية؟",
-      sub: "دعنا نناقش مشروعك. أرد خلال 24 ساعة وأقدم استشارة مجانية لكل عميل جديد.",
+      label: "لنبني معاً", headline1: "هل أنت مستعد",
+      headline2: "لأتمتة نجاحك؟",
+      sub: "لنناقش كيف يمكن للذكاء الاصطناعي والأتمتة الذكية مضاعفة نمو أعمالك. احجز جلسة استشارية اليوم. استشارات خبيرة للشركات المستعدة للنمو.",
       whatsapp: "واتساب", email: "البريد الإلكتروني",
       cta: "ابدأ عبر واتساب — مجاناً",
     },
-    footer: { madeWith: "طُوِّر بواسطة", passion: "MDigitalDev", rights: "MDigitalDev. جميع الحقوق محفوظة.", privacyLink: "سياسة الخصوصية", termsLink: "شروط الخدمة" },
+    footer: { madeWith: "طُوِّر بواسطة", passion: "MDigitalDev", rights: "© 2026 MDigitalDev. جميع الحقوق محفوظة.", privacyLink: "سياسة الخصوصية", termsLink: "شروط الخدمة" },
   },
 };
