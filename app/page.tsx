@@ -1339,7 +1339,7 @@ export default function Home() {
             custom={5}
             className="text-center text-sm text-gray-400 font-medium mt-10"
           >
-            ⚡ {t.process.timeNote}
+            ✦ {t.process.timeNote}
           </motion.p>
         </div>
       </Section>
