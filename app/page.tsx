@@ -31,6 +31,9 @@ import {
   Heart,
   Home as HomeIcon,
   Rocket,
+  Bot,
+  Workflow,
+  Cpu,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -677,9 +680,9 @@ const INDUSTRIES_STATIC = [
 const WA_BASE = "https://wa.me/212669586001?text=";
 
 const SERVICES_STATIC = [
-  { icon: Globe,        price: "$150",   oldPrice: "$250",   suffix: "+", highlight: false },
-  { icon: ShoppingCart, price: "$1,500", oldPrice: "$2,200", suffix: "+", highlight: true  },
-  { icon: Cloud,        price: "$4,800", oldPrice: "$6,500", suffix: "+", highlight: false },
+  { icon: Bot,      price: "$150",   oldPrice: "$250",   suffix: "+", highlight: false },
+  { icon: Workflow, price: "$1,500", oldPrice: "$2,200", suffix: "+", highlight: true  },
+  { icon: Cpu,      price: "$4,800", oldPrice: "$6,500", suffix: "+", highlight: false },
 ];
 
 const PROCESS_ICONS = [MessageCircle, Palette, Code2, Rocket];
@@ -744,6 +747,49 @@ export default function Home() {
 
         <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute -right-40 top-1/3 w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+        {/* AI circuit glow overlay */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.07]"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <defs>
+            <style>{`
+              @keyframes circuit-pulse {
+                0%, 100% { opacity: 0.3; }
+                50% { opacity: 1; }
+              }
+              @keyframes circuit-flow {
+                0% { stroke-dashoffset: 400; }
+                100% { stroke-dashoffset: 0; }
+              }
+              .c-line { fill: none; stroke: #a78bfa; stroke-width: 1; stroke-dasharray: 6 4; animation: circuit-flow 6s linear infinite; }
+              .c-line-2 { fill: none; stroke: #fb923c; stroke-width: 1; stroke-dasharray: 6 4; animation: circuit-flow 9s linear infinite reverse; }
+              .c-node { animation: circuit-pulse 3s ease-in-out infinite; }
+              .c-node-2 { animation: circuit-pulse 4s ease-in-out infinite 1.5s; }
+            `}</style>
+          </defs>
+          {/* horizontal traces */}
+          <line x1="0" y1="25%" x2="40%" y2="25%" className="c-line" />
+          <line x1="60%" y1="25%" x2="100%" y2="25%" className="c-line-2" />
+          <line x1="0" y1="75%" x2="35%" y2="75%" className="c-line-2" />
+          <line x1="65%" y1="75%" x2="100%" y2="75%" className="c-line" />
+          {/* vertical traces */}
+          <line x1="20%" y1="0" x2="20%" y2="100%" className="c-line" style={{animationDuration:"11s"}} />
+          <line x1="80%" y1="0" x2="80%" y2="100%" className="c-line-2" style={{animationDuration:"8s"}} />
+          {/* nodes */}
+          <circle cx="20%" cy="25%" r="4" fill="#a78bfa" className="c-node" />
+          <circle cx="20%" cy="75%" r="3" fill="#fb923c" className="c-node-2" />
+          <circle cx="80%" cy="25%" r="3" fill="#fb923c" className="c-node-2" />
+          <circle cx="80%" cy="75%" r="4" fill="#a78bfa" className="c-node" />
+          <circle cx="50%" cy="50%" r="5" fill="#a78bfa" className="c-node" style={{animationDuration:"2.5s"}} />
+          {/* connecting lines to center */}
+          <line x1="20%" y1="25%" x2="50%" y2="50%" className="c-line" style={{animationDuration:"7s"}} />
+          <line x1="80%" y1="25%" x2="50%" y2="50%" className="c-line-2" style={{animationDuration:"7s"}} />
+          <line x1="20%" y1="75%" x2="50%" y2="50%" className="c-line-2" style={{animationDuration:"7s"}} />
+          <line x1="80%" y1="75%" x2="50%" y2="50%" className="c-line" style={{animationDuration:"7s"}} />
+        </svg>
 
 <div className="relative max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-10">
 
@@ -814,9 +860,9 @@ export default function Home() {
               className="mt-12 inline-flex flex-wrap gap-px bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden"
             >
               {[
-                { value: "100",  label: t.hero.stats.projects  },
-                { value: "PWA",  label: t.hero.stats.pagespeed },
-                { value: "<1s",  label: t.hero.stats.revenue   },
+                { value: "50+",  label: t.hero.stats.projects  },
+                { value: "200+", label: t.hero.stats.pagespeed },
+                { value: "24/7", label: t.hero.stats.revenue   },
                 { value: "AI",   label: t.hero.stats.response  },
               ].map((s, i, arr) => (
                 <div
