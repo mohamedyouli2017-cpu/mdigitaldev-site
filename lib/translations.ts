@@ -165,13 +165,13 @@ export const translations: Record<Lang, LangTranslations> = {
       },
     },
     industries: {
-      label: "Industries", headline: "Built for Every Business.", sub: "Specialized solutions crafted for the unique needs of each industry.",
+      label: "Industries", headline: "Built for Every Business.", sub: "AI-powered automation solutions crafted for the unique needs of each industry.",
       items: [
-        { name: "Restaurants & Hospitality", desc: "Digital menus, online ordering, reservations, and PWA experiences that turn diners into regulars.", tags: ["Menu", "Ordering", "Reservations"] },
-        { name: "E-commerce & Retail",       desc: "High-converting online stores with cart systems, payment integration, and inventory dashboards.",  tags: ["Store", "Payments", "Analytics"] },
-        { name: "Corporate & Services",      desc: "Professional websites that build trust, generate leads, and establish authority in your market.",    tags: ["Branding", "Lead Gen", "SEO"]   },
-        { name: "Healthcare & Wellness",     desc: "HIPAA-conscious booking systems, patient portals, and clinic websites that inspire confidence.",    tags: ["Booking", "Portals", "Privacy"] },
-        { name: "Real Estate",               desc: "Property showcases with advanced filters, virtual tours, and lead capture for agents and agencies.", tags: ["Listings", "Filters", "Maps"]   },
+        { name: "Restaurants & Hospitality", desc: "AI-driven reservation systems and automated customer support bots to handle orders and inquiries 24/7.",                                   tags: ["AI Bots", "Auto Orders", "24/7 Support"]   },
+        { name: "E-commerce & Retail",       desc: "Smart inventory automation and AI personalized shopping assistants to boost conversion rates and sales.",                                  tags: ["AI Assistants", "Smart Inventory", "Conversion"] },
+        { name: "Corporate & Services",      desc: "Custom internal AI agents to automate document processing and streamline corporate workflows.",                                            tags: ["AI Agents", "Doc Processing", "Workflows"] },
+        { name: "Healthcare & Wellness",     desc: "AI scheduling assistants and automated patient follow-up workflows for better clinic efficiency.",                                         tags: ["AI Scheduling", "Auto Follow-up", "Efficiency"] },
+        { name: "Real Estate",               desc: "Automated lead qualification bots and AI-powered property matching for faster closures.",                                                  tags: ["Lead Bots", "AI Matching", "Fast Closures"] },
       ],
     },
     process: {
@@ -312,13 +312,13 @@ export const translations: Record<Lang, LangTranslations> = {
       },
     },
     industries: {
-      label: "Secteurs", headline: "Pour Chaque Activité.", sub: "Des solutions spécialisées adaptées aux besoins uniques de chaque secteur.",
+      label: "Secteurs", headline: "Pour Chaque Activité.", sub: "Des solutions d'automatisation IA conçues pour les besoins uniques de chaque secteur.",
       items: [
-        { name: "Restaurants & Hôtellerie",  desc: "Menus digitaux, commandes en ligne, réservations et PWA qui fidélisent les clients.", tags: ["Menu", "Commandes", "Réservations"] },
-        { name: "E-commerce & Retail",       desc: "Boutiques en ligne à fort taux de conversion avec panier, paiement intégré et tableau de bord inventaire.", tags: ["Boutique", "Paiements", "Analytics"] },
-        { name: "Corporate & Services",      desc: "Sites professionnels qui inspirent confiance, génèrent des leads et établissent l'autorité sur votre marché.", tags: ["Branding", "Leads", "SEO"] },
-        { name: "Santé & Bien-être",         desc: "Systèmes de réservation conformes, portails patients et sites de cliniques qui inspirent confiance.", tags: ["Réservation", "Portails", "Confidentialité"] },
-        { name: "Immobilier",                desc: "Vitrines de propriétés avec filtres avancés, visites virtuelles et capture de leads pour agents et agences.", tags: ["Annonces", "Filtres", "Cartes"] },
+        { name: "Restaurants & Hôtellerie",  desc: "Systèmes de réservation pilotés par l'IA et bots de support automatisés pour gérer commandes et demandes 24h/24.",               tags: ["Bots IA", "Commandes Auto", "Support 24h/24"] },
+        { name: "E-commerce & Retail",       desc: "Automatisation intelligente des stocks et assistants shopping personnalisés par l'IA pour booster conversions et ventes.",        tags: ["Assistants IA", "Stock Intelligent", "Conversion"] },
+        { name: "Corporate & Services",      desc: "Agents IA internes pour automatiser le traitement des documents et optimiser les workflows d'entreprise.",                         tags: ["Agents IA", "Docs Auto", "Workflows"] },
+        { name: "Santé & Bien-être",         desc: "Assistants de planification IA et workflows automatisés de suivi patients pour une meilleure efficacité des cliniques.",          tags: ["Planning IA", "Suivi Auto", "Efficacité"] },
+        { name: "Immobilier",                desc: "Bots de qualification automatique des leads et matching immobilier par l'IA pour des transactions plus rapides.",                  tags: ["Bots Leads", "Matching IA", "Clôture Rapide"] },
       ],
     },
     process: {
@@ -459,13 +459,13 @@ export const translations: Record<Lang, LangTranslations> = {
       },
     },
     industries: {
-      label: "القطاعات", headline: "لكل نوع من الأعمال.", sub: "حلول متخصصة مصممة للاحتياجات الفريدة لكل قطاع.",
+      label: "القطاعات", headline: "لكل نوع من الأعمال.", sub: "حلول أتمتة ذكاء اصطناعي مصممة للاحتياجات الفريدة لكل قطاع.",
       items: [
-        { name: "المطاعم والضيافة",   desc: "قوائم رقمية وطلبات إلكترونية وحجوزات وتطبيقات PWA تحوّل الزوار إلى عملاء دائمين.", tags: ["القائمة", "الطلبات", "الحجوزات"] },
-        { name: "التجارة الإلكترونية", desc: "متاجر إلكترونية عالية التحويل بأنظمة سلة وتكامل دفع ولوحات تحكم للمخزون.",         tags: ["المتجر", "الدفع", "التحليلات"] },
-        { name: "الشركات والخدمات",   desc: "مواقع احترافية تبني الثقة وتولّد العملاء المحتملين وترسّخ السلطة في سوقك.",        tags: ["الهوية", "العملاء", "SEO"]      },
-        { name: "الصحة والعافية",      desc: "أنظمة حجز آمنة وبوابات مرضى ومواقع عيادات تُلهم الثقة والطمأنينة.",              tags: ["الحجز", "البوابات", "الخصوصية"]  },
-        { name: "العقارات",            desc: "واجهات عقارية بفلاتر متقدمة وجولات افتراضية وأدوات جذب العملاء للوكلاء والشركات.",  tags: ["الإعلانات", "الفلاتر", "الخرائط"] },
+        { name: "المطاعم والضيافة",    desc: "أنظمة حجز مدعومة بالذكاء الاصطناعي ووكلاء رد آلي للتعامل مع الطلبات والاستفسارات على مدار الساعة.", tags: ["بوتات ذكية", "طلبات آلية", "دعم 24/7"]       },
+        { name: "التجارة الإلكترونية", desc: "أتمتة ذكية للمخزون ومساعدي تسوق شخصيين بالذكاء الاصطناعي لزيادة معدلات التحويل والمبيعات.",          tags: ["مساعدو ذكاء اصطناعي", "مخزون ذكي", "تحويل"] },
+        { name: "الشركات والخدمات",   desc: "وكلاء ذكاء اصطناعي مخصصين لأتمتة معالجة المستندات وتبسيط مسارات العمل المؤسسية.",                   tags: ["وكلاء ذكاء اصطناعي", "معالجة آلية", "مسارات"] },
+        { name: "الصحة والعافية",      desc: "مساعدي جدولة ذكية وأنظمة متابعة تلقائية للمرضى لتحسين كفاءة العيادات.",                              tags: ["جدولة ذكية", "متابعة آلية", "كفاءة"]         },
+        { name: "العقارات",            desc: "أنظمة أتمتة لفرز العملاء المحتملين وتوفيق العقارات بالذكاء الاصطناعي لإتمام الصفقات بسرعة.",          tags: ["بوتات العملاء", "توفيق ذكي", "إتمام سريع"]   },
       ],
     },
     process: {
