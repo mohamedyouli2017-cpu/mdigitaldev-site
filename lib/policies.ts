@@ -61,11 +61,11 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "2. Project Timelines & Asset Delivery",
-          body: "Quoted delivery timelines — ranging from 24 hours to 7 business days depending on the selected package — begin only once the client has supplied all required assets in full. Required assets include, but are not limited to: brand logo files, photography or image assets, written copy and menu content, colour palette specifications, and domain or hosting access credentials.\n\nAny delay caused by late or incomplete asset submission will extend the delivery timeline proportionally. MDigitalDev shall not be held liable for missed deadlines arising from the client's failure to provide assets in a timely and complete manner.",
+          body: "Delivery timelines are project-specific and will be defined in the official proposal or invoice. The countdown begins only after all required assets are received in full. Required assets include, but are not limited to: brand logo files, photography or image assets, written copy and menu content, colour palette specifications, and domain or hosting access credentials.\n\nAny delay caused by late or incomplete asset submission will extend the delivery timeline proportionally. MDigitalDev shall not be held liable for missed deadlines arising from the client's failure to provide assets in a timely and complete manner.",
         },
         {
           heading: "3. Payment Terms",
-          body: "A non-refundable deposit of 50% is required before project work begins. The remaining 50% balance must be paid in full before the final project is delivered, made live, or transferred to the client. No handover of any deliverable — including source files, credentials, or live deployment — will occur until 100% of the agreed payment has been received. Accepted payment methods include bank transfer (virement bancaire) and Payoneer. All prices are quoted in the currency agreed upon in writing prior to project commencement, which may include USD, EUR, AED, SAR, or any other mutually agreed currency. MDigitalDev operates internationally and does not restrict transactions to any single currency.",
+          body: "A non-refundable deposit of 50% is required before project work begins. The remaining 50% balance must be paid in full before the final project is delivered, made live, or transferred to the client. No handover of any deliverable — including source files, credentials, or live deployment — will occur until 100% of the agreed payment has been received. Payments are accepted in the currency agreed upon and specified in the invoice provided to the client.",
         },
         {
           heading: "4. Intellectual Property",
@@ -77,7 +77,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "6. Governing Law & Disputes",
-          body: "These terms are governed by Moroccan Commercial Law. Any dispute shall first be addressed through direct communication between both parties. If unresolved within 30 days, both parties agree to seek mediation. Should mediation fail to produce a resolution, the dispute shall be submitted to the competent courts of Morocco for final adjudication.",
+          body: "Any dispute shall be settled amicably through direct communication or mediation. If unresolved, the governing law and jurisdiction will be determined based on the specific project agreement or the mutual location of the parties.",
         },
         {
           heading: "7. Support & Maintenance",
@@ -141,11 +141,11 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "2. Délais de Livraison & Fourniture des Ressources",
-          body: "Les délais de livraison annoncés — de 24 heures à 7 jours ouvrables selon le forfait sélectionné — commencent uniquement à partir de la réception complète de toutes les ressources requises de la part du client. Ces ressources comprennent notamment : fichiers logo, visuels et photos, textes rédigés et contenu du menu, spécifications de couleurs, accès au nom de domaine et à l'hébergement.\n\nTout retard causé par une fourniture tardive ou incomplète des ressources prolongera proportionnellement le délai de livraison. MDigitalDev ne saurait être tenu responsable des retards imputables au client.",
+          body: "Les délais de livraison sont spécifiques à chaque projet et seront définis dans le devis ou la facture officielle. Le compte à rebours commence uniquement après réception complète de toutes les ressources requises de la part du client. Ces ressources comprennent notamment : fichiers logo, visuels et photos, textes rédigés et contenu du menu, spécifications de couleurs, accès au nom de domaine et à l'hébergement.\n\nTout retard causé par une fourniture tardive ou incomplète des ressources prolongera proportionnellement le délai de livraison. MDigitalDev ne saurait être tenu responsable des retards imputables au client.",
         },
         {
           heading: "3. Conditions de Paiement",
-          body: "Un acompte non remboursable de 50 % est exigé avant le début des travaux. Le solde restant de 50 % doit être intégralement réglé avant la livraison finale du projet, sa mise en ligne ou son transfert au client. Aucune remise de livrable — fichiers sources, identifiants ou déploiement en ligne — n'interviendra avant réception de 100 % du paiement convenu. Les moyens de paiement acceptés comprennent le virement bancaire et Payoneer. Tous les prix sont exprimés dans la devise convenue par écrit avant le début du projet, pouvant inclure USD, EUR, AED, SAR ou toute autre devise mutuellement acceptée. MDigitalDev opère à l'international et ne restreint pas ses transactions à une seule devise.",
+          body: "Un acompte non remboursable de 50 % est exigé avant le début des travaux. Le solde restant de 50 % doit être intégralement réglé avant la livraison finale du projet, sa mise en ligne ou son transfert au client. Aucune remise de livrable — fichiers sources, identifiants ou déploiement en ligne — n'interviendra avant réception de 100 % du paiement convenu. Les paiements sont acceptés dans la devise convenue et précisée dans la facture remise au client.",
         },
         {
           heading: "4. Propriété Intellectuelle",
@@ -157,7 +157,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "6. Droit Applicable & Litiges",
-          body: "Les présentes conditions sont régies par le droit commercial marocain. Tout litige sera traité en priorité par voie de dialogue direct entre les parties. À défaut de résolution sous 30 jours, les parties s'engagent à recourir à la médiation. Si la médiation échoue, le litige sera soumis aux tribunaux compétents du Maroc pour résolution définitive.",
+          body: "Tout litige sera réglé à l'amiable par voie de communication directe ou de médiation. En l'absence de résolution, la loi applicable et la juridiction compétente seront déterminées en fonction de l'accord de projet spécifique ou de la localisation mutuelle des parties.",
         },
         {
           heading: "7. Support & Maintenance",
@@ -221,11 +221,11 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "٢. مواعيد التسليم وتسليم الأصول",
-          body: "تبدأ مواعيد التسليم المحددة — من 24 ساعة إلى 7 أيام عمل حسب الباقة المختارة — فقط بعد أن يوفر العميل جميع الأصول المطلوبة بشكل كامل. تشمل الأصول المطلوبة على سبيل المثال لا الحصر: ملفات الشعار، الصور والمرئيات، النصوص المكتوبة ومحتوى القائمة، مواصفات الألوان، وبيانات الوصول للنطاق والاستضافة.\n\nأي تأخير ناجم عن عدم توفير الأصول في الوقت المناسب أو بصورة مكتملة سيؤدي إلى تمديد موعد التسليم بشكل متناسب. لا تتحمل MDigitalDev المسؤولية عن التأخيرات الناجمة عن إخفاق العميل في توفير الأصول.",
+          body: "تُحدَّد مواعيد التسليم بحسب طبيعة كل مشروع وتُوضَّح في العرض الرسمي أو الفاتورة. يبدأ العد التنازلي فقط بعد استلام جميع الأصول المطلوبة بشكل كامل. تشمل الأصول المطلوبة على سبيل المثال لا الحصر: ملفات الشعار، الصور والمرئيات، النصوص المكتوبة ومحتوى القائمة، مواصفات الألوان، وبيانات الوصول للنطاق والاستضافة.\n\nأي تأخير ناجم عن عدم توفير الأصول في الوقت المناسب أو بصورة مكتملة سيؤدي إلى تمديد موعد التسليم بشكل متناسب. لا تتحمل MDigitalDev المسؤولية عن التأخيرات الناجمة عن إخفاق العميل في توفير الأصول.",
         },
         {
           heading: "٣. شروط الدفع",
-          body: "يُشترط دفع عربون غير قابل للاسترداد بنسبة 50٪ قبل بدء العمل. يجب سداد الرصيد المتبقي البالغ 50٪ بالكامل قبل التسليم النهائي للمشروع أو إطلاقه أو نقله إلى العميل. لن يتم تسليم أي مُخرَج — بما في ذلك الملفات المصدرية أو بيانات الوصول أو النشر المباشر — إلا بعد استلام 100٪ من المبلغ المتفق عليه كاملاً. تشمل طرق الدفع المقبولة التحويل البنكي (virement bancaire) وPayoneer. تُحدَّد جميع الأسعار بالعملة المتفق عليها كتابياً قبل بدء المشروع، والتي قد تشمل الدولار الأمريكي (USD) أو اليورو (EUR) أو الدرهم الإماراتي (AED) أو الريال السعودي (SAR) أو أي عملة أخرى يتفق عليها الطرفان. تعمل MDigitalDev على المستوى الدولي ولا تقتصر معاملاتها على عملة واحدة.",
+          body: "يُشترط دفع عربون غير قابل للاسترداد بنسبة 50٪ قبل بدء العمل. يجب سداد الرصيد المتبقي البالغ 50٪ بالكامل قبل التسليم النهائي للمشروع أو إطلاقه أو نقله إلى العميل. لن يتم تسليم أي مُخرَج — بما في ذلك الملفات المصدرية أو بيانات الوصول أو النشر المباشر — إلا بعد استلام 100٪ من المبلغ المتفق عليه كاملاً. تُقبَل المدفوعات بالعملة المتفق عليها والمحددة في الفاتورة المقدمة للعميل.",
         },
         {
           heading: "٤. الملكية الفكرية",
@@ -237,7 +237,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "٦. القانون الحاكم وتسوية النزاعات",
-          body: "تخضع هذه الشروط للقانون التجاري المغربي. يُعالج أي نزاع بالتراضي عبر التواصل المباشر بين الطرفين أولاً. إذا لم يُحسم خلال 30 يوماً، يتفق الطرفان على اللجوء إلى الوساطة. في حال فشل الوساطة في التوصل إلى حل، يُحال النزاع إلى المحاكم المختصة في المغرب للبت فيه نهائياً.",
+          body: "يُسوَّى أي نزاع وديّاً عبر التواصل المباشر أو الوساطة. إذا تعذّر التوصل إلى حل، يُحدَّد القانون الحاكم والاختصاص القضائي بناءً على اتفاقية المشروع المحددة أو الموقع المشترك للطرفين.",
         },
         {
           heading: "٧. الدعم الفني والصيانة",
