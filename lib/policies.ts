@@ -57,7 +57,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
       sections: [
         {
           heading: "1. Services",
-          body: "MDigitalDev provides web design, PWA development, digital ordering solutions, third-party API integrations, and automated communication channel setups, primarily for the restaurant and hospitality industry. All services and their scope are agreed upon in writing before any work commences.",
+          body: "MDigitalDev provides web design, PWA development, AI Agent development, intelligent workflow automation, business process automation, digital ordering solutions, third-party API integrations, and automated communication channel setups, across multiple industries including restaurants, e-commerce, corporate, healthcare, and real estate. All services and their scope are agreed upon in writing before any work commences.",
         },
         {
           heading: "2. Project Timelines & Asset Delivery",
@@ -65,7 +65,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "3. Payment Terms",
-          body: "A non-refundable deposit of 50% is required before project work begins. The remaining 50% balance must be paid in full before the final project is delivered, made live, or transferred to the client. No handover of any deliverable — including source files, credentials, or live deployment — will occur until 100% of the agreed payment has been received. All prices are quoted in Moroccan Dirhams (MAD) unless otherwise agreed in writing.",
+          body: "A non-refundable deposit of 50% is required before project work begins. The remaining 50% balance must be paid in full before the final project is delivered, made live, or transferred to the client. No handover of any deliverable — including source files, credentials, or live deployment — will occur until 100% of the agreed payment has been received. Accepted payment methods include bank transfer (virement bancaire) and Payoneer. All prices are quoted in the currency agreed upon in writing prior to project commencement, which may include USD, EUR, AED, SAR, or any other mutually agreed currency. MDigitalDev operates internationally and does not restrict transactions to any single currency.",
         },
         {
           heading: "4. Intellectual Property",
@@ -81,7 +81,15 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "7. Support & Maintenance",
-          body: "MDigitalDev provides 30 days of complimentary technical support following the official project delivery date. This support covers bug fixes and technical issues directly attributable to the delivered work only. Content updates, design modifications, new feature requests, or any changes outside the original project scope are not covered under this free support period and will be scoped and billed separately. Upon expiry of the 30-day support period, all ongoing support and maintenance services are subject to a separate maintenance agreement or billed at the applicable rate.",
+          body: "MDigitalDev provides 30 days of complimentary technical support following the official project delivery date. This support covers bug fixes and technical issues directly attributable to the delivered work only. Content updates, design modifications, new feature requests, or any changes outside the original project scope are not covered under this free support period and will be scoped and billed separately. Upon expiry of the 30-day support period, all ongoing support and maintenance services are subject to a separate maintenance agreement or billed at the applicable rate. During the 30-day support period, clients may reach out via WhatsApp at +212669586001 or by email at contact@mdigitaldev.com. Support requests submitted through other channels cannot be guaranteed a response.",
+        },
+        {
+          heading: "8. Revisions Policy",
+          body: "Each project plan includes a defined number of revision rounds as specified at the time of agreement. The Smart Starter plan includes 1 round of revisions. The Business Auto-Pilot plan includes 2 rounds of revisions. The Enterprise AI Elite plan includes 3 rounds of revisions. Additional revisions beyond the included rounds will be scoped and billed separately. A revision is defined as minor adjustments to existing delivered work and does not include new features or structural redesigns.",
+        },
+        {
+          heading: "9. Confidentiality",
+          body: "MDigitalDev agrees to keep all client-provided materials, business data, and project details strictly confidential. We will not disclose, share, or use any client information for purposes outside the scope of the agreed project. This confidentiality obligation remains in effect indefinitely after project completion.",
         },
       ],
     },
@@ -129,7 +137,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
       sections: [
         {
           heading: "1. Services",
-          body: "MDigitalDev fournit des services de conception web, développement PWA, solutions de commande digitale, intégrations d'API tierces et mise en place de canaux de communication automatisés, principalement pour la restauration et l'hôtellerie. Toute prestation et sa portée sont définies par écrit avant le début des travaux.",
+          body: "MDigitalDev fournit des services de conception web, développement PWA, développement d'agents IA, automatisation intelligente des flux de travail, automatisation des processus métier, solutions de commande digitale, intégrations d'API tierces et mise en place de canaux de communication automatisés, dans de nombreux secteurs d'activité dont la restauration, le commerce en ligne, le corporate, la santé et l'immobilier. Toute prestation et sa portée sont définies par écrit avant le début des travaux.",
         },
         {
           heading: "2. Délais de Livraison & Fourniture des Ressources",
@@ -137,7 +145,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "3. Conditions de Paiement",
-          body: "Un acompte non remboursable de 50 % est exigé avant le début des travaux. Le solde restant de 50 % doit être intégralement réglé avant la livraison finale du projet, sa mise en ligne ou son transfert au client. Aucune remise de livrable — fichiers sources, identifiants ou déploiement en ligne — n'interviendra avant réception de 100 % du paiement convenu. Tous les prix sont exprimés en dirhams marocains (MAD) sauf accord écrit contraire.",
+          body: "Un acompte non remboursable de 50 % est exigé avant le début des travaux. Le solde restant de 50 % doit être intégralement réglé avant la livraison finale du projet, sa mise en ligne ou son transfert au client. Aucune remise de livrable — fichiers sources, identifiants ou déploiement en ligne — n'interviendra avant réception de 100 % du paiement convenu. Les moyens de paiement acceptés comprennent le virement bancaire et Payoneer. Tous les prix sont exprimés dans la devise convenue par écrit avant le début du projet, pouvant inclure USD, EUR, AED, SAR ou toute autre devise mutuellement acceptée. MDigitalDev opère à l'international et ne restreint pas ses transactions à une seule devise.",
         },
         {
           heading: "4. Propriété Intellectuelle",
@@ -153,7 +161,15 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "7. Support & Maintenance",
-          body: "MDigitalDev assure 30 jours de support technique gratuit à compter de la date de livraison officielle du projet. Ce support couvre uniquement la correction des bugs et des anomalies techniques directement imputables au travail livré. Les mises à jour de contenu, modifications de design, ajouts de fonctionnalités ou tout changement hors du périmètre initial du projet ne sont pas couverts par cette période de support gratuit et feront l'objet d'un devis et d'une facturation séparés. À l'expiration des 30 jours, tout support et maintenance continus sont soumis à un contrat de maintenance distinct ou facturés au tarif applicable.",
+          body: "MDigitalDev assure 30 jours de support technique gratuit à compter de la date de livraison officielle du projet. Ce support couvre uniquement la correction des bugs et des anomalies techniques directement imputables au travail livré. Les mises à jour de contenu, modifications de design, ajouts de fonctionnalités ou tout changement hors du périmètre initial du projet ne sont pas couverts par cette période de support gratuit et feront l'objet d'un devis et d'une facturation séparés. À l'expiration des 30 jours, tout support et maintenance continus sont soumis à un contrat de maintenance distinct ou facturés au tarif applicable. Pendant la période de support de 30 jours, les clients peuvent nous contacter via WhatsApp au +212669586001 ou par e-mail à contact@mdigitaldev.com. Les demandes de support soumises par d'autres canaux ne peuvent être garanties d'une réponse.",
+        },
+        {
+          heading: "8. Politique de Révisions",
+          body: "Chaque plan de projet comprend un nombre défini de cycles de révisions tel que spécifié au moment de l'accord. Le forfait Smart Starter inclut 1 cycle de révisions. Le forfait Business Auto-Pilot inclut 2 cycles de révisions. Le forfait Enterprise AI Elite inclut 3 cycles de révisions. Les révisions supplémentaires au-delà des cycles inclus feront l'objet d'un devis et d'une facturation séparés. Une révision est définie comme des ajustements mineurs au travail livré et n'inclut pas de nouvelles fonctionnalités ni de refonte structurelle.",
+        },
+        {
+          heading: "9. Confidentialité",
+          body: "MDigitalDev s'engage à maintenir strictement confidentiels tous les documents fournis par le client, les données commerciales et les détails du projet. Nous ne divulguerons, ne partagerons ni n'utiliserons aucune information client à des fins extérieures au périmètre du projet convenu. Cette obligation de confidentialité reste en vigueur indéfiniment après l'achèvement du projet.",
         },
       ],
     },
@@ -201,7 +217,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
       sections: [
         {
           heading: "١. الخدمات",
-          body: "تقدم MDigitalDev خدمات تصميم المواقع وتطوير تطبيقات PWA وحلول الطلب الرقمي وتكاملات واجهات برمجة التطبيقات (API) من أطراف ثالثة وإعداد قنوات التواصل الآلية، بشكل رئيسي لقطاع المطاعم والضيافة. تُحدَّد جميع الخدمات ونطاقها كتابياً قبل بدء أي عمل.",
+          body: "تقدم MDigitalDev خدمات تصميم المواقع وتطوير تطبيقات PWA وتطوير وكلاء الذكاء الاصطناعي وأتمتة سير العمل الذكية وأتمتة العمليات التجارية وحلول الطلب الرقمي وتكاملات واجهات برمجة التطبيقات من أطراف ثالثة وإعداد قنوات التواصل الآلية، عبر صناعات متعددة تشمل المطاعم والتجارة الإلكترونية والشركات والرعاية الصحية والعقارات. تُحدَّد جميع الخدمات ونطاقها كتابياً قبل بدء أي عمل.",
         },
         {
           heading: "٢. مواعيد التسليم وتسليم الأصول",
@@ -209,7 +225,7 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "٣. شروط الدفع",
-          body: "يُشترط دفع عربون غير قابل للاسترداد بنسبة 50٪ قبل بدء العمل. يجب سداد الرصيد المتبقي البالغ 50٪ بالكامل قبل التسليم النهائي للمشروع أو إطلاقه أو نقله إلى العميل. لن يتم تسليم أي مُخرَج — بما في ذلك الملفات المصدرية أو بيانات الوصول أو النشر المباشر — إلا بعد استلام 100٪ من المبلغ المتفق عليه كاملاً. جميع الأسعار بالدرهم المغربي (MAD) ما لم يُتفق كتابياً على خلاف ذلك.",
+          body: "يُشترط دفع عربون غير قابل للاسترداد بنسبة 50٪ قبل بدء العمل. يجب سداد الرصيد المتبقي البالغ 50٪ بالكامل قبل التسليم النهائي للمشروع أو إطلاقه أو نقله إلى العميل. لن يتم تسليم أي مُخرَج — بما في ذلك الملفات المصدرية أو بيانات الوصول أو النشر المباشر — إلا بعد استلام 100٪ من المبلغ المتفق عليه كاملاً. تشمل طرق الدفع المقبولة التحويل البنكي (virement bancaire) وPayoneer. تُحدَّد جميع الأسعار بالعملة المتفق عليها كتابياً قبل بدء المشروع، والتي قد تشمل الدولار الأمريكي (USD) أو اليورو (EUR) أو الدرهم الإماراتي (AED) أو الريال السعودي (SAR) أو أي عملة أخرى يتفق عليها الطرفان. تعمل MDigitalDev على المستوى الدولي ولا تقتصر معاملاتها على عملة واحدة.",
         },
         {
           heading: "٤. الملكية الفكرية",
@@ -225,7 +241,15 @@ export const policies: Record<Lang, Record<PolicyType, PolicyDoc>> = {
         },
         {
           heading: "٧. الدعم الفني والصيانة",
-          body: "تقدم MDigitalDev 30 يوماً من الدعم الفني المجاني اعتباراً من تاريخ التسليم الرسمي للمشروع. يقتصر هذا الدعم على إصلاح الأخطاء التقنية والمشكلات الناجمة مباشرة عن العمل المُسلَّم. لا تشمل هذه الفترة المجانية تحديثات المحتوى، أو تعديلات التصميم، أو إضافة ميزات جديدة، أو أي تغييرات خارج نطاق المشروع الأصلي؛ وتخضع هذه الطلبات للتسعير والفوترة المنفصلة. بعد انتهاء فترة الـ 30 يوماً، تخضع جميع خدمات الدعم والصيانة المستمرة لاتفاقية صيانة مستقلة أو تُحتسب وفق التعريفة المعمول بها.",
+          body: "تقدم MDigitalDev 30 يوماً من الدعم الفني المجاني اعتباراً من تاريخ التسليم الرسمي للمشروع. يقتصر هذا الدعم على إصلاح الأخطاء التقنية والمشكلات الناجمة مباشرة عن العمل المُسلَّم. لا تشمل هذه الفترة المجانية تحديثات المحتوى، أو تعديلات التصميم، أو إضافة ميزات جديدة، أو أي تغييرات خارج نطاق المشروع الأصلي؛ وتخضع هذه الطلبات للتسعير والفوترة المنفصلة. بعد انتهاء فترة الـ 30 يوماً، تخضع جميع خدمات الدعم والصيانة المستمرة لاتفاقية صيانة مستقلة أو تُحتسب وفق التعريفة المعمول بها. خلال فترة الدعم البالغة 30 يوماً، يمكن للعملاء التواصل معنا عبر واتساب على الرقم +212669586001 أو عبر البريد الإلكتروني على contact@mdigitaldev.com. لا يمكن ضمان الرد على طلبات الدعم المُقدَّمة عبر قنوات أخرى.",
+        },
+        {
+          heading: "٨. سياسة المراجعات",
+          body: "يتضمن كل خطة مشروع عدداً محدداً من جولات المراجعة كما هو محدد وقت الاتفاق. تشمل خطة Smart Starter جولة مراجعة واحدة. تشمل خطة Business Auto-Pilot جولتَي مراجعة. تشمل خطة Enterprise AI Elite 3 جولات مراجعة. ستُسعَّر المراجعات الإضافية التي تتجاوز الجولات المضمنة وتُفوتَر بصورة منفصلة. تُعرَّف المراجعة بأنها تعديلات طفيفة على العمل المُسلَّم ولا تشمل ميزات جديدة أو إعادة تصميم هيكلية.",
+        },
+        {
+          heading: "٩. السرية",
+          body: "تلتزم MDigitalDev بالحفاظ على سرية تامة لجميع المواد التي يوفرها العميل وبيانات الأعمال وتفاصيل المشروع. لن نُفصح عن أي معلومات تخص العميل أو نشاركها أو نستخدمها لأغراض خارج نطاق المشروع المتفق عليه. يظل هذا الالتزام بالسرية سارياً إلى أجل غير مسمى بعد اكتمال المشروع.",
         },
       ],
     },
