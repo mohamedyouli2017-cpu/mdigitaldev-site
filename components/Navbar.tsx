@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap, Facebook, Instagram, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -83,7 +84,8 @@ function LangSwitcher({ onDark }: { onDark: boolean }) {
 
 /* ── Navbar ───────────────────────────────────────────────────────────────── */
 export default function Navbar() {
-  const { t } = useLanguage();
+  const { t }  = useLanguage();
+  const router = useRouter();
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -93,20 +95,24 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollTo = (href: string) => {
+  const handleNavClick = (href: string, isRoute?: boolean) => {
     setMobileOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    if (isRoute) {
+      router.push(href);
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const onDark = !scrolled;
 
-  const navLinks = [
+  const navLinks: { label: string; href: string; isRoute?: boolean; badge?: string }[] = [
     { label: t.nav.about,     href: "#about"    },
     { label: t.nav.whyMe,     href: "#why-me"   },
-    { label: t.nav.services,  href: "#services"  },
-    { label: t.nav.portfolio, href: "#demos"     },
-    { label: t.nav.process,   href: "#process"   },
-    { label: t.nav.contact,   href: "#contact"   },
+    { label: t.nav.services,  href: "#services" },
+    { label: t.nav.portfolio, href: "#demos"    },
+    { label: t.nav.process,   href: "#process"  },
+    { label: t.nav.contact,   href: "#contact"  },
   ];
 
   return (
@@ -156,14 +162,19 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <button
                 key={link.href}
-                onClick={() => scrollTo(link.href)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                onClick={() => handleNavClick(link.href, link.isRoute)}
+                className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                   onDark
                     ? "text-white/60 hover:text-white hover:bg-white/10"
                     : "text-gray-500 hover:text-black hover:bg-gray-100"
                 }`}
               >
                 {link.label}
+                {link.badge && (
+                  <span className="rounded-full bg-emerald-500 px-1.5 py-0.5 text-[10px] font-bold text-white leading-none">
+                    {link.badge}
+                  </span>
+                )}
               </button>
             ))}
           </nav>
@@ -199,7 +210,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <button
-              onClick={() => scrollTo("#contact")}
+              onClick={() => handleNavClick("#contact")}
               className={`inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full active:scale-95 transition-all duration-300 ${
                 onDark
                   ? "bg-white text-black hover:bg-gray-100"
@@ -244,10 +255,15 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <button
                   key={link.href}
-                  onClick={() => scrollTo(link.href)}
-                  className="w-full text-left px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                  onClick={() => handleNavClick(link.href, link.isRoute)}
+                  className="w-full flex items-center gap-2 text-left px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                 >
                   {link.label}
+                  {link.badge && (
+                    <span className="rounded-full bg-emerald-500 px-1.5 py-0.5 text-[10px] font-bold text-white leading-none">
+                      {link.badge}
+                    </span>
+                  )}
                 </button>
               ))}
               <div className="flex items-center gap-4 px-4 pt-3 pb-1">
@@ -272,7 +288,7 @@ export default function Navbar() {
               </div>
               <div className="pt-2 pb-1">
                 <button
-                  onClick={() => scrollTo("#contact")}
+                  onClick={() => handleNavClick("#contact")}
                   className="w-full py-3 bg-white text-black text-sm font-semibold rounded-xl hover:bg-gray-100 transition-all"
                 >
                   {t.nav.cta}

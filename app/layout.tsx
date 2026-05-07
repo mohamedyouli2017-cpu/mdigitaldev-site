@@ -4,6 +4,7 @@ import "./globals.css";
 import MagneticCursor      from "@/components/MagneticCursor";
 import WhatsAppButton      from "@/components/WhatsAppButton";
 import PWAInstallPrompt    from "@/components/PWAInstallPrompt";
+import PWAInit             from "@/components/PWAInit";
 import ChatWidget          from "@/components/ChatWidget";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
@@ -206,39 +207,13 @@ export default function RootLayout({
         {/* Theme colour for mobile browser chrome */}
         <meta name="theme-color" content="#0a0a0a" />
 
-        {/*
-          Early PWA capture — runs synchronously before React hydrates.
-          beforeinstallprompt fires very early; if we only listen inside
-          a useEffect we always miss it. This script parks the event on
-          window.__pwaPromptEvent and re-dispatches a "pwa-ready" custom
-          event so the React component can pick it up whenever it mounts.
-        */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              /* ── Service worker: register immediately, no load-event delay ── */
-              if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js').catch(function(){});
-              }
-
-              /* ── Capture beforeinstallprompt before React hydrates ── */
-              window.__pwaPromptEvent = null;
-              window.addEventListener('beforeinstallprompt', function(e) {
-                e.preventDefault();
-                window.__pwaPromptEvent = e;
-                window.dispatchEvent(new Event('pwa-ready'));
-              });
-            `,
-          }}
-        />
-
         {/* JSON-LD structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`antialiased ${plusJakarta.className}`}>
+      <body className={`antialiased ${plusJakarta.className}`} suppressHydrationWarning>
         <LanguageProvider>
           {/* Magnetic cursor — renders only on fine-pointer (mouse) devices */}
           <MagneticCursor />
@@ -249,6 +224,8 @@ export default function RootLayout({
           <WhatsAppButton />
           {/* PWA install banner — mobile only */}
           <PWAInstallPrompt />
+          {/* SW registration + beforeinstallprompt capture */}
+          <PWAInit />
         </LanguageProvider>
       </body>
     </html>

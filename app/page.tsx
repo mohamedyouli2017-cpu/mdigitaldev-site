@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState, useEffect, Suspense } from "react";
+import { useRef, useState, useEffect, Suspense, useCallback } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -34,14 +35,20 @@ import {
   Bot,
   Workflow,
   Cpu,
+  Calendar,
+  Copy,
+  Phone,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { policies } from "@/lib/policies";
 import type { PolicyType } from "@/lib/policies";
+import ContactForm from "@/components/ContactForm";
+
+const BookingModal = dynamic(() => import("@/components/BookingModal"), { ssr: false });
 
 /* Framer Motion + Next.js Link hybrid — used for bento cards */
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 /* ═══════════════════════════════════════════════════════════════
    ANIMATION VARIANTS
@@ -680,9 +687,33 @@ const INDUSTRIES_STATIC = [
 const WA_BASE = "https://wa.me/212669586001?text=";
 
 const SERVICES_STATIC = [
-  { icon: Bot,      price: "$497",   oldPrice: "",  suffix: "", highlight: false },
-  { icon: Workflow, price: "$1,800", oldPrice: "",  suffix: "", highlight: true  },
-  { icon: Cpu,      price: "$4,800", oldPrice: "",  suffix: "", highlight: false },
+  {
+    icon: Bot,
+    setupPrice: "$497",
+    monthlyPrice: "97",
+    annualMonthlyPrice: "75",
+    annualTotal: "$897/yr",
+    annualSavings: "267",
+    highlight: false,
+  },
+  {
+    icon: Workflow,
+    setupPrice: "$1,800",
+    monthlyPrice: "297",
+    annualMonthlyPrice: "223",
+    annualTotal: "$2,673/yr",
+    annualSavings: "891",
+    highlight: true,
+  },
+  {
+    icon: Cpu,
+    setupPrice: "$4,800",
+    monthlyPrice: "797",
+    annualMonthlyPrice: "598",
+    annualTotal: "$7,173/yr",
+    annualSavings: "2,391",
+    highlight: false,
+  },
 ];
 
 const PROCESS_ICONS = [MessageCircle, Palette, Code2, Rocket];
@@ -694,11 +725,54 @@ export default function Home() {
   const { t, lang } = useLanguage();
   const [policyOpen, setPolicyOpen] = useState<PolicyType | null>(null);
   const openWhatsApp = () => window.open("https://wa.me/212669586001", "_blank");
-  const openEmail    = () => { window.location.href = "mailto:contact@mdigitaldev.com"; };
+  const openEmail    = () => { window.location.href = "mailto:contact@mdigitaldev.com?subject=Inquiry from MDigitalDev Website"; };
   const scrollTo     = (id: string) =>
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
   const [activeFilter, setActiveFilter] = useState<string>("All");
+  const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
+
+  /* Booking modal */
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [bookingPlan, setBookingPlan] = useState("");
+  const openBooking = useCallback((plan: string) => { setBookingPlan(plan); setBookingOpen(true); }, []);
+
+  /* Toast notification */
+  const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
+  const showToast = useCallback((msg: string, type: "success" | "error") => {
+    setToast({ msg, type });
+    setTimeout(() => setToast(null), 3500);
+  }, []);
+
+  const copyEmailToClipboard = useCallback(async (successMsg: string, failMsg: string) => {
+    const email = "contact@mdigitaldev.com";
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(email);
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = email;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        const ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        if (!ok) throw new Error("execCommand failed");
+      }
+      showToast(successMsg, "success");
+    } catch {
+      showToast(failMsg, "error");
+    }
+  }, [showToast]);
+
+  const handleEmailOpen = useCallback((successMsg: string, failMsg: string) => {
+    copyEmailToClipboard(successMsg, failMsg);
+    setTimeout(() => {
+      window.location.href = "mailto:contact@mdigitaldev.com?subject=Inquiry from MDigitalDev Website";
+    }, 500);
+  }, [copyEmailToClipboard]);
 
   const filterTabs = [
     { label: t.portfolio.filterAll,         value: "All"         },
@@ -860,10 +934,10 @@ export default function Home() {
               className="mt-12 inline-flex flex-wrap gap-px bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden"
             >
               {[
-                { value: "50+",  label: t.hero.stats.projects  },
-                { value: "200+", label: t.hero.stats.pagespeed },
-                { value: "24/7", label: t.hero.stats.revenue   },
-                { value: "AI",   label: t.hero.stats.response  },
+                { value: "Custom",   label: t.hero.stats.projects  },
+                { value: "Modern",   label: t.hero.stats.pagespeed },
+                { value: "24/7",     label: t.hero.stats.revenue   },
+                { value: "Scalable", label: t.hero.stats.response  },
               ].map((s, i, arr) => (
                 <div
                   key={s.label}
@@ -1035,7 +1109,7 @@ export default function Home() {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.2em] text-white/30 mb-3">
               {t.services.label}
             </motion.p>
@@ -1048,20 +1122,53 @@ export default function Home() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+          {/* ── Billing toggle ── */}
+          <motion.div variants={fadeUp} custom={3} className="flex justify-center mb-12">
+            <div className="flex items-center gap-1 bg-white/[0.06] border border-white/10 p-1.5 rounded-full">
+              <button
+                onClick={() => setBilling("monthly")}
+                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
+                  billing === "monthly"
+                    ? "bg-white text-black shadow-md"
+                    : "text-white/50 hover:text-white/80"
+                }`}
+              >
+                {t.services.billingMonthly}
+              </button>
+              <button
+                onClick={() => setBilling("annual")}
+                className={`relative flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
+                  billing === "annual"
+                    ? "bg-white text-black shadow-md"
+                    : "text-white/50 hover:text-white/80"
+                }`}
+              >
+                {t.services.billingAnnual}
+                <span className="absolute -top-2.5 -end-1 bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap">
+                  SAVE
+                </span>
+              </button>
+            </div>
+          </motion.div>
+
+          {/* ── Pricing cards ── */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
             {SERVICES_STATIC.map((svc, i) => {
               const Icon = svc.icon;
               const td   = t.services.items[i];
+              const displayMonthly = billing === "monthly"
+                ? `$${svc.monthlyPrice}`
+                : `$${svc.annualMonthlyPrice}`;
               return (
                 <motion.div
                   key={td.name}
                   variants={scaleIn}
                   custom={i * 0.12}
                   className={`
-                    relative flex flex-col rounded-[28px] p-8 border backdrop-blur-xl
+                    relative flex flex-col rounded-[28px] p-7 border backdrop-blur-xl
                     transition-all duration-300
                     ${svc.highlight
-                      ? "bg-white/[0.10] border-white/25 shadow-[0_0_60px_rgba(255,255,255,0.06)] md:scale-[1.035]"
+                      ? "bg-white/[0.10] border-white/25 shadow-[0_0_60px_rgba(255,255,255,0.06)]"
                       : "bg-white/[0.04] border-white/[0.08] hover:bg-white/[0.07] hover:border-white/15"
                     }
                   `}
@@ -1074,45 +1181,77 @@ export default function Home() {
                   {svc.highlight && (
                     <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-full" />
                   )}
-                  <div className="flex items-center justify-between mb-6">
+
+                  {/* Tier + icon */}
+                  <div className="flex items-center justify-between mb-5">
                     <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-white/30">{td.tier}</span>
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${svc.highlight ? "bg-white/15" : "bg-white/[0.07]"}`}>
                       <Icon className="w-5 h-5 text-white/70" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{td.name}</h3>
-                  <div className="flex items-end gap-2.5 mb-4">
-                    <span className="text-4xl font-black text-white leading-none">{svc.price}</span>
-                    <span className="text-lg font-semibold text-white/30 leading-none mb-0.5">{svc.suffix}</span>
-                    <span className="text-base font-medium text-white/25 line-through leading-none mb-0.5">{svc.oldPrice}</span>
+
+                  {/* Setup price */}
+                  <div className="flex items-end gap-2 mb-1">
+                    <span className="text-4xl font-black text-white leading-none">{svc.setupPrice}</span>
+                    <span className="text-sm text-white/35 mb-0.5">{t.services.oneTimeSetup}</span>
                   </div>
-                  <p className="text-sm leading-relaxed mb-6 text-white/40">{td.desc}</p>
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {td.features.map((f) => {
-                      const isDelivery  = f.startsWith("⚡");
-                      const isHighlight = f.startsWith("⭐");
-                      return (
-                        <li key={f} className="flex items-center gap-2.5 text-sm">
-                          <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-400" />
-                          {isDelivery ? (
-                            <span className="font-semibold text-emerald-400 tracking-wide">
-                              {f}
-                            </span>
-                          ) : isHighlight ? (
-                            <span className="font-semibold text-amber-300 tracking-wide">
-                              {f}
-                            </span>
-                          ) : (
-                            <span className="text-white/60">{f}</span>
-                          )}
-                        </li>
-                      );
-                    })}
+
+                  {/* Maintenance price row */}
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <span className="text-lg font-bold text-violet-300">
+                      + {displayMonthly}
+                      <span className="text-sm font-medium text-white/40">{t.services.perMonth}</span>
+                    </span>
+                    {billing === "annual" && (
+                      <span className="inline-flex items-center gap-1 bg-emerald-500/15 text-emerald-400 text-[11px] font-bold px-2.5 py-1 rounded-full border border-emerald-500/25">
+                        {t.services.annualSaveLabel} ${svc.annualSavings}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Minimum / billing note */}
+                  <p className="text-[11px] text-white/25 mb-5">
+                    {billing === "annual" ? `Billed ${svc.annualTotal}` : td.minimum}
+                  </p>
+
+                  <p className="text-sm leading-relaxed mb-5 text-white/45">{td.desc}</p>
+
+                  {/* Divider */}
+                  <div className="h-px bg-white/[0.08] mb-4" />
+
+                  {/* Setup features */}
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+                    {t.services.setupLabel}
+                  </p>
+                  <ul className="space-y-2 mb-5">
+                    {td.setupFeatures.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm">
+                        <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-400 mt-0.5" />
+                        <span className="text-white/60">{f}</span>
+                      </li>
+                    ))}
                   </ul>
-                  <a
-                    href={`${WA_BASE}${encodeURIComponent(td.waMsg)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+
+                  {/* Divider */}
+                  <div className="h-px bg-white/[0.08] mb-4" />
+
+                  {/* Maintenance features */}
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+                    {t.services.maintenanceLabel}
+                  </p>
+                  <ul className="space-y-2 mb-7 flex-1">
+                    {td.maintenanceFeatures.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5 text-sm">
+                        <div className="flex-shrink-0 w-4 h-4 rounded-full bg-violet-500/20 flex items-center justify-center mt-0.5">
+                          <div className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+                        </div>
+                        <span className="text-white/50">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    onClick={() => openBooking(td.name)}
                     className={`
                       w-full py-3.5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2
                       active:scale-95 transition-all duration-200
@@ -1124,13 +1263,44 @@ export default function Home() {
                   >
                     {td.cta}
                     <ChevronRight className="w-4 h-4" />
-                  </a>
+                  </button>
                 </motion.div>
               );
             })}
           </div>
 
-          <motion.p variants={fadeUp} custom={4} className="text-center text-sm text-white/25 mt-8">
+          {/* ── Why Monthly Maintenance Matters ── */}
+          <motion.div
+            variants={fadeUp}
+            custom={5}
+            className="mt-16 rounded-[28px] border border-white/[0.10] bg-white/[0.03] p-8 sm:p-10"
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/25 text-center mb-2">
+              {t.services.label}
+            </p>
+            <h3 className="text-xl sm:text-2xl font-extrabold text-white text-center mb-8">
+              {t.services.whyTitle}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {t.services.whyPoints.map((point) => (
+                <div
+                  key={point.title}
+                  className="flex gap-3.5 p-5 rounded-2xl bg-white/[0.04] border border-white/[0.07] hover:border-white/[0.14] transition-colors duration-200"
+                >
+                  <span className="text-2xl leading-none flex-shrink-0 mt-0.5">{point.icon}</span>
+                  <div>
+                    <p className="text-sm font-bold text-white mb-1">{point.title}</p>
+                    <p className="text-xs text-white/45 leading-relaxed">{point.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-center text-sm text-white/35 mt-8 max-w-2xl mx-auto leading-relaxed">
+              {t.services.whyClose}
+            </p>
+          </motion.div>
+
+          <motion.p variants={fadeUp} custom={6} className="text-center text-sm text-white/25 mt-8">
             {t.services.footerNote}{" "}
             <button onClick={openWhatsApp} className="underline underline-offset-4 hover:text-white/60 transition-colors">
               {t.services.estimate}
@@ -1354,7 +1524,7 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/[0.02] rounded-full blur-[100px]" />
         </div>
 
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.2em] text-white/25 mb-4">
             {t.contact.label}
@@ -1364,46 +1534,90 @@ export default function Home() {
             <br />
             <span className="text-white/30 font-light italic">{t.contact.headline2}</span>
           </motion.h2>
-          <motion.p variants={fadeUp} custom={2} className="text-white/40 text-lg max-w-xl mx-auto mb-14">
+          <motion.p variants={fadeUp} custom={2} className="text-white/40 text-lg max-w-xl mx-auto mb-12">
             {t.contact.sub}
           </motion.p>
 
+          {/* ── 3 contact option cards ── */}
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14 max-w-xl mx-auto w-full"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-3xl mx-auto w-full"
           >
-            <motion.button
+            {/* Calendly */}
+            <motion.a
               variants={scaleIn} custom={0}
+              href="https://calendly.com/mohamedyouli2017/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04, y: -3 }}
+              className="group flex flex-col items-center gap-3 p-6 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/20 rounded-2xl backdrop-blur-xl transition-all duration-200 cursor-pointer"
+            >
+              <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Calendar className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <p className="text-white font-semibold text-sm">{t.booking.calendarTitle}</p>
+                <p className="text-white/30 text-xs mt-0.5">{t.booking.calendarDesc}</p>
+              </div>
+              <span className="text-xs font-semibold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full">
+                {t.booking.calendarBtn}
+              </span>
+            </motion.a>
+
+            {/* WhatsApp */}
+            <motion.button
+              variants={scaleIn} custom={1}
               onClick={openWhatsApp}
               whileHover={{ scale: 1.04, y: -3 }}
-              className="group flex flex-col items-center gap-3 p-7 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/20 rounded-2xl backdrop-blur-xl transition-all duration-200"
+              className="group flex flex-col items-center gap-3 p-6 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/20 rounded-2xl backdrop-blur-xl transition-all duration-200"
             >
               <div className="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <MessageCircle className="w-6 h-6 text-green-400" />
               </div>
               <div>
-                <p className="text-white font-semibold text-sm">{t.contact.whatsapp}</p>
-                <p className="text-white/30 text-xs mt-0.5">0669 586 001</p>
+                <p className="text-white font-semibold text-sm">{t.booking.waTitle}</p>
+                <p className="text-white/30 text-xs mt-0.5">+212 669 586 001</p>
               </div>
+              <span className="text-xs font-semibold text-green-400 bg-green-500/10 border border-green-500/20 px-3 py-1.5 rounded-full">
+                {t.booking.waBtn}
+              </span>
             </motion.button>
 
-            <motion.button
-              variants={scaleIn} custom={1}
-              onClick={openEmail}
+            {/* Email */}
+            <motion.div
+              variants={scaleIn} custom={2}
               whileHover={{ scale: 1.04, y: -3 }}
-              className="group flex flex-col items-center gap-3 p-7 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/20 rounded-2xl backdrop-blur-xl transition-all duration-200"
+              className="group flex flex-col items-center gap-3 p-6 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/20 rounded-2xl backdrop-blur-xl transition-all duration-200"
             >
               <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Mail className="w-6 h-6 text-blue-400" />
               </div>
               <div>
-                <p className="text-white font-semibold text-sm">{t.contact.email}</p>
+                <p className="text-white font-semibold text-sm">{t.booking.emailTitle}</p>
                 <p className="text-white/30 text-xs mt-0.5">contact@mdigitaldev.com</p>
               </div>
-            </motion.button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => copyEmailToClipboard(t.booking.emailCopiedToast, t.booking.emailCopyFailed)}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-white/50 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 px-3 py-1.5 rounded-full transition-all"
+                >
+                  <Copy className="w-3 h-3" />
+                  {t.booking.emailCopyBtn}
+                </button>
+                <button
+                  onClick={() => handleEmailOpen(t.booking.emailCopiedToast, t.booking.emailCopyFailed)}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 px-3 py-1.5 rounded-full transition-all"
+                >
+                  <Mail className="w-3 h-3" />
+                  {t.booking.emailOpenBtn}
+                </button>
+              </div>
+            </motion.div>
           </motion.div>
 
-          <motion.div variants={fadeUp} custom={4}>
+
+          {/* WhatsApp CTA */}
+          <motion.div variants={fadeUp} custom={4} className="mb-16">
             <motion.button
               onClick={openWhatsApp}
               className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-bold text-base rounded-full active:scale-95 transition-transform duration-150"
@@ -1423,6 +1637,25 @@ export default function Home() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>
+
+          {/* OR FILL THIS FORM */}
+          <motion.div variants={fadeUp} custom={5} className="flex items-center gap-4 mb-10 max-w-xl mx-auto">
+            <div className="flex-1 h-px bg-white/[0.08]" />
+            <span className="text-white/20 text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap">
+              {t.booking.orFormLabel}
+            </span>
+            <div className="flex-1 h-px bg-white/[0.08]" />
+          </motion.div>
+
+          {/* Inline contact form */}
+          <motion.div
+            variants={fadeUp}
+            custom={6}
+            className="max-w-xl mx-auto text-start bg-white/[0.03] border border-white/[0.08] rounded-[24px] p-6 sm:p-8"
+          >
+            <ContactForm showBack={false} />
+          </motion.div>
+
         </div>
       </Section>
 
@@ -1446,7 +1679,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-2.5">
             <p className="text-xs text-white/20 font-medium">
               Developed by{" "}
-              <span className="text-white/50 font-semibold">MDigitalDev</span>
+              <span className="text-white/50 font-semibold">{t.footer.passion}</span>
             </p>
             {/* policy links */}
             <div className="flex items-center gap-4">
@@ -1469,14 +1702,41 @@ export default function Home() {
           </div>
 
           {/* rights */}
-          <p className="text-xs text-white/20">
+          <p className="text-xs text-white/20" suppressHydrationWarning>
             © {new Date().getFullYear()} {t.footer.rights}
           </p>
         </div>
       </footer>
 
+      {/* ── Booking modal ── */}
+      <BookingModal
+        isOpen={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        selectedPlan={bookingPlan}
+      />
+
       {/* ── Legal policy modal — rendered at root so it overlays everything ── */}
       <PolicyModal type={policyOpen} onClose={() => setPolicyOpen(null)} />
+
+      {/* ── Global toast notification ── */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            key={toast.msg}
+            initial={{ opacity: 0, y: 16, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 16, scale: 0.95 }}
+            transition={{ duration: 0.25 }}
+            className={`fixed bottom-6 right-6 z-[9999] flex items-center gap-2.5 px-4 py-3 rounded-2xl text-sm font-semibold shadow-xl backdrop-blur-md border ${
+              toast.type === "success"
+                ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-300"
+                : "bg-red-500/20 border-red-500/30 text-red-300"
+            }`}
+          >
+            {toast.msg}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }

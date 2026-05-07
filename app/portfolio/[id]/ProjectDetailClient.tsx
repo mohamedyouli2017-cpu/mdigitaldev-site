@@ -396,7 +396,7 @@ function ComingSoonView({ project, related }: { project: PortfolioProject; relat
           <Link href="/#demos" className="text-xs text-white/30 hover:text-white/60 transition-colors font-medium">
             ← MDigitalDev
           </Link>
-          <p className="text-xs text-white/20">
+          <p className="text-xs text-white/20" suppressHydrationWarning>
             © {new Date().getFullYear()} · MDigitalDev
           </p>
         </div>
@@ -921,7 +921,7 @@ export default function ProjectDetailClient({
               {L.viewDemo}
             </a>
           )}
-          <p className="text-xs text-white/20">
+          <p className="text-xs text-white/20" suppressHydrationWarning>
             © {new Date().getFullYear()} · MDigitalDev
           </p>
         </div>

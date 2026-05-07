@@ -13,6 +13,8 @@ const securityHeaders = [
     key:   "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=()",
   },
+  // Store-route override applied below via path-specific headers
+
   {
     key: "Content-Security-Policy",
     value: [
@@ -56,9 +58,62 @@ const nextConfig = {
 
   async headers() {
     return [
+      // Default security headers for all routes
       {
         source:  "/(.*)",
         headers: securityHeaders,
+      },
+      // Admin routes: allow Clerk + Supabase
+      {
+        source: "/admin(.*)",
+        headers: [
+          {
+            key:   "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://clerk.mdigitaldev.com https://*.clerk.accounts.dev",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' data: https://fonts.gstatic.com",
+              "img-src 'self' data: blob: https://images.unsplash.com https://img.clerk.com",
+              "connect-src 'self' https://*.supabase.co https://*.clerk.com https://*.clerk.accounts.dev wss://*.supabase.co",
+              "frame-src https://accounts.google.com https://*.clerk.accounts.dev",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "upgrade-insecure-requests",
+            ].join("; "),
+          },
+        ],
+      },
+      // Store routes: allow geolocation + n8n webhook connect
+      {
+        source: "/store(.*)",
+        headers: [
+          {
+            key:   "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(self)",
+          },
+          {
+            key:   "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' data: https://fonts.gstatic.com",
+              "img-src 'self' data: blob: https://images.unsplash.com",
+              // /api/order is same-origin; n8n is called server-side
+              "connect-src 'self' https://wa.me",
+              "media-src 'none'",
+              "object-src 'none'",
+              "frame-src https://www.google.com https://maps.google.com",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "upgrade-insecure-requests",
+            ].join("; "),
+          },
+        ],
       },
     ];
   },

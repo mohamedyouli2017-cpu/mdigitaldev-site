@@ -1,16 +1,19 @@
 /**
- * MDigitalDev Service Worker
+ * MDigitalDev Service Worker v2
  * ─────────────────────────────────────────────────────────────────
- * Strategy: Cache-first for static assets, network-first for pages.
- * This satisfies Chrome's PWA installability requirement:
- *   • A registered SW with a fetch event handler must be present
- *     before `beforeinstallprompt` will fire.
+ * Strategy:
+ *   • Navigation (HTML pages)  → network-first, fallback to cached "/"
+ *   • /_next/ chunks/static    → network-only (content-hashed in prod,
+ *                                 stable names in dev — never cache stale)
+ *   • Other static assets      → cache-first (icons, manifest, images)
+ *
+ * IMPORTANT: Bump CACHE version on every deploy so the activate handler
+ * deletes the previous cache and clients pick up fresh assets.
  */
 
-const CACHE = "mdigitaldev-v1";
+const CACHE = "mdigitaldev-v2";
 
 const PRECACHE = [
-  "/",
   "/manifest.json",
   "/icon.svg",
 ];
@@ -23,7 +26,7 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-/* ── Activate: remove old caches ── */
+/* ── Activate: remove ALL previous caches ── */
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -33,11 +36,10 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-/* ── Fetch: network-first for navigation, cache-first for assets ── */
+/* ── Fetch ── */
 self.addEventListener("fetch", (event) => {
   const { request } = event;
 
-  // Only handle GET requests on the same origin
   if (request.method !== "GET") return;
   if (!request.url.startsWith(self.location.origin)) return;
 
@@ -51,20 +53,21 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Static assets → cache-first
+  // Next.js chunks & static assets → always network (content-hashed in prod,
+  // but stable names in dev — caching them causes hydration mismatches)
+  if (url.pathname.startsWith("/_next/")) {
+    event.respondWith(fetch(request));
+    return;
+  }
+
+  // Everything else (icons, manifest, images) → cache-first
   event.respondWith(
     caches.match(request).then(
       (cached) =>
         cached ||
         fetch(request).then((response) => {
-          // Only cache successful same-origin responses
-          if (
-            response.ok &&
-            url.origin === self.location.origin &&
-            !url.pathname.startsWith("/_next/webpack-hmr")
-          ) {
-            const clone = response.clone();
-            caches.open(CACHE).then((c) => c.put(request, clone));
+          if (response.ok && url.origin === self.location.origin) {
+            caches.open(CACHE).then((c) => c.put(request, response.clone()));
           }
           return response;
         })
