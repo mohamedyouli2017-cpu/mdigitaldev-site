@@ -17,9 +17,18 @@ export default function AdminSignInPage() {
         <SignIn
           routing="path"
           path="/admin/sign-in"
-          signUpUrl="/admin/sign-up"
           fallbackRedirectUrl="/admin"
+          appearance={{
+            elements: {
+              footerAction: "hidden",
+              footer: "hidden",
+            },
+          }}
         />
+
+        <p className="text-center text-xs text-white/20 mt-6">
+          Access is invitation-only. Contact Mohamed if you need access.
+        </p>
       </div>
     </div>
   );

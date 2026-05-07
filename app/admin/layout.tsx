@@ -49,7 +49,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-const AUTH_PATHS = ["/admin/sign-in", "/admin/sign-up"];
+const AUTH_PATHS = ["/admin/sign-in"];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname  = usePathname();
