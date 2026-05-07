@@ -1,17 +1,40 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export async function GET() {
-  const clients = [
-    { id: "1", name: "Fatima Al-Zahra", email: "fatima@healthplus.ma",  company: "HealthPlus Clinics", plan: "business_auto_pilot", status: "active",  monthly_maintenance: 297 },
-    { id: "2", name: "Hassan Benali",   email: "hassan@automaroc.ma",   company: "AutoMaroc",          plan: "smart_starter",       status: "active",  monthly_maintenance: 97  },
-    { id: "3", name: "Nour Khalil",     email: "nour@nour-events.com",  company: "Nour Events",        plan: "enterprise",          status: "active",  monthly_maintenance: 797 },
-  ];
+  const { userId } = await auth();
+  if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  const mrr = clients.reduce((s, c) => s + c.monthly_maintenance, 0);
-  return NextResponse.json({ clients, total: clients.length, mrr });
+  const supabase = createAdminClient();
+  const { data, error, count } = await supabase
+    .from("clients")
+    .select("*", { count: "exact" })
+    .order("start_date", { ascending: false });
+
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  const mrr = data?.filter(c => c.status === "active")
+    .reduce((s, c) => s + Number(c.monthly_maintenance ?? 0), 0) ?? 0;
+
+  return NextResponse.json({ clients: data ?? [], total: count ?? 0, mrr });
 }
 
-export async function POST(req: NextRequest) {
-  const body = await req.json();
-  return NextResponse.json({ id: crypto.randomUUID(), ...body, created_at: new Date().toISOString() }, { status: 201 });
+export async function PATCH(req: NextRequest) {
+  const { userId } = await auth();
+  if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const { id, ...updates } = await req.json();
+  if (!id) return NextResponse.json({ error: "id is required" }, { status: 400 });
+
+  const supabase = createAdminClient();
+  const { data, error } = await supabase
+    .from("clients")
+    .update(updates)
+    .eq("id", id)
+    .select()
+    .single();
+
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ client: data });
 }
