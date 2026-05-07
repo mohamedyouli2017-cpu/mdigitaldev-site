@@ -12,6 +12,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { rateLimit } from "@/lib/rate-limit";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { sendLeadEmails } from "@/lib/email/send";
 
 /* ── Sanitiser ─────────────────────────────────────────────────── */
 
@@ -182,48 +183,20 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  /* 8 · Email notification via Resend */
-  const resendKey  = process.env.RESEND_API_KEY;
-  const adminEmail = process.env.ADMIN_EMAIL || "contact@mdigitaldev.com";
-
-  if (resendKey) {
-    const subject = `New inquiry: ${name} — ${selectedPlan || "plan not selected"}`;
-    const text = [
-      `New contact form submission from mdigitaldev.com`,
-      ``,
-      `Name:            ${name}`,
-      `Email:           ${email}`,
-      `Phone:           ${phone || "—"}`,
-      `Business Type:   ${businessType}`,
-      `Selected Plan:   ${selectedPlan || "—"}`,
-      `Budget Range:    ${budgetRange || "—"}`,
-      `Language:        ${language}`,
-      `Submitted:       ${payload.timestamp}`,
-      `Lead ID:         ${leadId ?? "—"}`,
-      ``,
-      `Project Details:`,
+  /* 8 · Email notifications via Resend (admin alert + client confirmation) */
+  if (leadId) {
+    sendLeadEmails({
+      id:             leadId,
+      name,
+      email,
+      phone:          phone          || null,
+      businessType:   businessType   || null,
+      selectedPlan:   normalisePlan(selectedPlan),
       projectDetails,
-    ].join("\n");
-
-    try {
-      const r = await fetch("https://api.resend.com/emails", {
-        method:  "POST",
-        headers: {
-          "Content-Type":  "application/json",
-          "Authorization": `Bearer ${resendKey}`,
-        },
-        body: JSON.stringify({
-          from:    "MDigitalDev <noreply@mdigitaldev.com>",
-          to:      [adminEmail],
-          subject,
-          text,
-        }),
-        signal: AbortSignal.timeout(6_000),
-      });
-      if (!r.ok) console.warn("[contact] Resend returned", r.status, await r.text());
-    } catch (err) {
-      console.warn("[contact] Resend error:", err);
-    }
+      budgetRange:    budgetRange    || null,
+      language,
+      source:         "website",
+    }).catch(err => console.error("[contact] sendLeadEmails error:", err));
   }
 
   return NextResponse.json(
