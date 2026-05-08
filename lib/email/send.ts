@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import { adminNotificationHtml, adminNotificationSubject } from "./templates/admin-notification";
 import { clientConfirmationHtml, clientConfirmationSubject } from "./templates/client-confirmation";
+import { newBookingHtml, newBookingSubject } from "./templates/new-booking";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -86,4 +87,41 @@ export async function sendLeadEmails(lead: LeadEmailData) {
 
   console.log(`[email] admin=${adminSent} client=${clientSent}`);
   return { adminSent, clientSent };
+}
+
+export interface BookingEmailData {
+  inviteeName: string;
+  inviteeEmail: string;
+  meetingTitle: string;
+  scheduledAt: string;
+  durationMinutes: number;
+  notes?: string | null;
+  meetingLink?: string | null;
+  leadId?: string | null;
+}
+
+export async function sendBookingNotification(booking: BookingEmailData) {
+  if (!process.env.RESEND_API_KEY) {
+    console.warn("[email] RESEND_API_KEY not set — skipping booking notification");
+    return { sent: false };
+  }
+
+  const dashboardUrl = `${APP_URL}/admin/meetings`;
+
+  const result = await resend.emails.send({
+    from:    FROM_ADMIN,
+    to:      ADMIN_TO,
+    replyTo: booking.inviteeEmail,
+    subject: newBookingSubject(booking.inviteeName, booking.meetingTitle),
+    html:    newBookingHtml({
+      ...booking,
+      dashboardUrl,
+    }),
+    tags: [{ name: "type", value: "booking_notification" }],
+  });
+
+  const sent = !result.error;
+  if (result.error) console.error("[email] Booking notification failed:", result.error);
+  console.log(`[email] booking notification sent=${sent}`);
+  return { sent };
 }
