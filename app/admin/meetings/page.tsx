@@ -1,5 +1,5 @@
 "use client";
-// v2
+
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, User, Video, CheckCircle, XCircle, AlertCircle, RefreshCw, ExternalLink } from "lucide-react";
@@ -174,6 +174,9 @@ export default function MeetingsPage() {
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <PageHeader title={t.meetings.title} subtitle={t.meetings.subtitle} />
         <div className="flex items-center gap-3 shrink-0">
+          <span className={cn("text-xs hidden sm:block", isDark ? "text-white/25" : "text-gray-400")}>
+            Auto-sync: daily · Use Sync Now for instant updates
+          </span>
           {lastSynced && (
             <span className={cn("text-xs", isDark ? "text-white/30" : "text-gray-400")}>
               Last sync: {format(lastSynced, "HH:mm")}
