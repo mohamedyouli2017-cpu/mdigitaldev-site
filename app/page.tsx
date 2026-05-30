@@ -5,7 +5,8 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { PORTFOLIO_PROJECTS, getProjectLocale } from "@/lib/portfolio-data";
+// Old demos data — kept on disk for the /portfolio/[id] routes; no longer rendered on the home page.
+// import { PORTFOLIO_PROJECTS, getProjectLocale } from "@/lib/portfolio-data";
 
 import {
   Zap,
@@ -727,7 +728,6 @@ export default function Home() {
   const scrollTo     = (id: string) =>
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
-  const [activeFilter, setActiveFilter] = useState<string>("All");
   const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
 
   /* Booking modal */
@@ -771,15 +771,6 @@ export default function Home() {
       window.location.href = "mailto:contact@mdigitaldev.com?subject=Inquiry from MDigitalDev Website";
     }, 500);
   }, [copyEmailToClipboard]);
-
-  const filterTabs = [
-    { label: t.portfolio.filterAll,         value: "All"         },
-    { label: t.portfolio.filterRestaurants, value: "Restaurant"  },
-    { label: t.portfolio.filterEcommerce,   value: "E-commerce"  },
-    { label: t.portfolio.filterCorporate,   value: "Corporate"   },
-    { label: t.portfolio.filterHealthcare,  value: "Healthcare"  },
-    { label: t.portfolio.filterRealEstate,  value: "Real Estate" },
-  ];
 
   return (
     <main
@@ -1308,147 +1299,106 @@ export default function Home() {
       </Section>
 
       {/* ╔═══════════════════════════════════════════════════════╗
-          ║  4 · LIVE DEMOS — Bento Grid                        ║
+          ║  4 · REAL AI AUTOMATION                              ║
+          ║     Flagship system + capability cards               ║
           ╚═══════════════════════════════════════════════════════╝ */}
       <Section id="demos" className="py-24 sm:py-32 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center mb-10">
+          {/* Section header */}
+          <div className="text-center mb-14">
             <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-3">
-              {t.portfolio.label}
+              REAL AI AUTOMATION
             </motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black tracking-tight">
-              {t.portfolio.headline}
+              Built &amp; Running — Not Just Concepts.
             </motion.h2>
-            <motion.p variants={fadeUp} custom={2} className="mt-4 text-gray-500 text-lg max-w-xl mx-auto">
-              {t.portfolio.sub}
+            <motion.p variants={fadeUp} custom={2} className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
+              I don&apos;t just talk about automation — I build systems that run themselves. Here&apos;s a real autonomous AI system I built, plus what I can build for your business.
             </motion.p>
           </div>
 
-          <motion.div
-            variants={fadeUp}
-            custom={3}
-            className="flex items-center justify-center gap-2 mb-12 flex-wrap"
+          {/* Flagship card — large, dark, full-width */}
+          <MotionLink
+            href="https://www.youtube.com/@MDigitalDev"
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={scaleIn}
+            className="group relative block overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0a0a0a] via-[#141414] to-[#080808] p-8 sm:p-10 lg:p-12 mb-6 border border-white/5 hover:border-white/20 transition-colors duration-500 shadow-xl shadow-black/5"
           >
-            {filterTabs.map((tab) => (
-              <button
-                key={tab.value}
-                onClick={() => setActiveFilter(tab.value)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
-                  activeFilter === tab.value
-                    ? "bg-black text-white border-black shadow-sm"
-                    : "bg-white text-gray-500 border-gray-200 hover:border-gray-400 hover:text-black"
-                }`}
+            {/* Decorative glows */}
+            <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-gradient-to-br from-violet-500/20 to-fuchsia-500/10 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/10 blur-3xl pointer-events-none" />
+
+            <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end">
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-violet-300/80 mb-3">
+                  ✦ Flagship System
+                </p>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+                  Autonomous AI Content System
+                </h3>
+                <p className="text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed mb-6">
+                  A fully automated AI pipeline I built from scratch — it researches trending topics, writes scripts, generates voiceovers, produces videos with subtitles, and publishes daily to YouTube. Zero manual work, running 24/7.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {["n8n", "Claude AI", "FastAPI", "Edge TTS"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1.5 bg-white/10 backdrop-blur-sm text-white/80 text-xs font-semibold rounded-full border border-white/10"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex lg:justify-end lg:self-end">
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-bold text-sm shadow-lg group-hover:bg-violet-50 group-hover:shadow-violet-500/20 transition-all duration-300">
+                  Watch it in action
+                  <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </span>
+              </div>
+            </div>
+          </MotionLink>
+
+          {/* Capability cards — 4-up grid */}
+          <motion.div
+            variants={stagger}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          >
+            {[
+              { icon: "🤖", title: "AI Customer Support Bots",     desc: "24/7 automated support that answers customer questions instantly and accurately." },
+              { icon: "📥", title: "Lead Capture & Qualification",  desc: "Automatically capture, qualify, and route leads — even while you sleep." },
+              { icon: "🔄", title: "Workflow Automation",           desc: "Eliminate repetitive manual tasks across your entire operation." },
+              { icon: "🔌", title: "AI Integrations",               desc: "Connect AI to your existing tools — CRM, email, calendars, and more." },
+            ].map((cap, i) => (
+              <motion.div
+                key={cap.title}
+                variants={scaleIn}
+                custom={i * 0.08}
+                className="group relative p-6 rounded-[24px] bg-gray-50 border border-gray-100 hover:border-gray-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                {tab.label}
-              </button>
+                <div className="text-3xl mb-4" aria-hidden="true">{cap.icon}</div>
+                <h3 className="text-base font-bold text-black tracking-tight mb-2 leading-snug">
+                  {cap.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {cap.desc}
+                </p>
+              </motion.div>
             ))}
           </motion.div>
 
-          {(() => {
-            const filtered = activeFilter === "All"
-              ? PORTFOLIO_PROJECTS
-              : PORTFOLIO_PROJECTS.filter((p) => p.niche === activeFilter);
-
-            const isBento = filtered.length === 6;
-
-            if (filtered.length === 0) {
-              return (
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-20"
-                >
-                  <p className="text-gray-400 text-lg font-medium">
-                    {t.portfolio.empty}
-                  </p>
-                </motion.div>
-              );
-            }
-
-            return (
-              <motion.div
-                variants={stagger}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:[grid-auto-rows:280px]"
-              >
-                {filtered.map((item, i) => {
-                  const isColWide = isBento && (i === 0 || i === 5);
-                  const isRowTall = isBento && i === 1;
-                  const localItem = getProjectLocale(item, lang);
-
-                  const isLive = item.status === "live" && !!item.liveUrl;
-
-                  return (
-                    <MotionLink
-                      key={item.id}
-                      href={isLive ? item.liveUrl! : `/portfolio/${item.id}`}
-                      target={isLive ? "_blank" : undefined}
-                      rel={isLive ? "noopener noreferrer" : undefined}
-                      variants={scaleIn}
-                      custom={i * 0.08}
-                      className={[
-                        "group relative overflow-hidden rounded-[24px] cursor-pointer bg-gray-100",
-                        "h-64 sm:h-72",
-                        isColWide ? "lg:col-span-2 lg:h-auto" : "",
-                        isRowTall ? "lg:row-span-2 lg:h-auto" : !isColWide ? "lg:h-auto" : "",
-                      ]
-                        .filter(Boolean)
-                        .join(" ")}
-                    >
-                      <Image
-                        src={item.img}
-                        alt={item.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                        sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-                      {/* Status badge */}
-                      {item.status === "coming-soon" && (
-                        <div className="absolute top-4 start-4">
-                          <span className="px-2.5 py-1 bg-black/60 backdrop-blur-sm border border-white/20 text-white text-[10px] font-bold rounded-full tracking-widest uppercase">
-                            {t.portfolio.labels.comingSoon}
-                          </span>
-                        </div>
-                      )}
-                      <div className="absolute top-4 end-4 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
-                          <ExternalLink className="w-3.5 h-3.5 text-black" />
-                          <span className="text-black text-[11px] font-bold">
-                            {isLive ? t.portfolio.labels.viewDemo : t.portfolio.viewProject}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="absolute bottom-0 inset-x-0 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
-                        <p className="text-white/50 text-[11px] font-bold uppercase tracking-widest mb-1">{localItem.category}</p>
-                        <h3 className="text-white font-bold text-lg leading-tight mb-2.5">{localItem.title}</h3>
-                        <div className="flex flex-wrap gap-1.5">
-                          {item.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2.5 py-1 bg-white/10 backdrop-blur-sm text-white/70 text-[11px] font-semibold rounded-full border border-white/10"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </MotionLink>
-                  );
-                })}
-              </motion.div>
-            );
-          })()}
         </div>
 
-        {/* AI note */}
+        {/* Footer note */}
         <motion.p
           variants={fadeUp}
-          className="mt-10 text-center text-sm text-gray-400 max-w-2xl mx-auto px-4 border-t border-gray-100 pt-8"
+          className="mt-12 text-center text-sm text-gray-400 max-w-2xl mx-auto px-4 border-t border-gray-100 pt-8"
         >
           <span className="font-semibold text-gray-500">✦</span>{" "}
-          {t.portfolio.aiNote}
+          Every system above is custom-built for your business. The flagship is proof I deliver what I promise.
         </motion.p>
 
       </Section>
