@@ -1308,13 +1308,13 @@ export default function Home() {
           {/* Section header */}
           <div className="text-center mb-14">
             <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-3">
-              REAL AI AUTOMATION
+              {t.realAutomation.label}
             </motion.p>
             <motion.h2 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black tracking-tight">
-              Built &amp; Running — Not Just Concepts.
+              {t.realAutomation.headline}
             </motion.h2>
             <motion.p variants={fadeUp} custom={2} className="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">
-              I don&apos;t just talk about automation — I build systems that run themselves. Here&apos;s a real autonomous AI system I built, plus what I can build for your business.
+              {t.realAutomation.sub}
             </motion.p>
           </div>
 
@@ -1333,13 +1333,13 @@ export default function Home() {
             <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-violet-300/80 mb-3">
-                  ✦ Flagship System
+                  ✦ {t.realAutomation.flagshipLabel}
                 </p>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4 leading-tight">
-                  Autonomous AI Content System
+                  {t.realAutomation.flagshipTitle}
                 </h3>
                 <p className="text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed mb-6">
-                  A fully automated AI pipeline I built from scratch — it researches trending topics, writes scripts, generates voiceovers, produces videos with subtitles, and publishes daily to YouTube. Zero manual work, running 24/7.
+                  {t.realAutomation.flagshipDesc}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["n8n", "Claude AI", "FastAPI", "Edge TTS"].map((tag) => (
@@ -1355,7 +1355,7 @@ export default function Home() {
 
               <div className="flex lg:justify-end lg:self-end">
                 <span className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-bold text-sm shadow-lg group-hover:bg-violet-50 group-hover:shadow-violet-500/20 transition-all duration-300">
-                  Watch it in action
+                  {t.realAutomation.flagshipCta}
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </span>
               </div>
@@ -1368,10 +1368,10 @@ export default function Home() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
           >
             {[
-              { icon: "🤖", title: "AI Customer Support Bots",     desc: "24/7 automated support that answers customer questions instantly and accurately." },
-              { icon: "📥", title: "Lead Capture & Qualification",  desc: "Automatically capture, qualify, and route leads — even while you sleep." },
-              { icon: "🔄", title: "Workflow Automation",           desc: "Eliminate repetitive manual tasks across your entire operation." },
-              { icon: "🔌", title: "AI Integrations",               desc: "Connect AI to your existing tools — CRM, email, calendars, and more." },
+              { icon: "🤖", title: t.realAutomation.cap1Title, desc: t.realAutomation.cap1Desc },
+              { icon: "📥", title: t.realAutomation.cap2Title, desc: t.realAutomation.cap2Desc },
+              { icon: "🔄", title: t.realAutomation.cap3Title, desc: t.realAutomation.cap3Desc },
+              { icon: "🔌", title: t.realAutomation.cap4Title, desc: t.realAutomation.cap4Desc },
             ].map((cap, i) => (
               <motion.div
                 key={cap.title}
@@ -1398,7 +1398,7 @@ export default function Home() {
           className="mt-12 text-center text-sm text-gray-400 max-w-2xl mx-auto px-4 border-t border-gray-100 pt-8"
         >
           <span className="font-semibold text-gray-500">✦</span>{" "}
-          Every system above is custom-built for your business. The flagship is proof I deliver what I promise.
+          {t.realAutomation.footer}
         </motion.p>
 
       </Section>

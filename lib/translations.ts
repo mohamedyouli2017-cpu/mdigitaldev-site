@@ -65,6 +65,15 @@ export interface LangTranslations {
       ctaTitle1: string; ctaTitle2: string; ctaSub: string;
     };
   };
+  realAutomation: {
+    label: string; headline: string; sub: string;
+    flagshipLabel: string; flagshipTitle: string; flagshipDesc: string; flagshipCta: string;
+    cap1Title: string; cap1Desc: string;
+    cap2Title: string; cap2Desc: string;
+    cap3Title: string; cap3Desc: string;
+    cap4Title: string; cap4Desc: string;
+    footer: string;
+  };
   process: {
     label: string; headline: string; sub: string; timeNote: string;
     items: { number: string; title: string; desc: string }[];
@@ -266,6 +275,24 @@ export const translations: Record<Lang, LangTranslations> = {
         ctaTitle2: "Like This?",
         ctaSub: "Free consultation. I respond within 24 hours.",
       },
+    },
+    realAutomation: {
+      label:         "REAL AI AUTOMATION",
+      headline:      "Built & Running — Not Just Concepts.",
+      sub:           "I don't just talk about automation — I build systems that run themselves. Here's a real autonomous AI system I built, plus what I can build for your business.",
+      flagshipLabel: "Flagship System",
+      flagshipTitle: "Autonomous AI Content System",
+      flagshipDesc:  "A fully automated AI pipeline I built from scratch — it researches trending topics, writes scripts, generates voiceovers, produces videos with subtitles, and publishes daily to YouTube. Zero manual work, running 24/7.",
+      flagshipCta:   "Watch it in action",
+      cap1Title:     "AI Customer Support Bots",
+      cap1Desc:      "24/7 automated support that answers customer questions instantly and accurately.",
+      cap2Title:     "Lead Capture & Qualification",
+      cap2Desc:      "Automatically capture, qualify, and route leads — even while you sleep.",
+      cap3Title:     "Workflow Automation",
+      cap3Desc:      "Eliminate repetitive manual tasks across your entire operation.",
+      cap4Title:     "AI Integrations",
+      cap4Desc:      "Connect AI to your existing tools — CRM, email, calendars, and more.",
+      footer:        "Every system above is custom-built for your business. The flagship is proof I deliver what I promise.",
     },
     industries: {
       label: "Industries", headline: "Built for Every Business.", sub: "AI-powered automation solutions crafted for the unique needs of each industry.",
@@ -532,6 +559,24 @@ export const translations: Record<Lang, LangTranslations> = {
         ctaSub: "Consultation gratuite. Je réponds en 24 heures.",
       },
     },
+    realAutomation: {
+      label:         "AUTOMATISATION IA RÉELLE",
+      headline:      "Conçu et Opérationnel — Pas de Simples Concepts.",
+      sub:           "Je ne fais pas que parler d'automatisation — je construis des systèmes autonomes. Voici un vrai système IA autonome que j'ai créé, et ce que je peux construire pour votre entreprise.",
+      flagshipLabel: "Système Phare",
+      flagshipTitle: "Système de Contenu IA Autonome",
+      flagshipDesc:  "Un pipeline IA entièrement automatisé que j'ai créé de zéro — il recherche les sujets tendance, rédige les scripts, génère les voix, produit des vidéos sous-titrées et publie quotidiennement sur YouTube. Zéro travail manuel, 24/7.",
+      flagshipCta:   "Voir en action",
+      cap1Title:     "Bots de Support Client IA",
+      cap1Desc:      "Support automatisé 24/7 qui répond aux questions des clients instantanément et avec précision.",
+      cap2Title:     "Capture & Qualification de Prospects",
+      cap2Desc:      "Capturez, qualifiez et orientez les prospects automatiquement — même pendant votre sommeil.",
+      cap3Title:     "Automatisation des Flux",
+      cap3Desc:      "Éliminez les tâches manuelles répétitives dans toute votre activité.",
+      cap4Title:     "Intégrations IA",
+      cap4Desc:      "Connectez l'IA à vos outils existants — CRM, email, agendas, et plus.",
+      footer:        "Chaque système ci-dessus est conçu sur mesure pour votre entreprise. Le système phare est la preuve que je tiens mes promesses.",
+    },
     industries: {
       label: "Secteurs", headline: "Pour Chaque Activité.", sub: "Des solutions d'automatisation IA conçues pour les besoins uniques de chaque secteur.",
       items: [
@@ -796,6 +841,24 @@ export const translations: Record<Lang, LangTranslations> = {
         ctaTitle2: "مثل هذا؟",
         ctaSub: "استشارة مجانية. أرد خلال 24 ساعة.",
       },
+    },
+    realAutomation: {
+      label:         "أتمتة ذكاء اصطناعي حقيقية",
+      headline:      "مبني ويعمل — ليست مجرد أفكار.",
+      sub:           "أنا لا أتحدث فقط عن الأتمتة — بل أبني أنظمة تعمل ذاتياً. إليك نظام ذكاء اصطناعي حقيقي بنيته، وما يمكنني بناؤه لأعمالك.",
+      flagshipLabel: "النظام الرئيسي",
+      flagshipTitle: "نظام محتوى ذكاء اصطناعي ذاتي",
+      flagshipDesc:  "منظومة ذكاء اصطناعي مؤتمتة بالكامل بنيتها من الصفر — تبحث عن المواضيع الرائجة، تكتب النصوص، تولّد التعليق الصوتي، تنتج فيديوهات مترجمة، وتنشر يومياً على يوتيوب. بدون عمل يدوي، تعمل 24/7.",
+      flagshipCta:   "شاهده يعمل",
+      cap1Title:     "روبوتات دعم العملاء بالذكاء الاصطناعي",
+      cap1Desc:      "دعم آلي 24/7 يجيب على أسئلة العملاء فوراً وبدقة.",
+      cap2Title:     "التقاط وتأهيل العملاء المحتملين",
+      cap2Desc:      "التقط وأهّل ووجّه العملاء المحتملين تلقائياً — حتى أثناء نومك.",
+      cap3Title:     "أتمتة سير العمل",
+      cap3Desc:      "تخلّص من المهام اليدوية المتكررة في جميع عملياتك.",
+      cap4Title:     "تكاملات الذكاء الاصطناعي",
+      cap4Desc:      "اربط الذكاء الاصطناعي بأدواتك الحالية — CRM، البريد، التقويمات، والمزيد.",
+      footer:        "كل نظام أعلاه مصمّم خصيصاً لأعمالك. النظام الرئيسي دليل على أنني أحقّق ما أعد به.",
     },
     industries: {
       label: "القطاعات", headline: "لكل نوع من الأعمال.", sub: "حلول أتمتة ذكاء اصطناعي مصممة للاحتياجات الفريدة لكل قطاع.",
