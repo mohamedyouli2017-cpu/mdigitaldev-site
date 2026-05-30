@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow:  ["/api/"],
       },
     ],
-    sitemap:    "https://mdigitaldev-site.vercel.app/sitemap.xml",
-    host:       "https://mdigitaldev-site.vercel.app",
+    sitemap:    "https://www.mdigitaldev.com/sitemap.xml",
+    host:       "https://www.mdigitaldev.com",
   };
 }

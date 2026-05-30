@@ -27,13 +27,13 @@ export async function generateMetadata({
 
   const title       = `${project.title} — ${project.category}`;
   const description = project.description.slice(0, 160);
-  const url         = `https://youli.dev/portfolio/${project.id}`;
+  const url         = `https://www.mdigitaldev.com/portfolio/${project.id}`;
 
   return {
     title,
     description,
     keywords: project.seoKeywords,
-    authors:  [{ name: "Mohamed Youli", url: "https://youli.dev" }],
+    authors:  [{ name: "Mohamed Youli", url: "https://www.mdigitaldev.com" }],
     alternates: { canonical: url },
     openGraph: {
       type:        "website",
@@ -80,15 +80,15 @@ export default async function ProjectPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type":    "CreativeWork",
-    "@id":      `https://youli.dev/portfolio/${project.id}`,
+    "@id":      `https://www.mdigitaldev.com/portfolio/${project.id}`,
     "name":         project.title,
     "description":  project.description,
-    "url":          `https://youli.dev/portfolio/${project.id}`,
+    "url":          `https://www.mdigitaldev.com/portfolio/${project.id}`,
     "image":        project.heroImg,
     "datePublished": `${project.year}-01-01`,
     "creator": {
       "@type": "Person",
-      "@id":   "https://youli.dev/#person",
+      "@id":   "https://www.mdigitaldev.com/#person",
       "name":  "Mohamed Youli",
     },
     "client": {
