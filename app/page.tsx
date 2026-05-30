@@ -684,8 +684,6 @@ const INDUSTRIES_STATIC = [
   { icon: HomeIcon,    accent: "text-emerald-500", iconBg: "bg-emerald-50",  border: "border-emerald-100", hover: "hover:border-emerald-300 hover:shadow-emerald-100/60" },
 ];
 
-const WA_BASE = "https://wa.me/212669586001?text=";
-
 const SERVICES_STATIC = [
   {
     icon: Bot,

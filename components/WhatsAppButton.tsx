@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const WA_NUMBER  = "212669586001";
-const WA_MESSAGE = "Hello Mohamed, I'm interested in a restaurant website!";
+const WA_MESSAGE = "Hello Mohamed, I'm interested in AI automation for my business!";
 
 export default function WhatsAppButton() {
   const href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
