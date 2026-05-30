@@ -107,7 +107,7 @@ const jsonLd = {
       "@type": "Person",
       "@id":   "https://www.mdigitaldev.com/#person",
       "name":  "Mohamed Youli",
-      "jobTitle": "Full-Stack Web Developer",
+      "jobTitle": "AI Automation Specialist",
       "url":   "https://www.mdigitaldev.com",
       "sameAs": ["https://wa.me/212669586001"],
       "knowsAbout": [

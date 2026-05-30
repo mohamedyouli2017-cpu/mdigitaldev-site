@@ -5,8 +5,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-// Old demos data — kept on disk for the /portfolio/[id] routes; no longer rendered on the home page.
-// import { PORTFOLIO_PROJECTS, getProjectLocale } from "@/lib/portfolio-data";
+// PORTFOLIO_PROJECTS data kept on disk at lib/portfolio-data.ts as a backup; no longer rendered anywhere.
 
 import {
   Zap,

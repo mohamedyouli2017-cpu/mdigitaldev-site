@@ -56,6 +56,23 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
 
+  async redirects() {
+    return [
+      // Old portfolio detail pages were removed — point any indexed/bookmarked
+      // /portfolio URLs at the new Work section on the homepage.
+      {
+        source:      "/portfolio",
+        destination: "/#demos",
+        permanent:   true,
+      },
+      {
+        source:      "/portfolio/:slug*",
+        destination: "/#demos",
+        permanent:   true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       // Default security headers for all routes

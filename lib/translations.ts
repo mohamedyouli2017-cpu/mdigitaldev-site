@@ -107,7 +107,7 @@ export const translations: Record<Lang, LangTranslations> = {
   en: {
     nav: {
       about: "About", whyMe: "Why Me", services: "Services",
-      portfolio: "Demos", process: "Process", contact: "Contact", cta: "Start Project",
+      portfolio: "Work", process: "Process", contact: "Contact", cta: "Start Project",
     },
     hero: {
       badge:  "Available for New Projects",
@@ -116,7 +116,7 @@ export const translations: Record<Lang, LangTranslations> = {
       h1c:    "AI-Powered Automation.",
       sub:    "I build intelligent AI Agents and seamless workflows to automate your operations 24/7.",
       cta1:   "Start Your Project",
-      cta2:   "View Live Demos",
+      cta2:   "See My Work",
       scroll: "Scroll",
       stats:  { projects: "AI Solutions", pagespeed: "Web Stack", revenue: "Support Available", response: "Architecture" },
     },
@@ -390,7 +390,7 @@ export const translations: Record<Lang, LangTranslations> = {
   fr: {
     nav: {
       about: "À propos", whyMe: "Pourquoi moi", services: "Services",
-      portfolio: "Démos", process: "Processus", contact: "Contact", cta: "Démarrer",
+      portfolio: "Réalisations", process: "Processus", contact: "Contact", cta: "Démarrer",
     },
     hero: {
       badge:  "Disponible pour de nouveaux projets",
@@ -399,7 +399,7 @@ export const translations: Record<Lang, LangTranslations> = {
       h1c:    "l'automatisation IA.",
       sub:    "Je conçois des agents IA intelligents et des flux de travail automatisés pour automatiser vos opérations 24h/24.",
       cta1:   "Démarrer mon projet",
-      cta2:   "Voir les démos",
+      cta2:   "Voir mes Réalisations",
       scroll: "Défiler",
       stats:  { projects: "Solutions IA", pagespeed: "Stack Moderne", revenue: "Support Disponible", response: "Architecture" },
     },
@@ -673,7 +673,7 @@ export const translations: Record<Lang, LangTranslations> = {
   ar: {
     nav: {
       about: "من أنا", whyMe: "لماذا أنا", services: "الخدمات",
-      portfolio: "النماذج", process: "طريقة العمل", contact: "تواصل", cta: "ابدأ مشروعك",
+      portfolio: "أعمالي", process: "طريقة العمل", contact: "تواصل", cta: "ابدأ مشروعك",
     },
     hero: {
       badge:  "متاح لمشاريع جديدة",
@@ -682,7 +682,7 @@ export const translations: Record<Lang, LangTranslations> = {
       h1c:    "أتمتة الذكاء الاصطناعي.",
       sub:    "أبني وكلاء ذكاء اصطناعي وأنظمة أتمتة تعمل لخدمتك على مدار الساعة.",
       cta1:   "ابدأ مشروعك",
-      cta2:   "شاهد النماذج الحية",
+      cta2:   "شاهد أعمالي",
       scroll: "انتقل",
       stats:  { projects: "حلول ذكاء اصطناعي", pagespeed: "تقنيات حديثة", revenue: "دعم متاح", response: "بنية متطورة" },
     },
