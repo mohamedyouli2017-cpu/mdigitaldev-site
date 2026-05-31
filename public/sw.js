@@ -67,7 +67,11 @@ self.addEventListener("fetch", (event) => {
         cached ||
         fetch(request).then((response) => {
           if (response.ok && url.origin === self.location.origin) {
-            caches.open(CACHE).then((c) => c.put(request, response.clone()));
+            // Clone synchronously BEFORE returning — otherwise the browser may
+            // start consuming the original body before the async cache.put()
+            // reaches .clone(), raising "Response body is already used".
+            const copy = response.clone();
+            caches.open(CACHE).then((c) => c.put(request, copy));
           }
           return response;
         })

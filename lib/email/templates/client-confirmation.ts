@@ -103,7 +103,7 @@ export function clientConfirmationHtml(p: ClientConfirmationProps): string {
 
     <!-- CTAs -->
     <div style="text-align:center;margin:0 0 28px">
-      <a href="https://calendly.com/mohamedyouli2017/15min"
+      <a href="https://calendly.com/mohamedyouli2017/30min"
          style="display:inline-block;background:linear-gradient(135deg,#f97316,#ec4899);color:#fff;padding:14px 28px;text-decoration:none;border-radius:10px;font-weight:600;font-size:14px;margin:6px">
         ${s.bookCall}
       </a>
