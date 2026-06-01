@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap, Facebook, Instagram, ChevronDown } from "lucide-react";
+import { Menu, X, Zap, Facebook, Instagram, Linkedin, Youtube, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { Lang } from "@/lib/translations";
 
@@ -204,6 +204,28 @@ export default function Navbar() {
             >
               <Instagram size={20} />
             </a>
+            <a
+              href="https://www.linkedin.com/in/mohamed-youli-14756a393"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className={`transition-colors duration-300 hover:text-purple-500 ${
+                onDark ? "text-white/60" : "text-gray-400"
+              }`}
+            >
+              <Linkedin size={20} />
+            </a>
+            <a
+              href="https://www.youtube.com/@MDigitalDev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className={`transition-colors duration-300 hover:text-purple-500 ${
+                onDark ? "text-white/60" : "text-gray-400"
+              }`}
+            >
+              <Youtube size={20} />
+            </a>
 
             {/* Language switcher */}
             <LangSwitcher onDark={onDark} />
@@ -284,6 +306,24 @@ export default function Navbar() {
                   className="text-white/50 hover:text-purple-400 transition-colors duration-300"
                 >
                   <Instagram size={20} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/mohamed-youli-14756a393"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-white/50 hover:text-purple-400 transition-colors duration-300"
+                >
+                  <Linkedin size={20} />
+                </a>
+                <a
+                  href="https://www.youtube.com/@MDigitalDev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  className="text-white/50 hover:text-purple-400 transition-colors duration-300"
+                >
+                  <Youtube size={20} />
                 </a>
               </div>
               <div className="pt-2 pb-1">
