@@ -714,6 +714,20 @@ const SERVICES_STATIC = [
   },
 ];
 
+/* Flagship case studies — language-agnostic structural data (copy lives in translations.realAutomation.flagships, zipped by index) */
+const FLAGSHIPS_STATIC = [
+  {
+    link:     "https://www.youtube.com/@MDigitalDev",
+    target:   "_blank",
+    techTags: ["n8n", "Claude AI", "FastAPI", "Edge TTS"],
+  },
+  {
+    link:     "https://youtu.be/NYB4Td3SbEk",
+    target:   "_blank",
+    techTags: ["n8n", "Claude AI", "Resend", "Human-in-the-loop"],
+  },
+];
+
 const PROCESS_ICONS = [MessageCircle, Palette, Code2, Rocket];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1317,49 +1331,57 @@ export default function Home() {
             </motion.p>
           </div>
 
-          {/* Flagship card — large, dark, full-width */}
-          <MotionLink
-            href="https://www.youtube.com/@MDigitalDev"
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={scaleIn}
-            className="group relative block overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0a0a0a] via-[#141414] to-[#080808] p-8 sm:p-10 lg:p-12 mb-6 border border-white/5 hover:border-white/20 transition-colors duration-500 shadow-xl shadow-black/5"
-          >
-            {/* Decorative glows */}
-            <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-gradient-to-br from-violet-500/20 to-fuchsia-500/10 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/10 blur-3xl pointer-events-none" />
+          {/* Flagship cards — large, dark, full-width */}
+          <motion.div variants={stagger} className="space-y-6 mb-6">
+            {FLAGSHIPS_STATIC.map((fs, i) => {
+              const td = t.realAutomation.flagships[i];
+              return (
+                <MotionLink
+                  key={td.title}
+                  href={fs.link}
+                  target={fs.target}
+                  rel="noopener noreferrer"
+                  variants={scaleIn}
+                  className="group relative block overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0a0a0a] via-[#141414] to-[#080808] p-8 sm:p-10 lg:p-12 border border-white/5 hover:border-white/20 transition-colors duration-500 shadow-xl shadow-black/5"
+                >
+                  {/* Decorative glows */}
+                  <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-gradient-to-br from-violet-500/20 to-fuchsia-500/10 blur-3xl pointer-events-none" />
+                  <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-blue-500/15 to-cyan-500/10 blur-3xl pointer-events-none" />
 
-            <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end">
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-violet-300/80 mb-3">
-                  ✦ {t.realAutomation.flagshipLabel}
-                </p>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4 leading-tight">
-                  {t.realAutomation.flagshipTitle}
-                </h3>
-                <p className="text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed mb-6">
-                  {t.realAutomation.flagshipDesc}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {["n8n", "Claude AI", "FastAPI", "Edge TTS"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1.5 bg-white/10 backdrop-blur-sm text-white/80 text-xs font-semibold rounded-full border border-white/10"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                  <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-end">
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-violet-300/80 mb-3">
+                        ✦ {td.label}
+                      </p>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+                        {td.title}
+                      </h3>
+                      <p className="text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed mb-6">
+                        {td.desc}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {fs.techTags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1.5 bg-white/10 backdrop-blur-sm text-white/80 text-xs font-semibold rounded-full border border-white/10"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-              <div className="flex lg:justify-end lg:self-end">
-                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-bold text-sm shadow-lg group-hover:bg-violet-50 group-hover:shadow-violet-500/20 transition-all duration-300">
-                  {t.realAutomation.flagshipCta}
-                  <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </span>
-              </div>
-            </div>
-          </MotionLink>
+                    <div className="flex lg:justify-end lg:self-end">
+                      <span className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-bold text-sm shadow-lg group-hover:bg-violet-50 group-hover:shadow-violet-500/20 transition-all duration-300">
+                        {td.cta}
+                        <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                    </div>
+                  </div>
+                </MotionLink>
+              );
+            })}
+          </motion.div>
 
           {/* Capability cards — 4-up grid */}
           <motion.div
