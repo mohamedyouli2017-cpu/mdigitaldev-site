@@ -67,7 +67,7 @@ export interface LangTranslations {
   };
   realAutomation: {
     label: string; headline: string; sub: string;
-    flagshipLabel: string; flagshipTitle: string; flagshipDesc: string; flagshipCta: string;
+    flagships: { label: string; title: string; desc: string; cta: string }[];
     cap1Title: string; cap1Desc: string;
     cap2Title: string; cap2Desc: string;
     cap3Title: string; cap3Desc: string;
@@ -280,10 +280,20 @@ export const translations: Record<Lang, LangTranslations> = {
       label:         "REAL AI AUTOMATION",
       headline:      "Built & Running — Not Just Concepts.",
       sub:           "I don't just talk about automation — I build systems that run themselves. Here's a real autonomous AI system I built, plus what I can build for your business.",
-      flagshipLabel: "Flagship System",
-      flagshipTitle: "Autonomous AI Content System",
-      flagshipDesc:  "A fully automated AI pipeline I built from scratch — it researches trending topics, writes scripts, generates voiceovers, produces videos with subtitles, and publishes daily to YouTube. Zero manual work, running 24/7.",
-      flagshipCta:   "Watch it in action",
+      flagships: [
+        {
+          label: "Flagship System",
+          title: "Autonomous AI Content System",
+          desc:  "A fully automated AI pipeline I built from scratch — it researches trending topics, writes scripts, generates voiceovers, produces videos with subtitles, and publishes daily to YouTube. Zero manual work, running 24/7.",
+          cta:   "Watch it in action",
+        },
+        {
+          label: "Flagship System",
+          title: "AI-Powered Cold Outreach Engine",
+          desc:  "An autonomous outreach system I built end-to-end — it finds target businesses, runs an AI audit on each website, verifies every email, drafts a personalized message per lead, and routes it to me for one-tap approval before sending. 10/10 deliverability, 0% spam complaints. The machine does the work; the human makes the final call.",
+          cta:   "Watch it in action",
+        },
+      ],
       cap1Title:     "AI Customer Support Bots",
       cap1Desc:      "24/7 automated support that answers customer questions instantly and accurately.",
       cap2Title:     "Lead Capture & Qualification",
@@ -563,10 +573,20 @@ export const translations: Record<Lang, LangTranslations> = {
       label:         "AUTOMATISATION IA RÉELLE",
       headline:      "Conçu et Opérationnel — Pas de Simples Concepts.",
       sub:           "Je ne fais pas que parler d'automatisation — je construis des systèmes autonomes. Voici un vrai système IA autonome que j'ai créé, et ce que je peux construire pour votre entreprise.",
-      flagshipLabel: "Système Phare",
-      flagshipTitle: "Système de Contenu IA Autonome",
-      flagshipDesc:  "Un pipeline IA entièrement automatisé que j'ai créé de zéro — il recherche les sujets tendance, rédige les scripts, génère les voix, produit des vidéos sous-titrées et publie quotidiennement sur YouTube. Zéro travail manuel, 24/7.",
-      flagshipCta:   "Voir en action",
+      flagships: [
+        {
+          label: "Système Phare",
+          title: "Système de Contenu IA Autonome",
+          desc:  "Un pipeline IA entièrement automatisé que j'ai créé de zéro — il recherche les sujets tendance, rédige les scripts, génère les voix, produit des vidéos sous-titrées et publie quotidiennement sur YouTube. Zéro travail manuel, 24/7.",
+          cta:   "Voir en action",
+        },
+        {
+          label: "Système Phare",
+          title: "Moteur de Prospection à Froid Propulsé par l'IA",
+          desc:  "Un système de prospection autonome que j'ai conçu de bout en bout — il trouve les entreprises cibles, réalise un audit IA de chaque site web, vérifie chaque email, rédige un message personnalisé pour chaque prospect, et me l'achemine pour une approbation en un clic avant l'envoi. Délivrabilité 10/10, 0 % de plaintes pour spam. La machine fait le travail ; l'humain prend la décision finale.",
+          cta:   "Voir en action",
+        },
+      ],
       cap1Title:     "Bots de Support Client IA",
       cap1Desc:      "Support automatisé 24/7 qui répond aux questions des clients instantanément et avec précision.",
       cap2Title:     "Capture & Qualification de Prospects",
@@ -846,10 +866,20 @@ export const translations: Record<Lang, LangTranslations> = {
       label:         "أتمتة ذكاء اصطناعي حقيقية",
       headline:      "مبني ويعمل — ليست مجرد أفكار.",
       sub:           "أنا لا أتحدث فقط عن الأتمتة — بل أبني أنظمة تعمل ذاتياً. إليك نظام ذكاء اصطناعي حقيقي بنيته، وما يمكنني بناؤه لأعمالك.",
-      flagshipLabel: "النظام الرئيسي",
-      flagshipTitle: "نظام محتوى ذكاء اصطناعي ذاتي",
-      flagshipDesc:  "منظومة ذكاء اصطناعي مؤتمتة بالكامل بنيتها من الصفر — تبحث عن المواضيع الرائجة، تكتب النصوص، تولّد التعليق الصوتي، تنتج فيديوهات مترجمة، وتنشر يومياً على يوتيوب. بدون عمل يدوي، تعمل 24/7.",
-      flagshipCta:   "شاهده يعمل",
+      flagships: [
+        {
+          label: "النظام الرئيسي",
+          title: "نظام محتوى ذكاء اصطناعي ذاتي",
+          desc:  "منظومة ذكاء اصطناعي مؤتمتة بالكامل بنيتها من الصفر — تبحث عن المواضيع الرائجة، تكتب النصوص، تولّد التعليق الصوتي، تنتج فيديوهات مترجمة، وتنشر يومياً على يوتيوب. بدون عمل يدوي، تعمل 24/7.",
+          cta:   "شاهده يعمل",
+        },
+        {
+          label: "النظام الرئيسي",
+          title: "محرك تواصل بارد مدعوم بالذكاء الاصطناعي",
+          desc:  "نظام تواصل ذاتي بنيته من البداية إلى النهاية — يبحث عن الشركات المستهدفة، يُجري تدقيقاً بالذكاء الاصطناعي لكل موقع، يتحقق من كل بريد إلكتروني، يصيغ رسالة مخصصة لكل عميل محتمل، ثم يوجّهها إليّ للموافقة بنقرة واحدة قبل الإرسال. قابلية تسليم 10/10، 0% شكاوى بريد مزعج. الآلة تقوم بالعمل؛ والإنسان يتخذ القرار النهائي.",
+          cta:   "شاهده يعمل",
+        },
+      ],
       cap1Title:     "روبوتات دعم العملاء بالذكاء الاصطناعي",
       cap1Desc:      "دعم آلي 24/7 يجيب على أسئلة العملاء فوراً وبدقة.",
       cap2Title:     "التقاط وتأهيل العملاء المحتملين",
