@@ -23,13 +23,11 @@ export interface LangTranslations {
   services: {
     label: string; headline1: string; headline2: string; sub: string;
     footerNote: string; estimate: string; popular: string;
-    billingMonthly: string;
-    billingAnnual: string;
-    oneTimeSetup: string;
-    perMonth: string;
+    customPricing: string;
+    tailoredNote: string;
+    quoteCta: string;
     setupLabel: string;
     maintenanceLabel: string;
-    annualSaveLabel: string;
     whyTitle: string;
     whyClose: string;
     whyPoints: { icon: string; title: string; desc: string }[];
@@ -38,7 +36,6 @@ export interface LangTranslations {
       features: string[];
       setupFeatures: string[];
       maintenanceFeatures: string[];
-      minimum: string;
       cta: string; waMsg: string;
     }[];
   };
@@ -156,16 +153,14 @@ export const translations: Record<Lang, LangTranslations> = {
     },
     services: {
       label: "Services & Pricing", headline1: "Choose Your", headline2: "Growth Plan.",
-      sub: "One-time setup fee + monthly maintenance. Every plan includes custom AI configuration, seamless integrations, and ongoing support.",
+      sub: "Every plan is scoped and priced around your business. Custom AI configuration, seamless integrations, and ongoing support included.",
       footerNote: "Looking for a custom solution or have specific requirements? Let's discuss your project — I offer flexible plans tailored to your business growth.",
       estimate: "Get a free estimate →", popular: "✦ Most Popular",
-      billingMonthly: "Monthly",
-      billingAnnual: "Annual",
-      oneTimeSetup: "one-time setup",
-      perMonth: "/month",
+      customPricing: "Custom pricing",
+      tailoredNote: "Tailored to your needs & scope",
+      quoteCta: "Get a Free Quote",
       setupLabel: "Setup Includes",
       maintenanceLabel: "Maintenance Includes",
-      annualSaveLabel: "Save",
       whyTitle: "Why Monthly Maintenance Matters",
       whyClose: "Without maintenance, AI systems degrade fast. With it, they get smarter and more valuable every month.",
       whyPoints: [
@@ -195,8 +190,7 @@ export const translations: Record<Lang, LangTranslations> = {
             "2 hours of edits/month",
             "Performance monitoring",
           ],
-          minimum: "Required · 3-month minimum",
-          cta: "Get Started", waMsg: "Hello Mohamed, I'm interested in the Smart Starter package ($497 setup + $97/month) for my business.",
+          cta: "Get Started", waMsg: "Hello Mohamed, I'm interested in the Smart Starter package for my business. Could I get a free quote?",
         },
         {
           tier: "Business Auto-Pilot", name: "Business Auto-Pilot",
@@ -217,10 +211,9 @@ export const translations: Record<Lang, LangTranslations> = {
             "Priority bug fixes",
             "5 hours of edits/month",
             "Monthly performance report",
-            "API costs included (up to $50/mo)",
+            "API costs included",
           ],
-          minimum: "Required · 6-month minimum",
-          cta: "Get Started", waMsg: "Hello Mohamed, I'm interested in the Business Auto-Pilot package ($1,800 setup + $297/month) for my business.",
+          cta: "Get Started", waMsg: "Hello Mohamed, I'm interested in the Business Auto-Pilot package for my business. Could I get a free quote?",
         },
         {
           tier: "Enterprise AI Elite", name: "Enterprise AI Elite",
@@ -240,11 +233,10 @@ export const translations: Record<Lang, LangTranslations> = {
             "10 hours of edits/month",
             "Custom integrations",
             "Dedicated VPS resources",
-            "API costs included (up to $200/mo)",
+            "API costs included",
             "WhatsApp direct support",
           ],
-          minimum: "12-month commitment required",
-          cta: "Let's Talk", waMsg: "Hello Mohamed, I'm interested in the Enterprise AI Elite package ($4,800 setup + $797/month) for my business.",
+          cta: "Let's Talk", waMsg: "Hello Mohamed, I'm interested in the Enterprise AI Elite package for my business. Could I get a free quote?",
         },
       ],
     },
@@ -449,16 +441,14 @@ export const translations: Record<Lang, LangTranslations> = {
     },
     services: {
       label: "Services & Tarifs", headline1: "Choisissez Votre", headline2: "Plan de Croissance.",
-      sub: "Frais d'installation unique + maintenance mensuelle. Tous les plans incluent une configuration IA sur mesure, des intégrations fluides et un support continu.",
+      sub: "Chaque plan est cadré et tarifé selon votre activité. Configuration IA sur mesure, intégrations fluides et support continu inclus.",
       footerNote: "Vous cherchez une solution sur mesure ou avez des besoins spécifiques ? Discutons de votre projet — je propose des plans flexibles adaptés à votre croissance.",
       estimate: "Obtenir un devis gratuit →", popular: "✦ Le Plus Populaire",
-      billingMonthly: "Mensuel",
-      billingAnnual: "Annuel",
-      oneTimeSetup: "installation unique",
-      perMonth: "/mois",
+      customPricing: "Tarif sur mesure",
+      tailoredNote: "Adapté à vos besoins et à votre projet",
+      quoteCta: "Obtenir un devis gratuit",
       setupLabel: "L'installation comprend",
       maintenanceLabel: "La maintenance comprend",
-      annualSaveLabel: "Économie",
       whyTitle: "Pourquoi la Maintenance Mensuelle est Essentielle",
       whyClose: "Sans maintenance, les systèmes IA se dégradent rapidement. Avec elle, ils deviennent plus intelligents et plus précieux chaque mois.",
       whyPoints: [
@@ -488,8 +478,7 @@ export const translations: Record<Lang, LangTranslations> = {
             "2 heures de modifications/mois",
             "Monitoring des performances",
           ],
-          minimum: "Requis · 3 mois minimum",
-          cta: "Commencer", waMsg: "Bonjour Mohamed, je suis intéressé par le plan Smart Starter (497$ installation + 97$/mois) pour mon activité.",
+          cta: "Commencer", waMsg: "Bonjour Mohamed, je suis intéressé par le plan Smart Starter pour mon activité. Puis-je obtenir un devis gratuit ?",
         },
         {
           tier: "Business Auto-Pilot", name: "Business Auto-Pilot",
@@ -510,10 +499,9 @@ export const translations: Record<Lang, LangTranslations> = {
             "Corrections prioritaires",
             "5 heures de modifications/mois",
             "Rapport de performance mensuel",
-            "Coûts API inclus (jusqu'à 50$/mois)",
+            "Coûts API inclus",
           ],
-          minimum: "Requis · 6 mois minimum",
-          cta: "Commencer", waMsg: "Bonjour Mohamed, je suis intéressé par le plan Business Auto-Pilot (1 800$ installation + 297$/mois) pour mon activité.",
+          cta: "Commencer", waMsg: "Bonjour Mohamed, je suis intéressé par le plan Business Auto-Pilot pour mon activité. Puis-je obtenir un devis gratuit ?",
         },
         {
           tier: "Enterprise AI Elite", name: "Enterprise AI Elite",
@@ -533,11 +521,10 @@ export const translations: Record<Lang, LangTranslations> = {
             "10 heures de modifications/mois",
             "Intégrations personnalisées",
             "Ressources VPS dédiées",
-            "Coûts API inclus (jusqu'à 200$/mois)",
+            "Coûts API inclus",
             "Support WhatsApp direct",
           ],
-          minimum: "Engagement 12 mois requis",
-          cta: "Parlons-en", waMsg: "Bonjour Mohamed, je suis intéressé par le plan Enterprise AI Elite (4 800$ installation + 797$/mois) pour mon activité.",
+          cta: "Parlons-en", waMsg: "Bonjour Mohamed, je suis intéressé par le plan Enterprise AI Elite pour mon activité. Puis-je obtenir un devis gratuit ?",
         },
       ],
     },
@@ -742,16 +729,14 @@ export const translations: Record<Lang, LangTranslations> = {
     },
     services: {
       label: "الخدمات والأسعار", headline1: "اختر", headline2: "خطة نموك.",
-      sub: "رسوم إعداد لمرة واحدة + صيانة شهرية. جميع الخطط تشمل تهيئة ذكاء اصطناعي مخصص وتكاملات سلسة ودعماً مستمراً.",
+      sub: "كل خطة تُحدَّد وتُسعَّر حسب طبيعة عملك. تشمل تهيئة ذكاء اصطناعي مخصص وتكاملات سلسة ودعماً مستمراً.",
       footerNote: "هل تبحث عن حل مخصص أو لديك متطلبات محددة؟ دعنا نناقش مشروعك — أقدم خططاً مرنة تناسب نمو عملك.",
       estimate: "احصل على تقدير مجاني ←", popular: "✦ الأكثر طلباً",
-      billingMonthly: "شهري",
-      billingAnnual: "سنوي",
-      oneTimeSetup: "رسوم إعداد",
-      perMonth: "/شهر",
+      customPricing: "تسعير مخصص",
+      tailoredNote: "مصمم حسب احتياجاتك ونطاق مشروعك",
+      quoteCta: "احصل على عرض سعر مجاني",
       setupLabel: "يشمل الإعداد",
       maintenanceLabel: "تشمل الصيانة",
-      annualSaveLabel: "وفّر",
       whyTitle: "لماذا الصيانة الشهرية ضرورية؟",
       whyClose: "بدون صيانة، تتدهور أنظمة الذكاء الاصطناعي بسرعة. ومعها، تصبح أكثر ذكاءً وقيمةً كل شهر.",
       whyPoints: [
@@ -781,8 +766,7 @@ export const translations: Record<Lang, LangTranslations> = {
             "ساعتان من التعديلات شهرياً",
             "مراقبة الأداء",
           ],
-          minimum: "مطلوب · 3 أشهر كحد أدنى",
-          cta: "ابدأ الآن", waMsg: "مرحباً محمد، أنا مهتم بخطة Smart Starter (497$ إعداد + 97$/شهر) لأعمالي.",
+          cta: "ابدأ الآن", waMsg: "مرحباً محمد، أنا مهتم بخطة Smart Starter لأعمالي. هل يمكنني الحصول على عرض سعر مجاني؟",
         },
         {
           tier: "Business Auto-Pilot", name: "Business Auto-Pilot",
@@ -803,10 +787,9 @@ export const translations: Record<Lang, LangTranslations> = {
             "إصلاح الأخطاء بأولوية",
             "5 ساعات من التعديلات شهرياً",
             "تقرير أداء شهري",
-            "تكاليف API مشمولة (حتى 50$/شهر)",
+            "تكاليف API مشمولة",
           ],
-          minimum: "مطلوب · 6 أشهر كحد أدنى",
-          cta: "ابدأ الآن", waMsg: "مرحباً محمد، أنا مهتم بخطة Business Auto-Pilot (1,800$ إعداد + 297$/شهر) لأعمالي.",
+          cta: "ابدأ الآن", waMsg: "مرحباً محمد، أنا مهتم بخطة Business Auto-Pilot لأعمالي. هل يمكنني الحصول على عرض سعر مجاني؟",
         },
         {
           tier: "Enterprise AI Elite", name: "Enterprise AI Elite",
@@ -826,11 +809,10 @@ export const translations: Record<Lang, LangTranslations> = {
             "10 ساعات من التعديلات شهرياً",
             "تكاملات مخصصة",
             "موارد VPS مخصصة",
-            "تكاليف API مشمولة (حتى 200$/شهر)",
+            "تكاليف API مشمولة",
             "دعم مباشر عبر واتساب",
           ],
-          minimum: "التزام 12 شهراً مطلوب",
-          cta: "تحدث معنا", waMsg: "مرحباً محمد، أنا مهتم بخطة Enterprise AI Elite (4,800$ إعداد + 797$/شهر) لأعمالي.",
+          cta: "تحدث معنا", waMsg: "مرحباً محمد، أنا مهتم بخطة Enterprise AI Elite لأعمالي. هل يمكنني الحصول على عرض سعر مجاني؟",
         },
       ],
     },
