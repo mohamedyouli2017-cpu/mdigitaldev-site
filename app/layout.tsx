@@ -140,8 +140,7 @@ const jsonLd = {
             "itemOffered": {
               "@type":       "Service",
               "name":        "Smart Starter",
-              "description": "Professional AI-powered landing page with a 24/7 AI FAQ bot, fast hosting, and SEO.",
-              "offers": { "@type": "Offer", "price": "497", "priceCurrency": "USD" },
+              "description": "Professional AI-powered landing page with a 24/7 AI FAQ bot, fast hosting, and SEO. Custom pricing — scoped per project.",
             },
           },
           {
@@ -149,8 +148,7 @@ const jsonLd = {
             "itemOffered": {
               "@type":       "Service",
               "name":        "Business Auto-Pilot",
-              "description": "Full AI business system: multi-page website, advanced AI sales agent that qualifies leads 24/7, and workflow automations.",
-              "offers": { "@type": "Offer", "price": "1800", "priceCurrency": "USD" },
+              "description": "Full AI business system: multi-page website, advanced AI sales agent that qualifies leads 24/7, and workflow automations. Custom pricing — scoped per project.",
             },
           },
           {
@@ -158,8 +156,7 @@ const jsonLd = {
             "itemOffered": {
               "@type":       "Service",
               "name":        "Enterprise AI Elite",
-              "description": "Fully custom AI ecosystem: bespoke AI agents, end-to-end business process automation, and CRM integration.",
-              "offers": { "@type": "Offer", "price": "4800", "priceCurrency": "USD" },
+              "description": "Fully custom AI ecosystem: bespoke AI agents, end-to-end business process automation, and CRM integration. Custom pricing — scoped per project.",
             },
           },
         ],
