@@ -685,33 +685,9 @@ const INDUSTRIES_STATIC = [
 ];
 
 const SERVICES_STATIC = [
-  {
-    icon: Bot,
-    setupPrice: "$497",
-    monthlyPrice: "97",
-    annualMonthlyPrice: "75",
-    annualTotal: "$897/yr",
-    annualSavings: "267",
-    highlight: false,
-  },
-  {
-    icon: Workflow,
-    setupPrice: "$1,800",
-    monthlyPrice: "297",
-    annualMonthlyPrice: "223",
-    annualTotal: "$2,673/yr",
-    annualSavings: "891",
-    highlight: true,
-  },
-  {
-    icon: Cpu,
-    setupPrice: "$4,800",
-    monthlyPrice: "797",
-    annualMonthlyPrice: "598",
-    annualTotal: "$7,173/yr",
-    annualSavings: "2,391",
-    highlight: false,
-  },
+  { icon: Bot,      highlight: false },
+  { icon: Workflow, highlight: true  },
+  { icon: Cpu,      highlight: false },
 ];
 
 /* Flagship case studies — language-agnostic structural data (copy lives in translations.realAutomation.flagships, zipped by index) */
@@ -740,8 +716,6 @@ export default function Home() {
   const openEmail    = () => { window.location.href = "mailto:contact@mdigitaldev.com?subject=Inquiry from MDigitalDev Website"; };
   const scrollTo     = (id: string) =>
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-
-  const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
 
   /* Booking modal */
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -1111,7 +1085,7 @@ export default function Home() {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center mb-10">
+          <div className="text-center mb-14">
             <motion.p variants={fadeUp} className="text-xs font-bold uppercase tracking-[0.2em] text-white/30 mb-3">
               {t.services.label}
             </motion.p>
@@ -1124,43 +1098,11 @@ export default function Home() {
             </motion.p>
           </div>
 
-          {/* ── Billing toggle ── */}
-          <motion.div variants={fadeUp} custom={3} className="flex justify-center mb-12">
-            <div className="flex items-center gap-1 bg-white/[0.06] border border-white/10 p-1.5 rounded-full">
-              <button
-                onClick={() => setBilling("monthly")}
-                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                  billing === "monthly"
-                    ? "bg-white text-black shadow-md"
-                    : "text-white/50 hover:text-white/80"
-                }`}
-              >
-                {t.services.billingMonthly}
-              </button>
-              <button
-                onClick={() => setBilling("annual")}
-                className={`relative flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                  billing === "annual"
-                    ? "bg-white text-black shadow-md"
-                    : "text-white/50 hover:text-white/80"
-                }`}
-              >
-                {t.services.billingAnnual}
-                <span className="absolute -top-2.5 -end-1 bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none whitespace-nowrap">
-                  SAVE
-                </span>
-              </button>
-            </div>
-          </motion.div>
-
           {/* ── Pricing cards ── */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
             {SERVICES_STATIC.map((svc, i) => {
               const Icon = svc.icon;
               const td   = t.services.items[i];
-              const displayMonthly = billing === "monthly"
-                ? `$${svc.monthlyPrice}`
-                : `$${svc.annualMonthlyPrice}`;
               return (
                 <motion.div
                   key={td.name}
@@ -1192,28 +1134,14 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Setup price */}
-                  <div className="flex items-end gap-2 mb-1">
-                    <span className="text-4xl font-black text-white leading-none">{svc.setupPrice}</span>
-                    <span className="text-sm text-white/35 mb-0.5">{t.services.oneTimeSetup}</span>
-                  </div>
-
-                  {/* Maintenance price row */}
-                  <div className="flex items-center gap-2 mb-1 flex-wrap">
-                    <span className="text-lg font-bold text-violet-300">
-                      + {displayMonthly}
-                      <span className="text-sm font-medium text-white/40">{t.services.perMonth}</span>
+                  {/* Custom pricing */}
+                  <div className="mb-1.5">
+                    <span className="text-3xl font-black text-white leading-none">
+                      {t.services.customPricing}
                     </span>
-                    {billing === "annual" && (
-                      <span className="inline-flex items-center gap-1 bg-emerald-500/15 text-emerald-400 text-[11px] font-bold px-2.5 py-1 rounded-full border border-emerald-500/25">
-                        {t.services.annualSaveLabel} ${svc.annualSavings}
-                      </span>
-                    )}
                   </div>
-
-                  {/* Minimum / billing note */}
-                  <p className="text-[11px] text-white/25 mb-5">
-                    {billing === "annual" ? `Billed ${svc.annualTotal}` : td.minimum}
+                  <p className="text-[11px] text-white/30 mb-5">
+                    {t.services.tailoredNote}
                   </p>
 
                   <p className="text-sm leading-relaxed mb-5 text-white/45">{td.desc}</p>
@@ -1263,7 +1191,7 @@ export default function Home() {
                       }
                     `}
                   >
-                    {td.cta}
+                    {t.services.quoteCta}
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </motion.div>
