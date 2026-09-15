@@ -38,6 +38,15 @@ export interface ClinicDict {
     text:  string;
     punch: string;
   };
+  /** WhatsApp conversation mockup (patient's phone) */
+  chat: {
+    contactName: string;
+    status:      string;
+    dayLabel:    string;
+    placeholder: string;
+    messages:    { from: "patient" | "clinic"; text: string; time: string }[];
+    caption:     string;
+  };
   features: {
     label: string;
     title: string;
@@ -63,7 +72,7 @@ export interface ClinicDict {
     label: string;
     title: string;
     local: string;
-    cards: { label: string; title: string; desc: string; cta: string }[];
+    cards: { label: string; title: string; desc: string; cta: string; steps: string[] }[];
   };
   final: {
     title:  string;
@@ -94,6 +103,19 @@ export const clinicTranslations: Record<ClinicLang, ClinicDict> = {
       text:
         "Un patient écrit à votre cabinet le soir pour demander un rendez-vous — sans réponse jusqu'au lendemain. Et souvent, il a déjà réservé ailleurs.",
       punch: "Le problème n'est pas votre service — c'est le timing.",
+    },
+    chat: {
+      contactName: "Cabinet dentaire",
+      status:      "Assistant automatique",
+      dayLabel:    "Aujourd'hui",
+      placeholder: "Message",
+      messages: [
+        { from: "patient", time: "21:47", text: "Bonsoir, est-ce possible d'avoir un rendez-vous demain ? J'ai mal à une dent 😣" },
+        { from: "clinic",  time: "21:47", text: "Bonsoir ! Bien sûr 😊 Voici les créneaux libres demain :\n10:00 · 14:30 · 17:00\nLequel vous convient ?" },
+        { from: "patient", time: "21:48", text: "14:30 s'il vous plaît" },
+        { from: "clinic",  time: "21:48", text: "✅ C'est confirmé : demain à 14:30.\nVous recevrez un rappel le matin même. À demain !" },
+      ],
+      caption: "21h47, cabinet fermé — le patient a déjà son rendez-vous.",
     },
     features: {
       label: "Le système",
@@ -140,6 +162,7 @@ export const clinicTranslations: Record<ClinicLang, ClinicDict> = {
           desc:
             "Il recherche les sujets, rédige les scripts, génère la voix et les vidéos sous-titrées, puis publie chaque jour sur YouTube — sans aucune intervention manuelle.",
           cta: "Voir la chaîne YouTube",
+          steps: ["Recherche", "Script", "Voix", "Vidéo", "Publication"],
         },
         {
           label: "Système en production",
@@ -147,6 +170,7 @@ export const clinicTranslations: Record<ClinicLang, ClinicDict> = {
           desc:
             "Il collecte et vérifie les contacts, analyse chaque dossier avec l'IA et rédige un message personnalisé — validé en un clic avant l'envoi. La machine fait le travail, l'humain garde le dernier mot.",
           cta: "Voir la démo vidéo",
+          steps: ["Contacts", "Vérification", "Analyse IA", "Message", "Validation"],
         },
       ],
     },
@@ -178,6 +202,19 @@ export const clinicTranslations: Record<ClinicLang, ClinicDict> = {
       text:
         "مريض يراسل عيادتك مساءً لطلب موعد — ولا يتلقى رداً حتى اليوم التالي. وفي الغالب، يكون قد حجز في مكان آخر.",
       punch: "المشكلة ليست في خدمتك — بل في التوقيت.",
+    },
+    chat: {
+      contactName: "عيادة الأسنان",
+      status:      "مساعد آلي",
+      dayLabel:    "اليوم",
+      placeholder: "مراسلة",
+      messages: [
+        { from: "patient", time: "21:47", text: "مساء الخير، هل يمكنني حجز موعد غداً؟ أشعر بألم في أحد أسناني 😣" },
+        { from: "clinic",  time: "21:47", text: "مساء النور! بكل سرور 😊 هذه المواعيد المتاحة غداً:\n10:00 · 14:30 · 17:00\nأيها يناسبك؟" },
+        { from: "patient", time: "21:48", text: "14:30 من فضلك" },
+        { from: "clinic",  time: "21:48", text: "✅ تم تأكيد موعدك: غداً على الساعة 14:30.\nستصلك رسالة تذكير صباح الغد. إلى اللقاء!" },
+      ],
+      caption: "الساعة 21:47 والعيادة مغلقة — والمريض حصل على موعده.",
     },
     features: {
       label: "النظام",
@@ -224,6 +261,7 @@ export const clinicTranslations: Record<ClinicLang, ClinicDict> = {
           desc:
             "يبحث عن المواضيع، يكتب النصوص، يولّد الصوت والفيديوهات المترجمة، ثم ينشر يومياً على YouTube — دون أي تدخل يدوي.",
           cta: "شاهد قناة YouTube",
+          steps: ["بحث", "نص", "صوت", "فيديو", "نشر"],
         },
         {
           label: "نظام قيد التشغيل",
@@ -231,6 +269,7 @@ export const clinicTranslations: Record<ClinicLang, ClinicDict> = {
           desc:
             "يجمع جهات الاتصال ويتحقق منها، يحلل كل ملف بالذكاء الاصطناعي ويكتب رسالة مخصصة — تُعتمد بنقرة واحدة قبل الإرسال. الآلة تنجز العمل، والقرار الأخير للإنسان.",
           cta: "شاهد الفيديو التوضيحي",
+          steps: ["جهات الاتصال", "تحقق", "تحليل ذكي", "رسالة", "موافقة"],
         },
       ],
     },
@@ -262,6 +301,19 @@ export const clinicTranslations: Record<ClinicLang, ClinicDict> = {
       text:
         "A patient messages your clinic in the evening to book an appointment — and gets no reply until the next day. Often, they've already booked elsewhere.",
       punch: "The problem isn't your service — it's the timing.",
+    },
+    chat: {
+      contactName: "Dental clinic",
+      status:      "Automated assistant",
+      dayLabel:    "Today",
+      placeholder: "Message",
+      messages: [
+        { from: "patient", time: "21:47", text: "Good evening, could I get an appointment tomorrow? I have a toothache 😣" },
+        { from: "clinic",  time: "21:47", text: "Good evening! Of course 😊 Here are tomorrow's free slots:\n10:00 · 14:30 · 17:00\nWhich one suits you?" },
+        { from: "patient", time: "21:48", text: "14:30 please" },
+        { from: "clinic",  time: "21:48", text: "✅ Confirmed: tomorrow at 14:30.\nYou'll get a reminder that morning. See you tomorrow!" },
+      ],
+      caption: "9:47 pm, clinic closed — the patient already has an appointment.",
     },
     features: {
       label: "The system",
@@ -308,6 +360,7 @@ export const clinicTranslations: Record<ClinicLang, ClinicDict> = {
           desc:
             "It researches topics, writes scripts, generates voiceovers and subtitled videos, then publishes daily to YouTube — with zero manual work.",
           cta: "See the YouTube channel",
+          steps: ["Research", "Script", "Voice", "Video", "Publish"],
         },
         {
           label: "Running in production",
@@ -315,6 +368,7 @@ export const clinicTranslations: Record<ClinicLang, ClinicDict> = {
           desc:
             "It collects and verifies contacts, analyses each case with AI and drafts a personalised message — approved in one click before sending. The machine does the work; a human makes the final call.",
           cta: "Watch the demo video",
+          steps: ["Contacts", "Verify", "AI analysis", "Message", "Approval"],
         },
       ],
     },

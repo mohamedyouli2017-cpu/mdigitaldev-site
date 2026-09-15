@@ -2,26 +2,36 @@
 
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, MotionConfig } from "framer-motion";
 import {
-  Globe, CalendarCheck, BellRing, CheckCircle2, Languages, Star,
-  LayoutDashboard, ListOrdered, HeartHandshake, BarChart3,
+  Globe, MessageCircle, Bell, CheckCircle2, Bot, Star,
+  LayoutDashboard, Users, HeartPulse, BarChart3,
   Moon, Sparkles, ShieldCheck, Phone, Clapperboard, Workflow,
-  MapPin, ArrowUpRight, Gift,
+  MapPin, ArrowUpRight, Gift, Clock, CheckCheck, ChevronLeft,
+  Video, MoreVertical, Mic, Search, FileText, Upload, MailCheck, Send, UserCheck,
 } from "lucide-react";
+/* Unsplash License (free commercial use) — photo Bg81yWKZlMg, self-hosted for speed */
+import heroImage from "./_images/hero-dentist.jpg";
 import {
   clinicTranslations, CLINIC_LANGS, PHONE_TEL, PHONE_PRETTY, TRUST_LINKS,
-  waLink, type ClinicLang,
+  waLink, type ClinicLang, type ClinicDict,
 } from "./translations";
 
 /* Brand palette (page-scoped) — teal #0a7c8c → turquoise #0bb1c4, navy #0f1724, gold #c9a24b */
 
 const FEATURE_ICONS = [
-  Globe, CalendarCheck, BellRing, CheckCircle2, Languages,
-  Star, LayoutDashboard, ListOrdered, HeartHandshake, BarChart3,
+  Globe, MessageCircle, Bell, CheckCircle2, Bot,
+  Star, LayoutDashboard, Users, HeartPulse, BarChart3,
 ];
 
 const TRUST_ICONS = [Clapperboard, Workflow];
+
+/* One icon per step label in t.trust.cards[i].steps */
+const TRUST_STEP_ICONS = [
+  [Search, FileText, Mic, Video, Upload],
+  [Users, MailCheck, Bot, Send, UserCheck],
+];
 
 const EASE = [0.21, 0.47, 0.32, 0.98] as const;
 
@@ -59,6 +69,83 @@ function Eyebrow({ children, className = "" }: { children: ReactNode; className?
 
 /* ═══════════════════════════════════════════════════════════════ */
 
+/** WhatsApp-style conversation on a patient's phone — pure HTML/CSS so it stays sharp and translates */
+function PhoneMockup({ chat }: { chat: ClinicDict["chat"] }) {
+  return (
+    <div className="relative w-[290px] sm:w-[310px]">
+      <div className="pointer-events-none absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-[#0bb1c4]/25 to-[#0a7c8c]/10 blur-2xl" />
+
+      <div className="relative overflow-hidden rounded-[2.6rem] border-[10px] border-[#0f1724] bg-[#0f1724] shadow-[0_24px_60px_rgba(15,23,36,0.35)]">
+        {/* Notch */}
+        <div className="absolute left-1/2 top-0 z-10 h-5 w-28 -translate-x-1/2 rounded-b-2xl bg-[#0f1724]" />
+
+        {/* Chat header */}
+        <div className="flex items-center gap-2 bg-[#008069] px-3 pb-2.5 pt-7 text-white">
+          <ChevronLeft className="h-5 w-5 shrink-0 rtl:-scale-x-100" aria-hidden="true" />
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-lg" aria-hidden="true">🦷</div>
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-semibold leading-tight">{chat.contactName}</p>
+            <p className="truncate text-[11px] leading-tight text-white/80">{chat.status}</p>
+          </div>
+          <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+          <MoreVertical className="h-5 w-5 shrink-0" aria-hidden="true" />
+        </div>
+
+        {/* Messages */}
+        <div
+          className="space-y-2 bg-[#efeae2] px-3 pb-3 pt-4"
+          style={{ backgroundImage: "radial-gradient(rgba(15,23,36,0.06) 1px, transparent 1px)", backgroundSize: "14px 14px" }}
+        >
+          <div className="flex justify-center">
+            <span className="rounded-md bg-white/90 px-2.5 py-0.5 text-[11px] font-medium leading-normal text-[#54656f] shadow-sm">
+              {chat.dayLabel}
+            </span>
+          </div>
+
+          {chat.messages.map((m, i) => {
+            const mine = m.from === "patient";
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, ease: EASE, delay: 0.2 + i * 0.45 }}
+                className={`flex ${mine ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[84%] rounded-lg px-2.5 py-1.5 text-[13px] leading-snug text-[#111b21] shadow-[0_1px_0.5px_rgba(11,20,26,0.13)] ${
+                    mine ? "rounded-se-none bg-[#d9fdd3]" : "rounded-ss-none bg-white"
+                  }`}
+                >
+                  <p className="whitespace-pre-line">{m.text}</p>
+                  <span className="mt-0.5 flex items-center justify-end gap-1 text-[10px] leading-none text-[#667781]">
+                    <span dir="ltr">{m.time}</span>
+                    {mine && <CheckCheck className="h-3.5 w-3.5 text-[#53bdeb]" aria-hidden="true" />}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Input bar */}
+        <div className="flex items-center gap-2 bg-[#efeae2] px-2 pb-3">
+          <div className="flex h-9 flex-1 items-center rounded-full bg-white px-3 text-[12px] text-[#8696a0]">{chat.placeholder}</div>
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#00a884] text-white">
+            <Mic className="h-4 w-4" aria-hidden="true" />
+          </div>
+        </div>
+      </div>
+
+      <p className="relative mt-5 flex items-center justify-center gap-2 text-center text-sm font-semibold text-[#0a7c8c]">
+        <Clock className="h-4 w-4 shrink-0" aria-hidden="true" />
+        {chat.caption}
+      </p>
+    </div>
+  );
+}
+
 export default function CliniquesClient({ initialLang }: { initialLang: ClinicLang }) {
   const [lang, setLangState] = useState<ClinicLang>(initialLang);
   const t     = clinicTranslations[lang];
@@ -80,6 +167,19 @@ export default function CliniquesClient({ initialLang }: { initialLang: ClinicLa
 
         {/* ╔═══════════════ 1 · HERO ═══════════════╗ */}
         <section className="relative overflow-hidden bg-[#0f1724] text-white">
+          {/* Clinic photo — preloaded (LCP on mobile), blur placeholder while it loads */}
+          <Image
+            src={heroImage}
+            alt=""
+            fill
+            preload
+            sizes="100vw"
+            placeholder="blur"
+            className="object-cover object-[40%_30%]"
+          />
+          {/* Dark navy → teal overlay keeps the text fully readable */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0f1724]/80 via-[#0f1724]/60 to-[#0a4f5a]/85" />
+
           {/* Decorative glows */}
           <div className="pointer-events-none absolute -top-40 -end-40 h-[28rem] w-[28rem] rounded-full bg-[#0bb1c4]/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-48 -start-32 h-[26rem] w-[26rem] rounded-full bg-[#0a7c8c]/25 blur-3xl" />
@@ -155,18 +255,25 @@ export default function CliniquesClient({ initialLang }: { initialLang: ClinicLa
 
         {/* ╔═══════════════ 2 · PROBLEM ═══════════════╗ */}
         <section className="px-5 py-16 sm:px-8 sm:py-24">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0a7c8c]/10 text-[#0a7c8c]">
-              <Moon className="h-7 w-7" aria-hidden="true" />
-            </div>
-            <Eyebrow className="text-[#0a7c8c]">{t.problem.label}</Eyebrow>
-            <p className="text-xl leading-relaxed text-[#0f1724]/80 sm:text-2xl">
-              {t.problem.text}
-            </p>
-            <p className="mt-6 text-xl font-extrabold text-[#0a7c8c] sm:text-2xl">
-              {t.problem.punch}
-            </p>
-          </Reveal>
+          <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[1fr_auto] lg:gap-16">
+            <Reveal className="mx-auto max-w-3xl text-center lg:text-start">
+              <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0a7c8c]/10 text-[#0a7c8c] lg:mx-0">
+                <Moon className="h-7 w-7" aria-hidden="true" />
+              </div>
+              <Eyebrow className="text-[#0a7c8c]">{t.problem.label}</Eyebrow>
+              <p className="text-xl leading-relaxed text-[#0f1724]/80 sm:text-2xl">
+                {t.problem.text}
+              </p>
+              <p className="mt-6 text-xl font-extrabold text-[#0a7c8c] sm:text-2xl">
+                {t.problem.punch}
+              </p>
+            </Reveal>
+
+            {/* The same evening message — answered instantly by the system */}
+            <Reveal delay={0.1} className="flex justify-center">
+              <PhoneMockup chat={t.chat} />
+            </Reveal>
+          </div>
         </section>
 
         {/* ╔═══════════════ 3 · 10 FEATURES ═══════════════╗ */}
@@ -302,6 +409,24 @@ export default function CliniquesClient({ initialLang }: { initialLang: ClinicLa
                         </p>
                         <h3 className="mb-3 text-xl font-extrabold leading-snug sm:text-2xl">{card.title}</h3>
                         <p className="mb-6 text-sm leading-relaxed text-white/70 sm:text-base">{card.desc}</p>
+
+                        {/* How the system works — step icons joined by a line */}
+                        <div className="relative mb-6">
+                          <div className="pointer-events-none absolute inset-x-[10%] top-[18px] h-px bg-gradient-to-r from-[#0bb1c4]/10 via-[#0bb1c4]/50 to-[#0bb1c4]/10" />
+                          <ol className="relative grid grid-cols-5 gap-1">
+                            {card.steps.map((step, s) => {
+                              const StepIcon = TRUST_STEP_ICONS[i][s];
+                              return (
+                                <li key={s} className="flex flex-col items-center gap-1.5 text-center">
+                                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#132033] text-[#5fe0ec] ring-1 ring-[#0bb1c4]/30">
+                                    <StepIcon className="h-4 w-4" aria-hidden="true" />
+                                  </span>
+                                  <span className="text-[10px] font-semibold leading-tight text-white/60">{step}</span>
+                                </li>
+                              );
+                            })}
+                          </ol>
+                        </div>
                         <span className="mt-auto inline-flex min-h-[44px] items-center gap-2 font-bold text-white">
                           {card.cta}
                           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 rtl:-scale-x-100" aria-hidden="true" />
