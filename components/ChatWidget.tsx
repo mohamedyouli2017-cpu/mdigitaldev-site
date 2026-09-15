@@ -3,7 +3,11 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+/* Landing pages that should keep a single, focused CTA */
+const HIDDEN_ON = ["/cliniques"];
 
 interface Message {
   role: "user" | "assistant";
@@ -42,6 +46,7 @@ function parseMarkdown(text: string) {
 }
 
 export default function ChatWidget() {
+  const pathname = usePathname();
   const { lang } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -115,6 +120,9 @@ export default function ChatWidget() {
       sendMessage();
     }
   };
+
+  // After all hooks, so hook order stays stable across navigations
+  if (HIDDEN_ON.some((p) => pathname?.startsWith(p))) return null;
 
   return (
     <>

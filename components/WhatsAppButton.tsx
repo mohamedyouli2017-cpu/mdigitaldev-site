@@ -1,11 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const WA_NUMBER  = "212669586001";
 const WA_MESSAGE = "Hello Mohamed, I'm interested in AI automation for my business!";
 
+/* Landing pages with their own language-aware WhatsApp CTA */
+const HIDDEN_ON = ["/cliniques"];
+
 export default function WhatsAppButton() {
+  const pathname = usePathname();
+  if (HIDDEN_ON.some((p) => pathname?.startsWith(p))) return null;
+
   const href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
 
   return (
