@@ -28,6 +28,10 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, X, Share } from "lucide-react";
+import { usePathname } from "next/navigation";
+
+/* Focused landing pages where the install banner would distract from the offer */
+const HIDDEN_ON = ["/cliniques"];
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -44,7 +48,8 @@ declare global {
 type PromptVariant = "android" | "ios" | null;
 
 export default function PWAInstallPrompt() {
-  const [variant,       setVariant] = useState<PromptVariant>(null);
+  const pathname = usePathname();
+  const [variant,      setVariant] = useState<PromptVariant>(null);
   const [deferredPrompt, setDeferred] =
     useState<BeforeInstallPromptEvent | null>(null);
 
@@ -97,6 +102,9 @@ export default function PWAInstallPrompt() {
   const dismiss = () => {
     setVariant(null);
   };
+
+  // After all hooks, so hook order stays stable across navigations
+  if (HIDDEN_ON.some((p) => pathname?.startsWith(p))) return null;
 
   return (
     <AnimatePresence>
